@@ -1,3 +1,4 @@
 usr/share/check_mk/web
-usr/share/check_mk/web/htdocs/* usr/share/icinga/htdocs
 etc/apache2/conf.d/zzz_check_mk.conf
+etc/check_mk/multisite.mk
+var/lib/check_mk/web

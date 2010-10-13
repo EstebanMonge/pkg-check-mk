@@ -76,8 +76,8 @@ Description: general purpose nagios-plugin for retrieving data
 
 Package: check-mk-web
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Suggests: xinetd
+Depends: ${shlibs:Depends}, ${misc:Depends}, libapache2-mod-python
+Suggests: check-mk-livestatus
 Description: general purpose nagios-plugin for retrieving data
  Check_mk adopts a new a approach for collecting data from operating systems
  and network components. It obsoletes NRPE, check_by_ssh, NSClient and
@@ -86,4 +86,5 @@ Description: general purpose nagios-plugin for retrieving data
   * Significant reduction of CPU usage on the Nagios host.
   * Automatic inventory of items to be checked on hosts. 
  .
- This package contains the webfrontend to check_mk
+ This package contains the webfrontend of check_mk also known as
+ "MK-Multisite"
