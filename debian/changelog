@@ -1,0 +1,5 @@
+check-mk (1.1.2-1) UNRELEASED; urgency=low
+
+  * Initial release. (Closes: #XXXXXX)
+
+ -- Alexander Wirt <formorer@debian.org>  Wed, 17 Mar 2010 15:33:37 +0100

@@ -1,0 +1,6 @@
+etc/check_mk/main.mk
+etc/check_mk/conf.d/README
+var/lib/check_mk
+usr/bin/check_mk
+usr/share/doc/check_mk/check_mk_templates.cfg
+usr/share/check_mk/modules

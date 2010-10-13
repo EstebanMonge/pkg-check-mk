@@ -1,0 +1,38 @@
+# This file has been created during setup
+# of check_mk at Sat Mar 20 10:05:23 CET 2010
+#
+# Do not edit. If you want to use other
+# directories please configure them in 
+# main.mk
+check_mk_version            = '1.1.2'
+default_config_dir          = '/etc/check_mk'
+check_mk_configdir          = '/etc/check_mk/conf.d'
+checks_dir                  = '/usr/share/check_mk/checks'
+check_manpages_dir          = '/usr/share/doc/check_mk/checks'
+modules_dir                 = '/usr/share/check_mk/modules'
+var_dir                     = '/var/lib/check_mk'
+lib_dir                     = '/usr/lib/check_mk'
+autochecksdir               = '/var/lib/check_mk/autochecks'
+precompiled_hostchecks_dir  = '/var/lib/check_mk/precompiled'
+counters_directory          = '/var/lib/check_mk/counters'
+tcp_cache_dir		    = '/var/lib/check_mk/cache'
+nagios_objects_file         = '/etc/icinga/objects/check_mk_objects.cfg'
+rrd_path                    = '/var/lib/check_mk/rrd'
+nagios_command_pipe_path    = '/var/lib/icinga/rw/icinga.cmd'
+nagios_status_file          = '/var/lib/icinga/status.dat'
+nagios_conf_dir             = '/etc/icinga/objects'
+nagios_user                 = 'nagios'
+nagios_url                  = '/icinga'
+nagios_cgi_url              = '/icinga/cgi-bin'
+logwatch_notes_url          = '/icinga/logwatch.php?host=%s&file=%s'
+www_group                   = 'www-data'
+nagios_config_file          = '/etc/icinga/icinga.cfg'
+nagios_startscript          = '/etc/init.d/icinga'
+nagios_binary               = '/usr/sbin/icinga'
+apache_config_dir           = '/etc/apache2/conf.d'
+htpasswd_file               = '/etc/icinga/htpasswd.users'
+nagios_auth_name            = 'Nagios Access'
+web_dir                     = '/usr/share/check_mk/web'
+checkmk_web_uri             = '/check_mk'
+livestatus_unix_socket      = '/var/lib/icinga/rw/live'
+livebackendsdir             = '/usr/share/check_mk/livestatus'
