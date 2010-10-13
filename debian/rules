@@ -55,6 +55,7 @@ install: build
 	dh_installdirs
 	mkdir -p debian/tmp
 	DESTDIR=debian/tmp ./setup.sh --yes
+	cp -a livestatus.src/debian/tmp/* debian/tmp/
 	rm debian/tmp/usr/share/check_mk/modules/defaults
 	mkdir -p debian/check-mk-server-icinga/usr/share/check_mk/modules/
 	cp debian/defaults.icinga debian/check-mk-server-icinga/usr/share/check_mk/modules/defaults
