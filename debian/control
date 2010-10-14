@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Debian Nagios Maintainer Group <pkg-icinga-devel@lists.alioth.debian.org>
 Uploaders: Alexander Wirt <formorer@debian.org>, Jan Wagner <waja@cyconet.org>
 Build-Depends: debhelper (>= 7)
-Standards-Version: 3.8.4
+Standards-Version: 3.9.1
 
 Package: check-mk-agent
 Architecture: any
