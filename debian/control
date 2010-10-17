@@ -76,7 +76,7 @@ Description: general purpose nagios-plugin for retrieving data
 
 Package: check-mk-multisite
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, libapache2-mod-python
+Depends: ${shlibs:Depends}, ${misc:Depends}, libapache2-mod-python, check-mk-server-nagios3 | check-mk-server-icinga
 Suggests: check-mk-livestatus
 Description: general purpose nagios-plugin for retrieving data
  Check_mk adopts a new a approach for collecting data from operating systems

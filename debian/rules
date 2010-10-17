@@ -54,13 +54,21 @@ install: build
 	dh_prep 
 	dh_installdirs
 	mkdir -p debian/tmp
-	DESTDIR=debian/tmp \
-		livesock=/var/lib/nagios3/rw/live \
-		./setup.sh --yes
+	DESTDIR=debian/tmp ./setup.sh --yes
 	cp -a livestatus.src/debian/tmp/* debian/tmp/
+	# We need 2 different "defaults" files for Icinga and Nagios3
 	rm debian/tmp/usr/share/check_mk/modules/defaults
+	rm debian/tmp/usr/share/check_mk/web/htdocs/defaults.py
 	mkdir -p debian/check-mk-server-icinga/usr/share/check_mk/modules/
 	cp debian/defaults.icinga debian/check-mk-server-icinga/usr/share/check_mk/modules/defaults
+	mkdir -p debian/check-mk-server-nagios3/usr/share/check_mk/modules/
+	cp debian/defaults.nagios3 debian/check-mk-server-nagios3/usr/share/check_mk/modules/defaults
+	# We need 2 different Apache configs
+	mkdir -p debian/check-mk-server-icinga/etc/apache2/conf.d/
+	cp debian/apache.icinga debian/check-mk-server-icinga/etc/apache2/conf.d/check-mk-multisite.conf
+	mkdir -p debian/check-mk-server-nagios3/etc/apache2/conf.d/
+	cp debian/apache.nagios3 debian/check-mk-server-nagios3/etc/apache2/conf.d/check-mk-multisite.conf
+	# Prepare agent files
 	cp debian/tmp/usr/share/check_mk/agents/check_mk_agent.linux debian/check-mk-agent/usr/bin/check_mk_agent
 	chmod +x debian/check-mk-agent/usr/bin/check_mk_agent
 	cp debian/tmp/usr/share/check_mk/agents/xinetd.conf debian/check-mk-agent/etc/xinetd.d/check_mk
