@@ -74,7 +74,7 @@ Description: general purpose nagios-plugin for retrieving data
  .
  This package contains livestatus
 
-Package: check-mk-web
+Package: check-mk-multisite
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, libapache2-mod-python
 Suggests: check-mk-livestatus
