@@ -19,9 +19,9 @@ Description: general purpose nagios-plugin for retrieving data
  .
  This package contains the agent part of check-mk.
 
-Package: check-mk-server-common
+Package: check-mk-server
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, python
+Depends: ${shlibs:Depends}, ${misc:Depends}, python, check-mk-config-nagios3 | check-mk-config-icinga
 Description: general purpose nagios-plugin for retrieving data
  Check_mk adopts a new a approach for collecting data from operating systems
  and network components. It obsoletes NRPE, check_by_ssh, NSClient and
@@ -32,10 +32,10 @@ Description: general purpose nagios-plugin for retrieving data
  .
  This package contains the server part of check_mk
 
-Package: check-mk-server-icinga
-Conflicts: check-mk-server-nagios3
+Package: check-mk-config-icinga
+Conflicts: check-mk-config-nagios3
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, check-mk-server-common
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: general purpose nagios-plugin for retrieving data
  Check_mk adopts a new a approach for collecting data from operating systems
  and network components. It obsoletes NRPE, check_by_ssh, NSClient and
@@ -46,10 +46,10 @@ Description: general purpose nagios-plugin for retrieving data
  .
  This package contains the icinga specific part of check_mk
 
-Package: check-mk-server-nagios3
+Package: check-mk-config-nagios3
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, check-mk-server-common
-Conflicts: check-mk-server-icinga
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: check-mk-config-icinga
 Description: general purpose nagios-plugin for retrieving data
  Check_mk adopts a new a approach for collecting data from operating systems
  and network components. It obsoletes NRPE, check_by_ssh, NSClient and
@@ -76,7 +76,7 @@ Description: general purpose nagios-plugin for retrieving data
 
 Package: check-mk-multisite
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, libapache2-mod-python, check-mk-server-nagios3 | check-mk-server-icinga
+Depends: ${shlibs:Depends}, ${misc:Depends}, libapache2-mod-python, check-mk-config-nagios3 | check-mk-config-icinga
 Suggests: check-mk-livestatus
 Description: general purpose nagios-plugin for retrieving data
  Check_mk adopts a new a approach for collecting data from operating systems
