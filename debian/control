@@ -8,7 +8,8 @@ Standards-Version: 3.9.1
 
 Package: check-mk-agent
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, xinetd
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: xinetd
 Description: general purpose nagios-plugin for retrieving data
  Check_mk adopts a new a approach for collecting data from operating systems
  and network components. It obsoletes NRPE, check_by_ssh, NSClient and
