@@ -65,6 +65,7 @@ Package: check-mk-livestatus
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Suggests: xinetd
+Conflicts: ucspi-unix
 Description: general purpose nagios-plugin for retrieving data
  Check_mk adopts a new a approach for collecting data from operating systems
  and network components. It obsoletes NRPE, check_by_ssh, NSClient and
