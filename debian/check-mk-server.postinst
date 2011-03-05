@@ -27,8 +27,8 @@ case "$1" in
 		#fix permissions for some directorys
 		test -d /var/lib/check_mk/cache || mkdir -p /var/lib/check_mk/cache
 		setperm nagios nagios 0750 /var/lib/check_mk/cache
-		test -d /var/lib/check_mk/counters/localhost || mkdir -p /var/lib/check_mk/counters/localhost
-		setperm nagios nagios 0750 /var/lib/check_mk/counters/localhost
+		test -d /var/lib/check_mk/counters/ || mkdir -p /var/lib/check_mk/counters/
+		setperm nagios nagios 0750 /var/lib/check_mk/counters/
     ;;
   abort-upgrade|abort-remove|abort-deconfigure)
     ;;
