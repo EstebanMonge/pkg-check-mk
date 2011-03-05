@@ -29,6 +29,8 @@ case "$1" in
 		setperm nagios nagios 0750 /var/lib/check_mk/cache
 		test -d /var/lib/check_mk/counters/ || mkdir -p /var/lib/check_mk/counters/
 		setperm nagios nagios 0750 /var/lib/check_mk/counters/
+		test -d /var/lib/check_mk/logwatch/ || mkdir -p /var/lib/check_mk/logwatch/
+		setperm nagios nagios 0750 /var/lib/check_mk/logwatch/
     ;;
   abort-upgrade|abort-remove|abort-deconfigure)
     ;;
