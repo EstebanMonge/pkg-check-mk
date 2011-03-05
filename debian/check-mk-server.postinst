@@ -30,7 +30,7 @@ case "$1" in
 		test -d /var/lib/check_mk/counters/ || mkdir -p /var/lib/check_mk/counters/
 		setperm nagios nagios 0750 /var/lib/check_mk/counters/
 		test -d /var/lib/check_mk/logwatch/ || mkdir -p /var/lib/check_mk/logwatch/
-		setperm nagios www-data 0750 /var/lib/check_mk/logwatch/
+		setperm nagios www-data 0770 /var/lib/check_mk/logwatch/
     ;;
   abort-upgrade|abort-remove|abort-deconfigure)
     ;;
