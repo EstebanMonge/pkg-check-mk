@@ -14,6 +14,16 @@ See http://mathias-kettner.de/checkmk_livestatus.html for more configuration
 options.
 
 
+logwatch
+========
+
+To install logwatch copy logwatch.cfg from 
+/usr/share/doc/check-mk-agent/examples to /etc/check_mk/ on your client. 
+See http://mathias-kettner.de/checkmk_logfiles.html for more information. 
+
+On the server side you need multisite enabled to see the logs. If you also want
+to acknowledge the alarms (recommended) put www-data into the nagios group. 
+
 
 check-mk-config-nagios3 and check-mk-config-icinga
 ==================================================
