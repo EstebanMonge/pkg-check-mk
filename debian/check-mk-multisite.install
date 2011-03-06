@@ -1,3 +1,2 @@
 usr/share/check_mk/web
-etc/check_mk/multisite.mk
 var/lib/check_mk/web
