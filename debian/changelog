@@ -1,17 +1,5 @@
-check-mk (1.1.8-1) UNRELEASED; urgency=low
+check-mk (1.1.8-1) unstable; urgency=low
 
-  * New upstream version
+  * Initial release
 
  -- Alexander Wirt <formorer@debian.org>  Sat, 11 Dec 2010 09:53:20 +0100
-
-check-mk (1.1.6p1-1) UNRELEASED; urgency=low
-
-  * New upstream release
-
- -- Alexander Wirt <formorer@debian.org>  Wed, 13 Oct 2010 19:27:51 +0200
-
-check-mk (1.1.2-1) UNRELEASED; urgency=low
-
-  * Initial release. (Closes: #XXXXXX)
-
- -- Alexander Wirt <formorer@debian.org>  Wed, 17 Mar 2010 15:33:37 +0100
