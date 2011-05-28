@@ -37,7 +37,7 @@ Description: general purpose nagios-plugin for retrieving data
 
 Package: check-mk-server
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, python, check-mk-config-nagios3 | check-mk-config-icinga
+Depends: ${shlibs:Depends}, ${misc:Depends}, adduser, python, check-mk-config-nagios3 | check-mk-config-icinga
 Description: general purpose nagios-plugin for retrieving data
  Check_mk adopts a new a approach for collecting data from operating systems
  and network components. It obsoletes NRPE, check_by_ssh, NSClient and
