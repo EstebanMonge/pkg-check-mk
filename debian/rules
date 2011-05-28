@@ -29,7 +29,7 @@ configure-stamp:
 
 build: build-stamp
 
-build-stamp: configure-stamp  
+build-stamp: patch-stamp configure-stamp  
 	dh_testdir
 
 	# Add here commands to compile the package.
@@ -38,7 +38,8 @@ build-stamp: configure-stamp
 
 	touch $@
 
-clean: 
+clean: clean-patched unpatch
+clean-patched:
 	dh_testdir
 	dh_testroot
 	rm -f build-stamp configure-stamp
@@ -122,6 +123,17 @@ binary-arch: build install
 	dh_gencontrol
 	dh_md5sums
 	dh_builddeb
+
+patch: patch-stamp
+patch-stamp:
+	@echo "Doing $@"
+	dpatch  --with-cpp apply-all
+	dpatch  --with-cpp cat-all >patch-stamp 
+
+unpatch:
+	@echo "Doing $@"
+	dpatch --with-cpp deapply-all
+	rm -rf patch-stamp debian/patched
 
 binary: binary-indep binary-arch
 .PHONY: build clean binary-indep binary-arch binary install configure
