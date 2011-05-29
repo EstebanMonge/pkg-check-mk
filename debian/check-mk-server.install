@@ -5,3 +5,5 @@ usr/bin/check_mk
 usr/share/doc/check_mk/check_mk_templates.cfg
 usr/share/check_mk/checks
 usr/share/check_mk/modules
+usr/share/check_mk/pnp-rraconf
+usr/share/check_mk/pnp-templates
