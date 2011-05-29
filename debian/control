@@ -1,7 +1,7 @@
 Source: check-mk
 Section: admin
 Priority: optional
-Maintainer: Debian Nagios Maintainer Group <pkg-icinga-devel@lists.alioth.debian.org>
+Maintainer: Debian Nagios Maintainer Group <pkg-nagios-devel@lists.alioth.debian.org>
 Uploaders: Alexander Wirt <formorer@debian.org>, Jan Wagner <waja@cyconet.org>, Sven Velt <sven@velt.de>
 Build-Depends: debhelper (>= 7), dpatch
 Standards-Version: 3.9.1
