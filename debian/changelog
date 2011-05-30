@@ -1,5 +1,22 @@
-check-mk (1.1.10-1) unstable; urgency=low
+check-mk (1.1.10p3-1) unstable; urgency=low
 
+  [ Alexander Wirt ]
   * Initial release
+  * [27af6d8] Add watch file
+  * [5477ef9] We don't have enough binary packages, to add a new one
+  * [a18fb6f] Install files for agent-logwatch and remove them from check-mk-agent
+  * [95fe6f6] With a new binary we don't need this is an example
+  * [ffec9d1] Add dpatch and patch for livestatus
+  * [6ad07e7] Add missing debhelper tokens
+  * [e4f4ddf] Add missing dep on adduser
+  * [4b55024] Install waitmax manpage
 
- -- Alexander Wirt <formorer@debian.org>  Sat, 11 Dec 2010 09:53:20 +0100
+  [ Sven Velt ]
+  * [f9ccf4d] Update "defaults" variable file to 1.1.10
+  * [9b15992] Install files for PNP4Nagios support
+
+  [ Alexander Wirt ]
+  * [06db7a8] Add sven to Uploaders
+  * [2738baa] fix maintainer address
+
+ -- Alexander Wirt <formorer@debian.org>  Mon, 30 May 2011 21:48:51 +0200
