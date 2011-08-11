@@ -98,7 +98,7 @@ binary-arch: build install
 	dh_testdir
 	dh_testroot
 	dh_installchangelogs ChangeLog
-	dh_installdocs
+	dh_installdocs --all debian/README.Debian
 	dh_installexamples
 	dh_install
 	chmod +x debian/check-mk-server/usr/share/check_mk/checks/*
