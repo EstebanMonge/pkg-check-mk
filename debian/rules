@@ -18,10 +18,10 @@ configure-stamp:
 	dh_testdir
 	# Add here commands to configure the package.
 	mkdir agents
-	tar -xzf agents.tar.gz -C agents 
+	tar -xzf agents.tar.gz -C agents
 	mkdir docs
 	tar -xzf doc.tar.gz -C docs
-	mkdir config 
+	mkdir config
 	tar -xzf conf.tar.gz -C config
 
 	touch configure-stamp
@@ -31,7 +31,7 @@ build: build-arch build-indep
 build-arch: build-stamp
 build-indep: build-stamp
 
-build-stamp: patch-stamp configure-stamp  
+build-stamp: patch-stamp configure-stamp
 	dh_testdir
 
 	# Add here commands to compile the package.
@@ -47,18 +47,18 @@ clean-patched:
 	rm -f build-stamp configure-stamp
 
 	# Add here commands to clean up after the build process.
-	rm -rf agents docs config livestatus.src livestatus.log  
+	rm -rf agents docs config livestatus.src livestatus.log
 
-	dh_clean 
+	dh_clean
 
 install: build
 	dh_testdir
 	dh_testroot
-	dh_prep 
+	dh_prep
 	dh_installdirs
 	mkdir -p debian/tmp
 	DESTDIR=debian/tmp ./setup.sh --yes
-	#don't use the statically linked binary. 
+	#don't use the statically linked binary.
 	rm debian/tmp/usr/share/check_mk/agents/waitmax
 	gcc -s -o debian/tmp/usr/share/check_mk/agents/waitmax debian/tmp/usr/share/check_mk/agents/waitmax.c
 	cp -a livestatus.src/debian/tmp/* debian/tmp/
@@ -104,7 +104,7 @@ binary-arch: build install
 	chmod +x debian/check-mk-server/usr/share/check_mk/checks/*
 	sed -i -e 's/nagiosadmin/icingaadmin/g' debian/check-mk-config-icinga/etc/check_mk/multisite.mk
 #	dh_installmenu
-#	dh_installdebconf	
+#	dh_installdebconf
 #	dh_installlogrotate
 #	dh_installemacsen
 #	dh_installpam
@@ -130,7 +130,7 @@ patch: patch-stamp
 patch-stamp:
 	@echo "Doing $@"
 	dpatch  --with-cpp apply-all
-	dpatch  --with-cpp cat-all >patch-stamp 
+	dpatch  --with-cpp cat-all >patch-stamp
 
 unpatch:
 	@echo "Doing $@"
