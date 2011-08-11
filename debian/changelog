@@ -1,3 +1,19 @@
+check-mk (1.1.10-2) unstable; urgency=low
+
+  [ Christoph Berg ]
+  * [1163b0d] Add Vcs-* fields
+
+  [ Alexander Wirt ]
+  * [84fc3f7] Fix installation path for objects and templates in
+    *nagios3* package.
+    Thanks to Richard James Salts for the patch (Closes: #634016)
+  * [7c1720c] Bump standards version (no changes)
+  * [66132ef] Add missing build targets to rules file
+  * [96b686b] Add README.source file
+  * [15fa444] Add README.Debian to all binary packages
+
+ -- Alexander Wirt <formorer@debian.org>  Thu, 11 Aug 2011 07:56:01 +0200
+
 check-mk (1.1.10-1) unstable; urgency=low
 
   * Initial release
