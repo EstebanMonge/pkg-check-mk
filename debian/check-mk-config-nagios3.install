@@ -1,2 +1,2 @@
-usr/share/doc/check_mk/check_mk_templates.cfg etc/icinga/objects
+usr/share/doc/check_mk/check_mk_templates.cfg etc/nagios3/objects
 etc/check_mk/multisite.mk
