@@ -1,3 +1,82 @@
+1.1.10p3:
+    Core, Setup, etc.:
+    * FIX: sort output of cmk --list-hosts alphabetically
+    * FIX: Avoid duplicate SNMP scan of checktypes containing a period
+    * FIX: honor ignored_checktypes also on SNMP scan
+    * FIX: fix two crashes of cmk -II in combination with clusters
+
+    Checks & Agents:
+    * FIX: apc_symmetra: fix remaining runtime calculation (by factor 100)
+    * FIX: hr_mem: ignore devices that report zero memory
+
+    Multisite:
+    * FIX: avoid duplicate import of plugins in OMD local installation
+    * FIX: Added host_is_active and host_flapping columns for NagStaMon views
+
+1.1.10p2:
+    Core, Setup, etc.:
+    * FIX: cmk -II also refreshes cluster checks, if all nodes are specified
+    * FIX: avoid floating points with 'e' in performance data
+    * FIX: cmk -D: drop obsolete (and always empty) Notification:
+    * FIX: better handling of broken checks returning empty services
+
+    Checks & Agents:
+    * FIX: cisco_temp_perf: handle sensors without names correctly
+    * FIX: local: fixed search for custom templates PNP template
+    * FIX: cisco_power: fix syntax error in man page (broke also Multisite)
+
+    Multisite:
+    * FIX: Display limit-exceeded message also in multi site setups
+    * FIX: Tactical Overview: fix unhandled host problems view
+    * FIX: webservice: suppress livestatus errors in multi-site setups
+    * FIX: install missing example icons in web/htdocs/images/icons
+    * FIX: repair python/json webservice needed for NagStaMon
+    * FIX: Fixed handling of embedded graphs to support the changes made to the PNP webservice
+    * FIX: Added acks/downtimes to NagStaMon views
+    * FIX: customlinks snapin: Suppressing exception when no links configured
+
+1.1.10p1:
+    Core, Setup, etc.:
+    * FIX: fix computation of weight when averaging
+    * FIX: added missing \n in error output
+    * FIX: setup.sh: fix optical bugs in output of summary
+    * FIX: --flush handles missing cache directory
+
+    Checks & Agents:
+    * FIX: mk_oracle: Updated tablespace query to use 'used blocks' instead of 'user blocks'
+    * FIX: if/if64: always generate unique items (in case ifAlias is used)
+    * FIX: ipmi: fix ugly ouput in case of warning and error
+    * FIX: vms_df: fix, was completely broken due to conversion to df.include
+    * FIX: blade_bays: add missing SNMP OIDs (check was always UNKNOWN)
+    * FIX: df: fix layout problems in PNP template
+    * FIX: df: fix trend computation (thanks to Sebastian Talmon)
+    * FIX: df: fix display of trend warn/crit in PNP-graph
+    * FIX: df: fix status in case of critical trend and warning used
+    * FIX: df: fix syntax error in manpages (in examples)
+    * FIX: mk_oracle: Fixed computation for TEMP table spaces
+    * FIX: bluecoat_sensors: Using scale parameter provided by the host for reported values
+    * FIX: fjdarye60_devencs, fjdarye60_disks.summary: added snmp scan functions
+    * FIX: decru_*: added snmp scan functions
+    * FIX: cmctc: add scan function
+    * FIX: cmctc: fix inventory in case of incomplete entries
+    * FIX: ucd_cpu_load and ucd_cpu_util: make scan function find Rittal
+    * FIX: ucd_cpu_util: fix check in case of missing hi, si and st
+    * FIX: mk_logwatch: dont use readlines(), save RAM
+    * FIX: hp_procurve_cpu: fix syntax error in man page
+    * FIX: hp_procurve_memory: fix syntax error in man page
+    * FIX: fc_brocade_port_detailed: fix PNP template in MULTIPLE mode
+    * FIX: cmctc.temp: fix typo in man page
+
+    Multisite:
+    * FIX: Nagios-Snapin: avoid duplicate slash in URL
+    * FIX: custom_style_sheet now also honored by sidebar
+    * FIX: fix typo in permissions page
+    * FIX: ignore case when sorting groups in ...groups snapin
+
+    WATO:
+    * FIX: fix crash when saving services after migration from old version
+
+
 1.1.10:
     Core, Setup, etc.:
     * --flush now also deletes all autochecks 
