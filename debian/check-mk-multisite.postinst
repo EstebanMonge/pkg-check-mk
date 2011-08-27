@@ -20,7 +20,7 @@ setperm() {
 case "$1" in
     configure)
         # explicitly set permissions on some files
-        setperm www-data www-data 770 /var/lib/check_mk/web
+        setperm www-data nagios 4770 /var/lib/check_mk/web
     ;;
     abort-upgrade|abort-remove|abort-deconfigure)
     ;;
