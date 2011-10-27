@@ -1,81 +1,457 @@
-1.1.10p3:
-    Core, Setup, etc.:
-    * FIX: sort output of cmk --list-hosts alphabetically
-    * FIX: Avoid duplicate SNMP scan of checktypes containing a period
-    * FIX: honor ignored_checktypes also on SNMP scan
-    * FIX: fix two crashes of cmk -II in combination with clusters
-
+1.1.12:
     Checks & Agents:
-    * FIX: apc_symmetra: fix remaining runtime calculation (by factor 100)
-    * FIX: hr_mem: ignore devices that report zero memory
+    * dell_powerconnect_*: final fixed, added PNP-templates
+    * ps.perf: better error handling in PNP template
 
     Multisite:
-    * FIX: avoid duplicate import of plugins in OMD local installation
-    * FIX: Added host_is_active and host_flapping columns for NagStaMon views
-
-1.1.10p2:
+    * Dashboard: fix font size of service statistics table
+    * Dashboard: insert links to views into statistics
+    * Dashboard: add links to PNP when using PNP graphs
+    
+1.1.12b2:
     Core, Setup, etc.:
+    * FIX: fix crash with umlauts in host aliases
+    * FIX: remove duplicate alias from Nagios config
+
+    Checks & Agents:
+    * services: better handling of invalid patterns
+    * FIX: multipath: fix for another UUID format
+    * AIX agent: fix implementation of thread count
+    * blade_bays: detect more than 16 bays
+    * statgrab_*: added missing inventory functions
+    * FIX: fix smart.temp WARN/CRIT levels were off by one degree
+
+    Multisite:
+    * Remove Check_MK logo from default dashboard
+    * Let dashboard use 10 more pixels right and bottom
+    * FIX: do not show WATO icon if no WATO permission
+    * Sidebar sitestatus: Sorting sites by sitealias
+    * FIX: removed redundant calls of view_linktitle()
+
+    WATO:
+    * FIX: fix update of file/folder title after title property change
+
+    Livestatus:
+    * FIX: fix crash on imcomplete log lines (i.e. as
+      as result of a full disk)
+    * FIX: Livestatus-API: fix COMMAND via persistent connections
+	
+1.1.12b1:
+    Core, Setup, etc.:
+    * FIX: fix cmk -D on cluster hosts
+    * Made profile output file configurable (Variable: g_profile_path)
+
+    Checks & Agents:
+    * FIX: j4p_performance: fix inventory functions 
+    * FIX: mk_oracle: fix race condition in cache file handling (agent data
+      was missing sections in certain situations)
+    * mrpe: make check cluster-aware and work as clustered_service
+    * cups_queues: Run agent part only on directly on CUPS servers,
+      not on clients
+    * FIX: mbg_lantime_state: Fixed output UOM to really be miliseconds
+    * FIX: ntp: Handling large times in "poll" column correctly
+    * New check dmi_sysinfo to gather basic hardware information
+    * New check bintec_info to gather the software version and serial number
+    of bintec routers
+
+    Multisite:
+    * FIX: fix rescheduling of host check
+    * FIX: fix exception when using status_host while local site is offline
+    * FIX: Fixed not updating pnp graphs on dashboard in some browsers (like chrome)
+    * FIX: fix URL-too-long in permissions page
+    * FIX: fix permission computation
+    * FIX: fixed sorting of service perfdata columns
+    * FIX: fixed sorting of multiple joined columns in some cases
+    * FIX: fixed some localisation strings
+    * Cleanup permissions page optically, add comments for views and snapins
+    * Added some missing i18n strings in general HTML functions
+    * Added display_option "w" to disable limit messages and livestatus errors in views
+    * Service Perfdata Sorters are sorting correctly now
+    * Added "Administration" snapin to default sidebar
+    * Tactical Overview: make link clickable even if count is zero
+    * Minor cleanup in default dashboard
+    * Dashboard: new dashlet attribute title_url lets you make a title into a link
+    * Dashboard: make numbers match "Tactical Overview" snapin
+
+    Livestatus:
+    * Write messages after initialization into an own livestatus.log
+
+    WATO:
+    * FIX: "bulk move to" at the top of wato hostlists works again
+    * FIX: IE<9: Fixed problem with checkbox events when editing a host
+    * FIX: "move to" dropdown in IE9 works again
+
+1.1.11i4:
+    Core, Setup, etc.:
+    * FIX: use hostgroups instead of host_groups in Nagios configuration.
+      This fixes a problem with Shinken
+    * --scan-parents: detected parent hosts are now tagged with 'ping', so
+      that no agent will be contacted on those hosts
+
+    Checks & Agents:
+    * Added 4 new checks dell_powerconnect_* by Chris Bowlby
+    * ipmi_sensors: correctly handle further positive status texts
+      (thanks to Sebastian Talmon)
+    * FIX: nfsmounts handles zero-sized volumes correctly
+    * AIX agent now outputs the user and performance data in <<<ps>>>
+
+    Multisite:
+    * FIX: WATO filtered status GUIs did not update the title after changing
+      the title of the file/folder in WATO
+    * FIX: Removed new python syntax which is incompatible with old python versions
+    * FIX: Made bulk inventory work in IE
+    * FIX: Fixed js errors in IE when having not enough space on dashboard 
+    * FIX: fix error when using non-Ascii characters in view title
+    * FIX: fix error on comment page caused by missing sorter
+    * FIX: endless javascript when fetching pnp graphs on host/service detail pages
+    * FIX: Not showing the action form in "try" mode of the view editor
+    * FIX: Preventing up-then-over effect while loading the dashboard in firefox
+    * Added missing i18n strings in command form and list of views
+    * Views are not reloaded completely anymore. The data tables are reloaded
+      on their own.
+    * Open tabs in views do not prevent reloading the displayed data anymore
+    * Added display_option "L" to enable/disable column title sortings
+    * Sorting by joined columns is now possible
+    * Added missing sorters for "service nth service perfdata" painters
+    * Implemented row selection in views to select only a subset of shown data
+      for actions
+    * Sort titles in views can be enabled by clicking on the whole cells now
+    * Submitting the view editor via ENTER key saves the view now instead of try mode
+    * Host comments have red backgrounded rows when host is down
+    * Implemented hook api to draw custom link buttons in views
+
+    WATO:
+    * Changed row selection in WATO to new row selection mechanism
+    * Bulk action buttons are shown at the top of hostlists too when the lists
+      have more than 10 list items
+    * New function for backup and restore of the configuration
+
+    Livestatus:
+    * FIX: fix compile error in TableLog.cc by including stddef.h
+    * FIX: tables comments and downtimes now honor AuthUser
+    * Table log honors AuthUser for entries that belong to hosts
+      (not for external commands, though. Sorry...)
+    * FIX: fix Stats: sum/min/max/avg for columns of type time
+
+1.1.11i3:
+    Core, Setup, etc.:
+    * FIX: allow host names to have spaces
+    * --snmpwalk: fix missing space in case of HEX strings
+    * cmk --restore: be aware of counters and cache being symbolic links
+    * do_rrd_update: direct RRD updates have completely been removed.
+      Please use rrdcached in case of performance problems.
+    * install_nagios.sh has finally been removed (was not maintained anyway).
+      Please use OMD instead.
+    * Inventory functions now only take the single argument 'info'. The old
+      style FUNC(checkname, info) is still supported but deprecated.
+    * Show datasource program on cmk -D
+    * Remove .f12 compile helper files from agents directory
+    * Output missing sections in case of "WARNING - Only __ output of __..."
+    * Remove obsolete code of snmp_info_single
+    * Remove 'Agent version (unknown)' for SNMP-only hosts
+    * Options --version, --help, --man, --list-checks and --packager now
+      work even with errors in the configuration files
+    * Minor layout fix in check man-pages
+
+    Checks & Agents:
+    * FIX: hr_mem: take into account cache and buffers
+    * FIX: printer_pages: workaround for trailing-zero bug in HP Jetdirect
+    * mk_logwatch: allow to set limits in processing time and number of
+      new log messages per log file
+    * Windows Agent: Now supports direct execution of powershell scripts
+    * local: PNP template now supports multiple performance values
+    * lnx_if: make lnx_if the default interface check for Linux
+    * printer_supply: support non-Ascii characters in items like
+      "Resttonerbehälter". You need to define snmp_character_encodings in main.mk
+    * mem.win: new dedicated memory check for Windows (see Migration notes)
+    * hr_mem: added Perf-O-Meter
+    * Renamed all temperature checks to "Temperature %s". Please
+      read the migration notes!
+    * df and friends: enabled trend performance data per default. Please
+      carefully read the migration notes!
+    * diskstat: make summary mode the default behavious (one check per host)
+
+    MK Livestatus:
+    * WaitObject: allow to separate host name and service with a semicolon.
+      That makes host names containing spaces possible.
+    * Better error messages in case of unimplemented operators
+
+    Multisite:
+    * FIX: reschedule now works for host names containing spaces
+    * FIX: correctly sort log views in case of multi site setups
+    * FIX: avoid seven broken images in case of missing PNP graphs
+    * FIX: Fixed javascript errors when opening dashboard in IE below 9
+    * FIX: Views: Handling deprecated value "perpage" for option
+      column_headers correctly
+    * FIX: Fixed javascript error when saving edited views without sidebar
+    * FIX: Showing up PNP hover menus above perfometers
+    * Host/Service Icon column is now modularized and can be extended using
+      the multisite_icons list.
+    * New sorters for time and line number of logfile entries
+    * Bookmarks snapin: save relative URLs whenever possible
+    * Man-Pages of Check_MK checks shown in Multisite honor OMD's local hierarchy
+    * nicer output of substates, translate (!) and (!!) into HTML code
+    * new command for clearing modified attributes (red cross, green checkmark)
+    * Perf-O-Meters: strip away arguments from check_command (e.g.
+      "check-foo!17!31" -> "check-foo").
+    * Added several missing i18n strings in view editor
+    * Views can now be sorted by the users by clicking on the table headers.
+      The user sort options are not persisted.
+    * Perf-O-Meters are now aware if there really is a PNP graph
+
+    WATO:
+    * Show error message in case of empty inventory due to agent error
+    * Commited audit log entries are now pages based on days
+    * Added download link to download the WATO audit log in CSV format
+
+1.1.11i2:
+    Core, Setup, etc.:
+    * FIX: sort output of cmk --list-hosts alphabetically
+    * FIX: automatically remove leading and trailing space from service names
+      (this fixes a problem with printer_pages and an empty item)
+    * Great speed up of cmk -N/-C/-U/-R, especially when number of hosts is
+      large.
+    * new main.mk option delay_precompile: if True, check_mk will skip Python 
+      precompilation during cmk -C or cmk -R, but will do this the first 
+      time the host is checked.  This speeds up restarts. Default is False.
+      Nagios user needs write access in precompiled directory!
+    * new config variable agent_ports, allowing to specify the agent's
+      TCP port (default is 6556) on a per-host basis.
+    * new config variable snmp_ports, allowing to specify the UDP port
+      to used with SNMP, on a per-host basis.
+    * new config variable dyndns_hosts. Hosts listed in this configuration
+      list (compatible to bulkwalk_hosts) use their hostname as IP address.
+    
+    Checks & Agents:
+    * FIX: AIX agent: output name of template in case of MRPE
+    * FIX: cisco_temp: skip non-present sensors at inventory
+    * FIX: apc_symmetra: fix remaining runtime calculation (by factor 100)
+    * FIX: Added PNP-template for winperf_phydisk
+    * FIX: if64: fix UNKNOWN in case of non-unique ifAlias
+    * FIX: lnx_if/if/if64: ignore percentual traffic levels on NICs without
+           speed information.
+    * FIX: cisco_temp_perf: add critical level to performance data
+    * FIX: windows agent: hopefully fix case with quotes in directory name
+    * FIX: printer_supply: fixed logic of Perf-O-Meter (mixed up crit with ok)
+    * FIX: Solaris agent: reset localization to C, fixes problems with statgrab
+    * FIX: blade_*: fix SNMP scan function for newer firmwares (thanks to Carlos Peón)
+    * snmp_uptime, snmp_info: added scan functions. These checks will now
+      always be added. Please use ingored_checktypes to disable, if non needed.
+    * brocade_port: check for Brocade FC ports has been rewritten with
+      lots of new features.
+    * AIX agent now simulates <<<netctr>>> output (by Jörg Linge)
+    * mbg_lantime_state: Handling refclock offsets correctly now; Changed
+      default thresholds to 5/10 refclock offset
+    * brocade_port: parameter for phystate, opstate and admstate can now
+      also be lists of allowed states.
+    * lnx_if: treat interfaces without information from ethtool as
+      softwareLoopback interface. The will not be found by inventory now.
+    * vbox_guest: new check for checking guest additions of Linux virtual box hosts
+    * if/if64: Fixed bug in operstate detection when using old tuple based params
+    * if/if64: Fixed bug in operstate detection when using tuple of valid operstates
+    * mk_oracle: Added caching of results to prevent problems with long
+    running SQL queries. Cache is controlled by CACHE_MAXAGE var which is preset to
+    120 seconds 
+    * mk_oracle: EXCLUDE_<sid>=ALL or EXCLUDE_<sid>=oracle_sessions can be
+    used to exclude specific checks now
+    * mk_oracle: Added optional configuration file to configure the new options
+    * j4p_performance agent plugin: Supports basic/digest auth now
+    * New checks j4p_performance.threads and j4p_performance.uptime which
+      track the number of threads and the uptime of a JMX process
+    * j4p_performance can fetch app and servlet specific status data. Fetching
+      the running state, number of sessions and number of requests now. Can be
+      extended via agent configuration (j4p.cfg).
+    * Added some preflight checks to --scan-parents code
+    * New checks netapp_cluster, netapp_vfiler for checking NetAPP filer 
+      running as cluster or running vfilers.
+    * megaraid_pdisks: Better handling of MegaCli output (Thanks to Bastian Kuhn)
+    * Windows: agent now also sends start type (auto/demand/disabled/boot/system)
+    * Windows: inventory_services now allowes regexes, depends and state/start type
+      and also allows host tags.
+
+    Multisite:
+    * FIX: make non-Ascii characters in services names work again
+    * FIX: Avoid exceptions in sidebar on Nagios restart
+    * FIX: printer_supply perfometer: Using white font for black toners
+    * FIX: ipmi: Skipping items with invalid data (0.000 val, "unspecified" unit) in summary mode
+    * FIX: ipmi: Improved output formating in summary mode
+    * FIX: BI - fixed wrong variable in running_on aggregation function
+    * FIX: "view_name" variable missing error message when opening view.py
+      while using the "BI Aggregation Groups" and "Hosts" snapins in sidebar
+    * FIX: Fixed styling of form input elements in IE + styling improvements
+    * FIX: Fixed initial folding state on page loading on pages with multiple foldings opened
+    * Introduced basic infrastructure for multilanguage support in Multisite
+    * Make 'Views' snapin foldable
+    * Replace old main view by dashboard
+    * Sidebar: Snapins can register for a triggered reload after a nagios
+      restart has been detected. Check interval is 30 seconds for now.
+    * Quicksearch snapin: Reloads host lists after a detected nagios restart.
+    * New config directory multisite.d/ - similar to conf.d/
+    * great speed up of HTML rendering
+    * support for Python profiling (set profile = True in multisite.mk, profile
+      will be in var/check_mk/web)
+    * WATO: Added new hook "active-changes" which calls the registered hosts
+      with a dict of "dirty" hosts
+    * Added column painter for host contacts
+    * Added column painters for contact groups, added those to detail views
+    * Added filters for host and service contact groups
+    * Detail views of host/service now show contacts
+    * Fix playing of sounds: All problem views now have play_sounds activated,
+      all other deactivated.
+    * Rescheduling of Check_MK: introduce a short sleep of 0.7 sec. This increases
+      the chance of the passive services being updated before the repaint.
+    * Added missing i18n strings in filter section of view editor
+    * Added filter and painter for the contact_name in log table
+    * Added several views to display the notification logs of Nagios
+
+    WATO:
+    * Configration files can now be administered via the WEB UI
+      (config_files in multisite.mk is obsolete)
+    * Snapin is tree-based and foldable
+    * Bulk operation on host lists (inventory, tags changed, etc)
+    * Easy search operation in host lists
+    * Dialog for global host search
+    * Services dialog now tries to use cached data. On SNMP hosts
+      no scan will be done until new button "Full Scan" is pressed.
+
+    BI:
+    * FIX: Fixed displaying of host states (after i18n introduction)h
+    * FiX: Fixed filter for aggregation group
+    * FIX: Fixed assumption button for services with non-Ascii-characters
+
+    MK Livestatus:
+    * FIX: fix compile problem on Debian unstable (Thanks to Sven Velt)
+    * Column aggregation (Stats) now also works for perf_data
+    * New configuration variable data_encoding and full UTF-8 support.
+    * New column contact_groups in table hosts and services (thanks to
+      Matthew Kent)
+    * New headers Negate:, StatsNegate: and WaitConditionNegate:
+
+1.1.11i1:
+    Core, Setup, etc.:
+    * FIX: Avoid duplicate SNMP scan of checktypes containing a period
+    * FIX: honor ignored_checktypes also on SNMP scan
     * FIX: cmk -II also refreshes cluster checks, if all nodes are specified
     * FIX: avoid floating points with 'e' in performance data
     * FIX: cmk -D: drop obsolete (and always empty) Notification:
     * FIX: better handling of broken checks returning empty services
-
-    Checks & Agents:
-    * FIX: cisco_temp_perf: handle sensors without names correctly
-    * FIX: local: fixed search for custom templates PNP template
-    * FIX: cisco_power: fix syntax error in man page (broke also Multisite)
+    * FIX: fix computation of weight when averaging
+    * FIX: fix detection of missing OIDs (led to empty lines) 
+    * SNMP scan functions can now call oid(".1.3.6.1.4.1.9.9.13.1.3.1.3.*")
+      That will return the *first* OID beginning with .1.3.6.1.4.1.9.9.13.1.3.1.3
+    * New config option: Set check_submission = "file" in order to write
+      check result files instead of using Nagios command pipe (safes
+      CPU ressources)
+    * Agent simulation mode (for internal use and check development)
+    * Call snmpgetnext with the option -Cf (fixes some client errors)
+    * Call snmp(bulk)walk always with the option -Cc (fixes problems in some
+      cases where OIDs are missing)
+    * Allow merging of dictionary based check parameters
+    * --debug now implies -v
+    * new option --debug: creates execution profile of check_mk itself
+    * sped up use of stored snmp walks
+    * find configuration file in subdirectories of conf.d also
+    * check_mk_templates.cfg: make check-mk-ping take arguments
 
     Multisite:
     * FIX: Display limit-exceeded message also in multi site setups
     * FIX: Tactical Overview: fix unhandled host problems view
+    * FIX: customlinks snapin: Suppressing exception when no links configured
     * FIX: webservice: suppress livestatus errors in multi-site setups
     * FIX: install missing example icons in web/htdocs/images/icons
-    * FIX: repair python/json webservice needed for NagStaMon
-    * FIX: Fixed handling of embedded graphs to support the changes made to the PNP webservice
-    * FIX: Added acks/downtimes to NagStaMon views
-    * FIX: customlinks snapin: Suppressing exception when no links configured
+    * FIX: Nagios-Snapin: avoid duplicate slash in URL
+    * FIX: custom_style_sheet now also honored by sidebar
+    * FIX: ignore case when sorting groups in ...groups snapin
+    * FIX: Fixed handling of embedded graphs to support the changes made to
+    * FIX: avoid duplicate import of plugins in OMD local installation
+    the PNP webservice
+    * FIX: Added host_is_active and host_flapping columns for NagStaMon views
+    * Added snmp_uptime, uptime and printer_supply perfometers
+    * Allow for displaying service data in host tables
+    * View editor foldable states are now permament per user
+    * New config variable filter_columns (default is 2)
 
-1.1.10p1:
-    Core, Setup, etc.:
-    * FIX: fix computation of weight when averaging
-    * FIX: added missing \n in error output
-    * FIX: setup.sh: fix optical bugs in output of summary
-    * FIX: --flush handles missing cache directory
+    BI:
+    * Added new component BI to Multisite.
+
+    WATO:
+    * FIX: fix crash when saving services after migration from old version
+    * Allow moving hosts from one to another config file
 
     Checks & Agents:
-    * FIX: mk_oracle: Updated tablespace query to use 'used blocks' instead of 'user blocks'
+    * FIX: hr_mem: ignore devices that report zero memory
+    * FIX: cisco_power: fix syntax error in man page (broke also Multisite)
+    * FIX: local: fixed search for custom templates PNP template
     * FIX: if/if64: always generate unique items (in case ifAlias is used)
     * FIX: ipmi: fix ugly ouput in case of warning and error
     * FIX: vms_df: fix, was completely broken due to conversion to df.include
     * FIX: blade_bays: add missing SNMP OIDs (check was always UNKNOWN)
     * FIX: df: fix layout problems in PNP template
     * FIX: df: fix trend computation (thanks to Sebastian Talmon)
-    * FIX: df: fix display of trend warn/crit in PNP-graph
     * FIX: df: fix status in case of critical trend and warning used
-    * FIX: df: fix syntax error in manpages (in examples)
+    * FIX: df: fix display of trend warn/crit in PNP-graph
+    * FIX: cmctc: fix inventory in case of incomplete entries
+    * FIX: cmctc: add scan function
+    * FIX: ucd_cpu_load and ucd_cpu_util: make scan function find Rittal
+    * FIX: ucd_cpu_util: fix check in case of missing hi, si and st
+    * FIX: mk_logwatch: improve implementation in order to save RAM
+    * FIX: mk_oracle: Updated tablespace query to use 'used blocks' instead of 'user blocks'
     * FIX: mk_oracle: Fixed computation for TEMP table spaces
     * FIX: bluecoat_sensors: Using scale parameter provided by the host for reported values
     * FIX: fjdarye60_devencs, fjdarye60_disks.summary: added snmp scan functions
     * FIX: decru_*: added snmp scan functions
-    * FIX: cmctc: add scan function
-    * FIX: cmctc: fix inventory in case of incomplete entries
-    * FIX: ucd_cpu_load and ucd_cpu_util: make scan function find Rittal
-    * FIX: ucd_cpu_util: fix check in case of missing hi, si and st
-    * FIX: mk_logwatch: dont use readlines(), save RAM
-    * FIX: hp_procurve_cpu: fix syntax error in man page
+    * FIX: heartbeat_rscstatus handles empty agent output correctly
+    * FIX: hp_procurve_cpu: fix synatx error in man page
     * FIX: hp_procurve_memory: fix syntax error in man page
     * FIX: fc_brocade_port_detailed: fix PNP template in MULTIPLE mode
-    * FIX: cmctc.temp: fix typo in man page
+    * FIX: ad_replication.bat only generates output on domain controllers now.
+           This is useful to prevent checks on non DC hosts (Thanks to Alex Greenwood)
+    * FIX: cisco_temp_perf: handle sensors without names correctly
+    * printer_supply: Changed order of tests. When a printer reports -3 this
+      is used before the check if maxlevel is -2.
+    * printer_supply: Skipping inventory of supplies which have current value
+    and maxlevel both set to -2.
+    * cisco_locif: The check has been removed. Please switch to if/if64
+      has not the index 1
+    * cisco_temp/cisco_temp_perf: scan function handles sensors not beginning
+      with index 1
+    * df: split PNP graphs for growth/trend into two graphs
+    * omd_status: new check for checking status of OMD sites
+    * printer_alerts: Added new check for monitoring alert states reported by
+      printers using the PRINTER-MIB
+    * diskstat: rewritten check: now show different devices, r+w in one check
+    * canon_pages: Added new check for monitoring processed pages on canon
+    printer/multi-function devices
+    * strem1_sensors: added check to monitor sensors attached to Sensatorinc EM1 devices
+    * windows_update: Added check to monitor windows update states on windows
+      clients. The check monitors the number of pending updates and checks if
+      a reboot is needed after updates have been installed.
+    * lnx_if: new check for Linux NICs compatible with if/if64 replacing 
+      netif.* and netctr.
+    * if/if64: also output performance data if operstate not as expected
+    * if/if64: scan function now also detects devices where the first port
+    * if/if64: also show perf-o-meter if speed is unknown
+    * f5_bigip_pool: status of F5 BIP/ip load balancing pools
+    * f5_bigip_vserver: status of F5 BIP/ip virtual servers
+    * ipmi: new configuration variable ipmi_ignored_sensors (see man page)
+    * hp_procurve_cpu: rename services description to CPU utilization
+    * ipmi: Linux agent now (asynchronously) caches output of ipmitool for 20 minutes
+    * windows: agent has new output format for performance counters
+    * winperf_process.util: new version of winperf.cpuusage supporting new agent
+    * winperf_system.diskio: new version of winperf.diskstat supporting new agent
+    * winperf_msx_queues: new check for MS Exchange message queues
+    * winperf_phydisk: new check compatible with Linux diskstat (Disk IO per device!)
+    * smart.temp/smart.stats: added new check for monitoring health of HDDs
+      using S.M.A.R.T
+    * mcdata_fcport: new check for ports of MCData FC Switches
+    * hp_procurve_cpu: add PNP template
+    * hp_procurve_cpu: rename load to utilization, rename service to CPU utilizition
+    * df,df_netapp,df_netapp32,hr_fs,vms_df: convert to mergeable dictionaries
+    * mbg_lantime_state,mbg_lantime_refclock: added new checks to monitor 
+      Meinberg LANTIME GPS clocks
 
-    Multisite:
-    * FIX: Nagios-Snapin: avoid duplicate slash in URL
-    * FIX: custom_style_sheet now also honored by sidebar
-    * FIX: fix typo in permissions page
-    * FIX: ignore case when sorting groups in ...groups snapin
-
-    WATO:
-    * FIX: fix crash when saving services after migration from old version
-
+    Livestatus:
+    * Updated Perl API to version 0.74 (thanks to Sven Nierlein)
 
 1.1.10:
     Core, Setup, etc.:
@@ -368,6 +744,16 @@
     * Livestatus: log timeperiod transitions (active <-> inactive) into Nagios
       log file. This will enable us to create availability reports more simple
       in future.
+
+    Multisite:
+    * allow include('somefile.mk') in multisite.mk: Include other files.
+      Paths not beginning with '/' are interpreted relative to the directory
+      of multisite.mk
+
+    Livestatus:
+    * new columns services_with_info: similar to services_with_state but with
+      the plugin output appended as additional tuple element. This tuple may
+      grow in future so do not depend on its length!
 
 1.1.9i2:
     Checks & Agents:
