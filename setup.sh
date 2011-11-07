@@ -24,7 +24,7 @@
 # Boston, MA 02110-1301 USA.
 
 
-VERSION=1.1.10p3
+VERSION=1.1.12
 NAME=check_mk
 LANG=
 LC_ALL=
@@ -252,6 +252,10 @@ logwatch extension.  That directory should [4;1mnot[0m be
 in your WWW document root. A separate apache configuration file will be
 installed that maps the directory into your URL schema"
 
+ask_dir localedir /usr/share/$NAME/locale $HOMEBASEDIR/locale $OMD_ROOT/local/share/check_mk/locale "Localization dir" \
+  "Base directory for gettext localization files. Multisite comes prepared for localzation
+but does not ship any language per default." 
+
 ask_dir docdir /usr/share/doc/$NAME $HOMEBASEDIR/doc $OMD_ROOT/local/share/check_mk/doc "documentation" \
   "Some documentation about check_mk will be installed here. Please note,
 however, that most of check_mk's documentation is available only online at
@@ -327,9 +331,13 @@ ask_dir nagios_startscript /etc/init.d/nagios /etc/init.d/nagios $OMD_ROOT/etc/i
   "The complete path to the Nagios startskript is used by the option
 -R/--restart to restart Nagios."
 
-ask_dir nagpipe /var/log/nagios/rw/nagios.cmd /var/log/nagios/rw/nagios.cmd $OMD_ROOT/tmp/run/nagios.cmd "Nagios command pipe" \
+ask_dir nagpipe /var/log/nagios/rw/nagios.cmd $HOMEBASEDIR/var/nagios/rw/nagios.cmd $OMD_ROOT/tmp/run/nagios.cmd "Nagios command pipe" \
   "Complete path to the Nagios command pipe. check_mk needs write access
 to this pipe in order to operate"
+
+ask_dir check_result_path /usr/local/nagios/var/spool/checkresults $HOMEBASEDIR/var/nagios/checkresults $OMD_ROOT/tmp/nagios/checkresults "Check results directory" \
+  "Complete path to the directory where Nagios stores its check results.
+Using that directory instead of the command pipe is faster."
 
 ask_dir nagios_status_file /var/log/nagios/status.dat /var/log/nagios/status.dat $OMD_ROOT/tmp/nagios/status.dat "Nagios status file" \
   "The web pages of check_mk need to read the file 'status.dat', which is
@@ -379,11 +387,6 @@ have to log in twice"
 # -------------------------------------------------------------------
 ask_title "Integration with PNP4Nagios 0.6"
 # -------------------------------------------------------------------
-
-ask_dir rrddir $vardir/rrd $vardir/rrd $OMD_ROOT/var/pnp4nagios/perfdata "round robin databases" \
-  "Base directory for round robin databases. If you use PNP4Nagios as
-graphing tool check_mk can directly write into the exsting databases.
-This saves CPU and disk IO"
 
 ask_dir pnptemplates /usr/share/$NAME/pnp-templates $HOMEBASEDIR/pnp-templates $OMD_ROOT/local/share/check_mk/pnp-templates "PNP4Nagios templates" \
   "Check_MK ships templates for PNP4Nagios for most of its checks.
@@ -462,6 +465,7 @@ check_mk_configdir          = '$confdir/conf.d'
 checks_dir                  = '$checksdir'
 check_manpages_dir          = '$checkmandir'
 modules_dir                 = '$modulesdir'
+locale_dir                  = '$localedir'
 agents_dir                  = '$agentsdir'
 var_dir                     = '$vardir'
 lib_dir                     = '$libdir'
@@ -472,8 +476,8 @@ counters_directory          = '$vardir/counters'
 tcp_cache_dir		    = '$vardir/cache'
 logwatch_dir                = '$vardir/logwatch'
 nagios_objects_file         = '$nagconfdir/check_mk_objects.cfg'
-rrd_path                    = '$rrddir'
 nagios_command_pipe_path    = '$nagpipe'
+check_result_path           = '$check_result_path'
 nagios_status_file          = '$nagios_status_file'
 nagios_conf_dir             = '$nagconfdir'
 nagios_user                 = '$nagiosuser'
@@ -493,17 +497,21 @@ pnp_url                     = '${url_prefix}pnp4nagios/'
 pnp_templates_dir           = '$pnptemplates'
 pnp_rraconf_dir             = '$pnprraconf'
 doc_dir                     = '$docdir'
-check_mk_automation         = 'sudo -u $(id -un) $bindir/check_mk --automation'
 EOF
 
     if [ -n "$OMD_ROOT" ] ; then
 cat <<EOF  
 
 # Special for OMD
+check_mk_automation         = None
 omd_site                    = '$OMD_SITE'
 omd_root                    = '$OMD_ROOT'
 tcp_cache_dir		    = '$OMD_ROOT/tmp/check_mk/cache'
 counters_directory          = '$OMD_ROOT/tmp/check_mk/counters'
+EOF
+   else
+cat <<EOF
+check_mk_automation         = 'sudo -u $(id -un) $bindir/check_mk --automation'
 EOF
    fi
 }
@@ -621,6 +629,7 @@ do
 	   fi &&
 	   mkdir -p $DESTDIR$modulesdir &&
 	   create_defaults > $DESTDIR$modulesdir/defaults &&
+           mkdir -p $DESTDIR$localedir &&
 	   mkdir -p $DESTDIR$checksdir &&
 	   tar xzf $SRCDIR/checks.tar.gz -C $DESTDIR$checksdir &&
 	   mkdir -p $DESTDIR$web_dir &&
@@ -674,12 +683,6 @@ do
            mkdir -p $DESTDIR$confdir/multisite.d &&
 	   mkdir -p $DESTDIR$confdir/conf.d &&
 	   echo 'All files in this directory that end with .mk will be read in after main.mk' > $DESTDIR$confdir/conf.d/README &&
-	   if [ ! -d $DESTDIR$rrddir ] ; then
-	       mkdir -p $DESTDIR$rrddir && 
-	       if [ -z "$DESTDIR" ] && id "$nagiosuser" > /dev/null 2>&1 && [ $UID = 0 ] ; then
-		   chown $nagiosuser $DESTDIR$rrddir
-               fi
-	   fi &&
 	   mkdir -p $DESTDIR$bindir &&
 	   rm -f $DESTDIR$bindir/check_mk &&
 	   echo -e "#!/bin/sh\nexec python $modulesdir/check_mk.py "'"$@"' > $DESTDIR$bindir/check_mk &&
