@@ -85,7 +85,6 @@ install: build
 	sed -i 's#disable\s*=\s*no#disable        = yes#' debian/check-mk-agent/etc/xinetd.d/check_mk
 
 
-
 # Build architecture-independent files here.
 binary-indep: build install
 	dh_testdir

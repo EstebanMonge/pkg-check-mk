@@ -1,2 +1,4 @@
 usr/share/check_mk/web
 var/lib/check_mk/web
+var/lib/check_mk/wato
+etc/sudoers.d/check_mk_wato
