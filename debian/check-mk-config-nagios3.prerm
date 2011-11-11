@@ -1,0 +1,7 @@
+#!/bin/sh
+
+dpkg-maintscript-helper mv_conffile \
+    /etc/nagios3/conf.d/check_mk_templates.cfg \
+    /etc/nagios3/conf.d/check_mk/check_mk_templates.cfg \
+    1.1.10-2 \
+    check-mk-config-nagios3. -- "$@"

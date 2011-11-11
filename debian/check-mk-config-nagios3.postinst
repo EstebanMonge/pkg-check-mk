@@ -16,6 +16,19 @@ setperm() {
     fi
 }
 
+dpkg-maintscript-helper mv_conffile \
+    /etc/nagios3/conf.d/check_mk_templates.cfg \
+    /etc/nagios3/conf.d/check_mk/check_mk_templates.cfg \
+    1.1.10-2 \
+    check-mk-config-nagios3. -- "$@"
+
+if [ -e '/etc/nagios3/conf.d/check_mk_objects.cfg' ];
+then
+    echo 'Migrate /etc/nagios3/conf.d/check_mk_objects.cfg to /etc/nagios3/conf.d/objects/check_mk/check_mk_objects.cfg'
+    mv /etc/nagios3/conf.d/check_mk_objects.cfg \
+    /etc/nagios3/conf.d/check_mk/check_mk_objects.cfg
+fi
+
 case "$1" in
 	  configure)
 		#make sure our nagios user exists  
