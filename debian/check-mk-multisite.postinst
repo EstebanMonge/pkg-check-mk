@@ -21,6 +21,8 @@ case "$1" in
     configure)
         # explicitly set permissions on some files
         setperm www-data nagios 4770 /var/lib/check_mk/web
+        setperm www-data nagios 4770 /var/lib/check_mk/wato
+        setperm www-data nagios 4770 /etc/check_mk/conf.d
     ;;
     abort-upgrade|abort-remove|abort-deconfigure)
     ;;
