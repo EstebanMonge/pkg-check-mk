@@ -1,11 +1,30 @@
-check-mk (1.1.10p3-1) UNRELEASED; urgency=low
+check-mk (1.1.12-1) unstable; urgency=low
 
+  [ Bernd Zeimetz ]
+  * [791a318] Install necessary sudo permissions for WATO.
+  * [cb1f3c7] Fix lintian W: check-mk source:
+              brace-expansion-in-debhelper-config-file
+  * [b5562b4] Install /var/lib/check_mk/wato as required by wato.
+  * [571007f] /var/lib/check_mk/autochecks/ should be owned by nagios, too.
+  * [d6e7572] /var/lib/check_mk/precompiled should be owned by nagios:nagios.
+  * [5456d5c] Move check_mk nagios/icinga config files into check_mk subfolder.
+  * [bd0ea1d] Add a check-mk-doc package and configure defaults accordingly.
+
+  [ Alexander Wirt ]
+  * [559e8b7] Migrate configuration files to /etc/icinga/objects/check_mk
+  * [d5bad65] Fix typo in control file
+  * [11edf6f] Migrate check-mk objects for nagios
+  * [a6b822f] Add missing debhelper tokens
+  * [fd14d37] Add missing set -e
+  * [28a25ee] config postinst should depend on adduser
+  * [6b67884] Fix permissions for wato dirs
   * [ba084b0] Also include versions like 1.10p2
   * [6f0a194] Imported Upstream version 1.1.10p3
   * [869f2a0] Install logwatch.cfg to examples (Closes: #639255)
   * [cdfef39] Make check-mk web dir sgid nagios
+  * [3b7f02e] Imported Upstream version 1.1.12
 
- -- Alexander Wirt <formorer@debian.org>  Fri, 30 Sep 2011 08:47:22 +0200
+ -- Alexander Wirt <formorer@debian.org>  Fri, 11 Nov 2011 23:52:28 +0100
 
 check-mk (1.1.10-2) unstable; urgency=low
 
