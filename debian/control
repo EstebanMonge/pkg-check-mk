@@ -39,7 +39,7 @@ Description: general purpose nagios-plugin for retrieving data
 
 Package: check-mk-server
 Architecture: any
-Pre-Depends: Pre-Depends: dpkg (>= 1.15.7.2)
+Pre-Depends: dpkg (>= 1.15.7.2)
 Depends: ${shlibs:Depends}, ${misc:Depends}, adduser, python, check-mk-config-nagios3 | check-mk-config-icinga
 Recommends: check-mk-doc
 Description: general purpose nagios-plugin for retrieving data
