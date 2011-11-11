@@ -16,6 +16,19 @@ setperm() {
     fi
 }
 
+dpkg-maintscript-helper mv_conffile \
+    /etc/icinga/objects/check_mk_templates.cfg \
+    /etc/icinga/objects/check_mk/check_mk_templates.cfg \
+    1.1.10-2 \
+    check-mk-config-icinga. -- "$@"
+
+if [ -e '/etc/icinga/objects/check_mk_objects.cfg' ];
+then
+    echo 'Migrate /etc/icinga/objects/check_mk_objects.cfg to /etc/icinga/objects/check_mk/check_mk_objects.cfg'
+    mv /etc/icinga/objects/check_mk_objects.cfg \
+    /etc/icinga/objects/check_mk/check_mk_objects.cfg
+fi
+
 case "$1" in
 	  configure)
 		#make sure our nagios user exists  
