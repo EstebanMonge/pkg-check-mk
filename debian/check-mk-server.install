@@ -8,6 +8,7 @@ var/lib/check_mk/packages
 var/lib/check_mk/precompiled
 usr/bin/check_mk
 usr/share/check_mk/checks
+usr/share/check_mk/checks-man
 usr/share/check_mk/modules
 usr/share/check_mk/pnp-rraconf
 usr/share/check_mk/pnp-templates

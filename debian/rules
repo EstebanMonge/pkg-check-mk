@@ -83,7 +83,8 @@ install: build
 	cp debian/tmp/usr/share/check_mk/agents/xinetd.conf debian/check-mk-agent/etc/xinetd.d/check_mk
 	# xinetd: Disable service
 	sed -i 's#disable\s*=\s*no#disable        = yes#' debian/check-mk-agent/etc/xinetd.d/check_mk
-
+	# move checks manpages (to be installed in -server)
+	mv debian/tmp/usr/share/doc/check_mk/checks debian/tmp/usr/share/check_mk/checks-man
 
 # Build architecture-independent files here.
 binary-indep: build install

@@ -1,3 +1,10 @@
+check-mk (1.1.12p7-1) UNRELEASED; urgency=low
+
+  * [b088706] Add Recommends for snmp to server part
+  * [1708000] Imported Upstream version 1.1.12p7
+
+ -- Alexander Wirt <formorer@debian.org>  Fri, 30 Mar 2012 19:57:58 +0200
+
 check-mk (1.1.12-1) unstable; urgency=low
 
   [ Bernd Zeimetz ]
