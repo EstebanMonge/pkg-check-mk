@@ -12,6 +12,7 @@ Package: check-mk-agent
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Suggests: xinetd, python
+Recommends: ethtool, smartmontools
 Description: general purpose nagios-plugin for retrieving data
  Check_mk adopts a new a approach for collecting data from operating systems
  and network components. It obsoletes NRPE, check_by_ssh, NSClient and
