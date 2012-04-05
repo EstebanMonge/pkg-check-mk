@@ -91,6 +91,19 @@ binary-indep: build install
 	dh_testdir -i
 	dh_install -i
 	dh_installdocs -i debian/README.Debian
+	dh_installchangelogs -i ChangeLog
+	dh_installexamples -i
+	dh_install -i
+	dh_installman -i
+	dh_link -i
+	dh_strip -i
+	dh_compress -i
+	dh_fixperms -i
+	dh_installdeb -i
+	dh_shlibdeps -i
+	dh_gencontrol -i
+	dh_md5sums -i
+	dh_builddeb -i
 
 # We have nothing to do by default.
 
