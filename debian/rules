@@ -88,19 +88,20 @@ install: build
 
 # Build architecture-independent files here.
 binary-indep: build install
-	dh_testdir
-	dh_install
+	dh_testdir -i
+	dh_install -i
+	dh_installdocs -i debian/README.Debian
 
 # We have nothing to do by default.
 
 # Build architecture-dependent files here.
 binary-arch: build install
-	dh_testdir
-	dh_testroot
-	dh_installchangelogs ChangeLog
-	dh_installdocs --all debian/README.Debian
-	dh_installexamples
-	dh_install
+	dh_testdir -a
+	dh_testroot -a
+	dh_installchangelogs -a ChangeLog
+	dh_installdocs -a debian/README.Debian
+	dh_installexamples -a
+	dh_install -a
 	chmod +x debian/check-mk-server/usr/share/check_mk/checks/*
 	sed -i -e 's/nagiosadmin/icingaadmin/g' debian/check-mk-config-icinga/etc/check_mk/multisite.mk
 #	dh_installmenu
@@ -113,18 +114,18 @@ binary-arch: build install
 #	dh_installinit
 #	dh_installcron
 #	dh_installinfo
-	dh_installman
-	dh_link
-	dh_strip
-	dh_compress
-	dh_fixperms
+	dh_installman -a
+	dh_link -a
+	dh_strip -a
+	dh_compress -a
+	dh_fixperms -a
 #	dh_perl
 #	dh_makeshlibs
-	dh_installdeb
-	dh_shlibdeps
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
+	dh_installdeb -a
+	dh_shlibdeps -a
+	dh_gencontrol -a
+	dh_md5sums -a
+	dh_builddeb -a
 
 patch: patch-stamp
 patch-stamp:
