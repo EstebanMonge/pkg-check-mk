@@ -7,7 +7,7 @@
 # |           | |___| | | |  __/ (__|   <    | |  | | . \            |
 # |            \____|_| |_|\___|\___|_|\_\___|_|  |_|_|\_\           |
 # |                                                                  |
-# | Copyright Mathias Kettner 2010             mk@mathias-kettner.de |
+# | Copyright Mathias Kettner 2013             mk@mathias-kettner.de |
 # +------------------------------------------------------------------+
 #
 # This file is part of Check_MK.
@@ -410,16 +410,16 @@ def detect_omd():
       'pnptemplates'            : root + "/local/share/check_mk/pnp-templates",
       'rrddir'                  : root + "/var/pnp4nagios/perfdata",
       'wwwgroup'                : site,
-      'wwwuser'                 : site, 
+      'wwwuser'                 : site,
     }
 
 
-#                    _       
-#    _ __ ___   __ _(_)_ __  
-#   | '_ ` _ \ / _` | | '_ \ 
+#                    _
+#    _ __ ___   __ _(_)_ __
+#   | '_ ` _ \ / _` | | '_ \
 #   | | | | | | (_| | | | | |
 #   |_| |_| |_|\__,_|_|_| |_|
-#   
+#
 
 try:
     result = detect_omd()
@@ -563,6 +563,7 @@ try:
 
         for dir in plugin_paths + \
             [ '/usr/lib/nagios/plugins',
+              '/usr/lib64/nagios/plugins',
               '/usr/local/nagios/libexec',
               '/usr/local/nagios/plugins' ]:
             try:
