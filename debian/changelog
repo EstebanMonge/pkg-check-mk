@@ -3,6 +3,13 @@ check-mk (1.2.2p2-1) UNRELEASED; urgency=low
   * New upstream release (Closes: #678396).
   * Update defaults in debian/defaults.nagios3 and debian/defaults.icinga.
   * Update debian/patches/02_wato-sudoers.dpatch.
+  * debian/check-mk-server.install: Remove usr/share/check_mk/pnp-rraconf.
+  * debian/check-mk-config-nagios3.install: Adjust path for
+    check_mk_templates.cfg.
+  * debian/check-mk-config-icinga.install: Adjust path for
+    check_mk_templates.cfg.
+  * debian/check-mk-multisite.install: Remove no longer available
+    etc/sudoers.d/check_mk_wato.
 
  -- Thomas Bechtold <t.bechtold@telekom.de>  Wed, 07 Aug 2013 09:39:46 +0200
 
