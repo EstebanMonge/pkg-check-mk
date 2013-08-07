@@ -1,3 +1,9 @@
+check-mk (1.2.2p2-1) UNRELEASED; urgency=low
+
+  * New upstream release (Closes: #678396).
+
+ -- Thomas Bechtold <t.bechtold@telekom.de>  Wed, 07 Aug 2013 09:39:46 +0200
+
 check-mk (1.1.12p7-1) unstable; urgency=low
 
   * [b088706] Add Recommends for snmp to server part
