@@ -1,6 +1,7 @@
 check-mk (1.2.2p2-1) UNRELEASED; urgency=low
 
   * New upstream release (Closes: #678396).
+  * Update defaults in debian/defaults.nagios3 and debian/defaults.icinga.
 
  -- Thomas Bechtold <t.bechtold@telekom.de>  Wed, 07 Aug 2013 09:39:46 +0200
 

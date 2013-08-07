@@ -7,10 +7,12 @@
 # and enter new values when asked, or edit ~/.check_mk_setup.conf and
 # run ./setup.sh --yes.
 
-check_mk_version            = '1.1.12p7'
+check_mk_version            = '1.2.2p2'
 default_config_dir          = '/etc/check_mk'
 check_mk_configdir          = '/etc/check_mk/conf.d'
+share_dir		    = '/usr/share/check_mk'
 checks_dir                  = '/usr/share/check_mk/checks'
+notifications_dir	    = '/usr/share/check_mk/notifications'
 check_manpages_dir          = '/usr/share/check_mk/checks-man'
 modules_dir                 = '/usr/share/check_mk/modules'
 locale_dir                  = '/usr/share/check_mk/locale'
@@ -25,6 +27,7 @@ tcp_cache_dir               = '/var/lib/check_mk/cache'
 logwatch_dir                = '/var/lib/check_mk/logwatch'
 nagios_objects_file         = '/etc/nagios3/conf.d/check_mk/check_mk_objects.cfg'
 nagios_command_pipe_path    = '/var/lib/nagios3/rw/nagios.cmd'
+check_result_path	    = '/var/lib/nagios3/spool/checkresults'
 nagios_status_file          = '/var/cache/nagios3/status.dat'
 nagios_conf_dir             = '/etc/nagios3/conf.d'
 nagios_user                 = 'nagios'
