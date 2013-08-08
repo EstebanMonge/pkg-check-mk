@@ -2,6 +2,10 @@
 
 set -e
 
+# Source debconf library.
+. /usr/share/debconf/confmodule
+db_stop
+
 # a little helper for getting permissions right
 setperm() {
     local user="$1"

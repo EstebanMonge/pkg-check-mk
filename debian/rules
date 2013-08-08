@@ -56,6 +56,7 @@ install: build
 	dh_testroot
 	dh_prep
 	dh_installdirs
+	dh_installdebconf
 	mkdir -p debian/tmp
 	DESTDIR=debian/tmp ./setup.sh --yes
 	#don't use the statically linked binary.
