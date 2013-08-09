@@ -17,11 +17,17 @@
         PythonDebug On 
         DirectoryIndex index.py
 
+        #Handle apache 2.2 and 2.4
+        <IfVersion >= 2.3>
+            Require local
+        </IfVersion>
+        <IfVersion < 2.3>
+            Order deny,allow
+            allow from all
+        </IfVersion>
         # Need Nagios authentification. Please edit the
         # following: Set AuthName and AuthUserFile to the
         # same value that you use for your Nagios configuration!
-        Order deny,allow
-        allow from all
         AuthName "Nagios Access"
         AuthType Basic
         AuthUserFile /etc/nagios3/htpasswd.users
