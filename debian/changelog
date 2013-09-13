@@ -1,5 +1,6 @@
-check-mk (1.2.2p2-1) UNRELEASED; urgency=low
+check-mk (1.2.2p2-1) unstable; urgency=low
 
+  [ Thomas Bechtold ]
   * New upstream release (Closes: #678396).
   * Update defaults in debian/defaults.nagios3 and debian/defaults.icinga.
   * Update debian/patches/02_wato-sudoers.dpatch.
@@ -10,8 +11,14 @@ check-mk (1.2.2p2-1) UNRELEASED; urgency=low
     check_mk_templates.cfg.
   * debian/check-mk-multisite.install: Remove no longer available
     etc/sudoers.d/check_mk_wato.
+  * [411c207] check-mk-server: Add debconf note about RRD update.
+  * [fd007c2] Handle apache 2.2 and apache2.4
+  * [9038096] debconf msg only when upgrading from < 1.2.0
 
- -- Thomas Bechtold <t.bechtold@telekom.de>  Wed, 07 Aug 2013 09:39:46 +0200
+  [ Alexander Wirt ]
+  * [1abe7cc] Bump standards version
+
+ -- Alexander Wirt <formorer@debian.org>  Fri, 13 Sep 2013 08:00:52 +0200
 
 check-mk (1.1.12p7-1) unstable; urgency=low
 
