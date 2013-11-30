@@ -1,3 +1,9 @@
+check-mk (1.2.2p3-1) UNRELEASED; urgency=low
+
+  * New upstream release.
+
+ -- Thomas Bechtold <thomasbechtold@jpberlin.de>  Sat, 30 Nov 2013 13:51:42 +0100
+
 check-mk (1.2.2p2-1) unstable; urgency=low
 
   [ Thomas Bechtold ]
