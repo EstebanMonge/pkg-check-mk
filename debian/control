@@ -2,7 +2,10 @@ Source: check-mk
 Section: admin
 Priority: optional
 Maintainer: Debian Nagios Maintainer Group <pkg-nagios-devel@lists.alioth.debian.org>
-Uploaders: Alexander Wirt <formorer@debian.org>, Jan Wagner <waja@cyconet.org>, Sven Velt <sven@velt.de>
+Uploaders: Alexander Wirt <formorer@debian.org>,
+           Jan Wagner <waja@cyconet.org>,
+           Sven Velt <sven@velt.de>,
+           Thomas Bechtold <toabctl@debian.org>,
 Build-Depends: debhelper (>= 7), dpatch
 Standards-Version: 3.9.4
 Vcs-Git: git://anonscm.debian.org/pkg-nagios/pkg-check-mk.git
