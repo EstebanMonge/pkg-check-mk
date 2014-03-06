@@ -24,7 +24,7 @@
 # Boston, MA 02110-1301 USA.
 
 
-VERSION=1.2.2p3
+VERSION=1.2.4
 NAME=check_mk
 LANG=
 LC_ALL=
@@ -225,6 +225,7 @@ HOMEBASEDIR=$HOME/$NAME
 
 ask_title "Installation directories of check_mk"
 
+
 ask_dir bindir /usr/bin $HOMEBASEDIR/bin $OMD_ROOT/local/bin "Executable programs" \
   "Directory where to install executable programs such as check_mk itself.
 This directory should be in your search path (\$PATH). Otherwise you
@@ -375,6 +376,14 @@ Those templates make the history graphs look nice. PNP4Nagios
 expects such templates in the directory pnp/templates in your
 document root for static web pages"
 
+ask_dir rrd_path /var/lib/nagios/rrd $HOMEBASEDIR/var/nagios/rrd $OMD_ROOT/var/pnp4nagios/perfdata "RRD files" \
+    "Configure the directory PNP4Nagios stores the RRD database files in"
+
+ask_dir rrdcached_socket /tmp/rrdcached.sock $HOMEBASEDIR/var/rrdcached.sock $OMD_ROOT/tmp/run/rrdached.sock "rrdcached socket" \
+    "If you use the rrdcached to process performance data from Nagios,
+you can configure the socket of the rrdcached here to make the prediction
+feature use it"
+
 # -------------------------------------------------------------------
 ask_title "Check_MK Livestatus Module"
 # -------------------------------------------------------------------
@@ -398,6 +407,10 @@ C++ compiler installed in order to do this"
 
 if [ "$enable_livestatus" = yes ]
 then
+  ask_dir -d nagios_version "3.5.0" "3.5.0" "OMD Monitoring Site $OMD_SITE" "Nagios / Icinga version" \
+   "The version is required for the compilation of the livestatus module.
+Depending on the major version (3 or 4) different nagios headers are included"
+
   ask_dir libdir /usr/lib/$NAME $HOMEBASEDIR/lib $OMD_ROOT/local/lib/mk-livestatus "check_mk's binary modules" \
    "Directory for architecture dependent binary libraries and plugins
 of check_mk"
@@ -483,6 +496,8 @@ tcp_cache_dir		    = '$vardir/cache'
 tmp_dir		            = '$vardir/tmp'
 logwatch_dir                = '$vardir/logwatch'
 nagios_objects_file         = '$nagconfdir/check_mk_objects.cfg'
+rrd_path                    = '$rrd_path'
+rrddcached_socket           = '$rrdcached_socket'
 nagios_command_pipe_path    = '$nagpipe'
 check_result_path           = '$check_result_path'
 nagios_status_file          = '$nagios_status_file'
@@ -550,7 +565,14 @@ compile_livestatus ()
    mkdir -p $D
    tar xvzf $SRCDIR/livestatus.tar.gz -C $D
    pushd $D
-   ./configure --libdir=$libdir --bindir=$bindir &&
+
+   local CONFIGURE_OPTS=""
+   if [ -n "$nagios_version" ] ; then
+        if [ ${nagios_version:0:1} == 4 ] ; then
+           CONFIGURE_OPTS="--with-nagios4"
+        fi
+   fi
+   ./configure --libdir=$libdir --bindir=$bindir $CONFIGURE_OPTS &&
    make clean &&
    cat <<EOF > src/livestatus.h &&
 #ifndef livestatus_h
@@ -561,7 +583,7 @@ EOF
    make -j 8  2>&1 &&
    strip src/livestatus.o &&
    mkdir -p $DESTDIR$libdir &&
-   install -m 755 src/livecheck src/livestatus.o $DESTDIR$libdir &&
+   install -m 755 src/livestatus.o $DESTDIR$libdir &&
    mkdir -p $DESTDIR$bindir &&
    install -m 755 src/unixcat $DESTDIR$bindir &&
    popd
@@ -602,6 +624,7 @@ VARDIR=$mkeventdstatedir
 CONFDIR=$confdir
 MKEVENTD_SYSLOG=off
 RUNUSER=$nagiosuser
+LIVESTATUS=$livesock
 # DEBUG="--debug --foreground"
 
 PIDFILE=\$SOCKETDIR/pid
@@ -995,8 +1018,8 @@ EOF
            # WATO. Also create an empty and Apache-writable auth.serials
            serials_file=$DESTDIR${htpasswd_file%/*}/auth.serials &&
            touch "$serials_file" &&
-           chown $wwwuser "$serials_file" &&
-           chown $wwwuser "$htpasswd_file" &&
+           (chown $wwwuser "$serials_file" || true) &&
+           (chown $wwwuser "$htpasswd_file" || true) &&
 	   create_sudo_configuration &&
            if [ "$enable_mkeventd" = yes ]
            then
