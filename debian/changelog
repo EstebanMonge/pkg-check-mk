@@ -2,7 +2,9 @@ check-mk (1.2.4-1) UNRELEASED; urgency=medium
 
   * New upstream release (Closes: #738987).
   * debian/defaults.*: Use correct check-mk version.
-  * debian/control: Add myself to Uploaders field.
+  * debian/control:
+    - Add myself to Uploaders field.
+    - Remove Sven Velt from Uploaders field (Closes: #739092).
 
  -- Thomas Bechtold <toabctl@debian.org>  Fri, 27 Dec 2013 08:35:49 +0100
 
