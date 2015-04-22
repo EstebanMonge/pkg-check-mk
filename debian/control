@@ -5,6 +5,7 @@ Maintainer: Debian Nagios Maintainer Group <pkg-nagios-devel@lists.alioth.debian
 Uploaders: Alexander Wirt <formorer@debian.org>,
            Jan Wagner <waja@cyconet.org>,
            Thomas Bechtold <toabctl@debian.org>,
+	   Ilya Rassadin <elcamlost@gmail.com>,
 Build-Depends: debhelper (>= 7), dpatch
 Standards-Version: 3.9.4
 Vcs-Git: git://anonscm.debian.org/pkg-nagios/pkg-check-mk.git

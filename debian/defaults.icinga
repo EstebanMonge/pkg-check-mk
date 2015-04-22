@@ -7,7 +7,7 @@
 # and enter new values when asked, or edit ~/.check_mk_setup.conf and
 # run ./setup.sh --yes.
 
-check_mk_version            = '1.2.4'
+check_mk_version            = '1.2.4p5'
 default_config_dir          = '/etc/check_mk'
 check_mk_configdir          = '/etc/check_mk/conf.d'
 share_dir		    = '/usr/share/check_mk'
@@ -52,3 +52,5 @@ pnp_templates_dir           = '/usr/share/check_mk/pnp-templates'
 pnp_rraconf_dir             = '/usr/share/check_mk/pnp-rraconf'
 doc_dir                     = '/usr/share/doc/check-mk-doc'
 check_mk_automation         = 'sudo -u nagios /usr/bin/check_mk --automation'
+rrd_path                    = '/var/lib/nagios/rrd'
+log_dir                     = '/var/log/check_mk'
