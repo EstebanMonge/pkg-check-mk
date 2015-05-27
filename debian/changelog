@@ -19,6 +19,10 @@ check-mk (1.2.6p4-1) UNRELEASED; urgency=medium
      CVE-2014-2332 are fixed in upstream as of 1.2.3i5 (Closes: #742689).
   * New upstream release (Closes: #778380).
   * debian/defaults.*: Use correct check-mk version.
+  * upstream forgot to include waitmax.c in their "source" tarball,
+     provide it in the source package for now
+  * logwatch.cfg example changed location upstream, adjust
+     check_mk_agent_logwatch.{example,install}
 
  -- Matt Taggart <taggart@debian.org>  Wed, 20 May 2015 15:09:13 -0700
 
