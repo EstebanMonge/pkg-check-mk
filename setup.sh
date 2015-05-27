@@ -6,7 +6,7 @@
 # |           | |___| | | |  __/ (__|   <    | |  | | . \            |
 # |            \____|_| |_|\___|\___|_|\_\___|_|  |_|_|\_\           |
 # |                                                                  |
-# | Copyright Mathias Kettner 2013             mk@mathias-kettner.de |
+# | Copyright Mathias Kettner 2014             mk@mathias-kettner.de |
 # +------------------------------------------------------------------+
 #
 # This file is part of Check_MK.
@@ -24,7 +24,11 @@
 # Boston, MA 02110-1301 USA.
 
 
+<<<<<<< HEAD
 VERSION=1.2.4p5
+=======
+VERSION=1.2.6p4
+>>>>>>> upstream/1.2.6p4
 NAME=check_mk
 LANG=
 LC_ALL=
@@ -251,8 +255,8 @@ ask_dir checkmandir /usr/share/doc/$NAME/checks $HOMEBASEDIR/doc/checks $OMD_ROO
   "Directory for manuals for the various checks. The manuals can be viewed
 with check_mk -M <CHECKNAME>"
 
-ask_dir vardir /var/lib/$NAME $HOMEBASEDIR/var $OMD_ROOT/var/check_mk "working directory of check_mk" \
-  "check_mk will create caches files, automatically created checks and
+ask_dir vardir /var/lib/$NAME $HOMEBASEDIR/var $OMD_ROOT/var/check_mk "working directory of Check_MK" \
+  "Check_MK will create log files, automatically created checks and
 other files into this directory. The setup will create several subdirectories
 and makes them writable by the Nagios process"
 
@@ -458,6 +462,7 @@ fi
 
 checksdir=$sharedir/checks
 notificationsdir=$sharedir/notifications
+inventorydir=$sharedir/inventory
 modulesdir=$sharedir/modules
 web_dir=$sharedir/web
 localedir=$sharedir/locale
@@ -482,12 +487,14 @@ check_mk_configdir          = '$confdir/conf.d'
 share_dir                   = '$sharedir'
 checks_dir                  = '$checksdir'
 notifications_dir           = '$notificationsdir'
+inventory_dir               = '$inventorydir'
 check_manpages_dir          = '$checkmandir'
 modules_dir                 = '$modulesdir'
 locale_dir                  = '$localedir'
 agents_dir                  = '$agentsdir'
-var_dir                     = '$vardir'
 lib_dir                     = '$libdir'
+var_dir                     = '$vardir'
+log_dir                     = '$vardir/log'
 snmpwalks_dir               = '$vardir/snmpwalks'
 autochecksdir               = '$vardir/autochecks'
 precompiled_hostchecks_dir  = '$vardir/precompiled'
@@ -806,6 +813,8 @@ do
 	   tar xzf $SRCDIR/checks.tar.gz -C $DESTDIR$checksdir &&
 	   mkdir -p $DESTDIR$notificationsdir &&
 	   tar xzf $SRCDIR/notifications.tar.gz -C $DESTDIR$notificationsdir &&
+	   mkdir -p $DESTDIR$inventorydir &&
+	   tar xzf $SRCDIR/inventory.tar.gz -C $DESTDIR$inventorydir &&
 	   mkdir -p $DESTDIR$web_dir &&
 	   tar xzf $SRCDIR/web.tar.gz -C $DESTDIR$web_dir &&
 	   cp $DESTDIR$modulesdir/defaults $DESTDIR$web_dir/htdocs/defaults.py &&
@@ -824,15 +833,17 @@ do
 	       sed -ri 's@^export MK_LIBDIR="(.*)"@export MK_LIBDIR="'"$agentslibdir"'"@' $agent
 	       sed -ri 's@^export MK_CONFDIR="(.*)"@export MK_CONFDIR="'"$agentsconfdir"'"@' $agent
 	   done &&
-	   mkdir -p $DESTDIR$vardir/{autochecks,counters,precompiled,cache,logwatch,web,wato,notify} &&
+	   mkdir -p $DESTDIR$vardir/{autochecks,counters,precompiled,cache,logwatch,web,wato,notify,log} &&
 	   if [ -z "$DESTDIR" ] && id "$nagiosuser" > /dev/null 2>&1 && [ $UID = 0 ] ; then
 	     chown -R $nagiosuser $DESTDIR$vardir/{counters,cache,logwatch,notify}
-	     chown $nagiosuser $DESTDIR$vardir/web
+	     chown $nagiosuser $DESTDIR$vardir/{web,log}
            fi &&
 	   mkdir -p $DESTDIR$confdir/conf.d &&
 	   if [ -z "$DESTDIR" ] ; then
 	     chgrp -R $wwwgroup $DESTDIR$vardir/web &&
 	     chmod -R g+w $DESTDIR$vardir/web &&
+	     chgrp -R $wwwgroup $DESTDIR$vardir/log &&
+	     chmod -R g+w $DESTDIR$vardir/log &&
 	     chgrp -R $wwwgroup $DESTDIR$vardir/wato &&
 	     chmod -R g+w $DESTDIR$vardir/wato
              mkdir -p $DESTDIR$vardir/tmp &&
@@ -948,7 +959,18 @@ and change the path there. Restart Apache afterwards."
        Allow from all
        Satisfy any
   </Location>
+
+  # Trigger cron jobs. This is done without authentication
+  <Location "${url_prefix}check_mk/run_cron.py">
+      Order deny,allow
+      Deny from all
+      Allow from 127.0.0.1
+      Satisfy any
+  </Location>
+
 </IfModule>
+
+
 
 <IfModule !mod_python.c>
   Alias ${url_prefix}check_mk $web_dir/htdocs
