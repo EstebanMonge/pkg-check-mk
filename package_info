@@ -22,81 +22,6 @@
                       'check-mk-agent.spec',
                       'check_mk_caching_agent.linux',
                       'mk-job',
-<<<<<<< HEAD
-                      'plugins/dmi_sysinfo',
-                      'plugins/arc_raid_status.sh',
-                      'plugins/apache_status',
-                      'plugins/mk_jolokia',
-                      'plugins/mk_oracle_asm',
-                      'plugins/db2_mem.sh',
-                      'plugins/smart',
-                      'plugins/mk_mysql',
-                      'plugins/mk_postgres',
-                      'plugins/veritas/vxvm_multipath',
-                      'plugins/veritas/vxvm_enclosures',
-                      'plugins/veritas/vxvm_objstatus',
-                      'plugins/mk_zypper',
-                      'plugins/mk_logwatch',
-                      'plugins/nfsexports',
-                      'plugins/mailman_lists',
-                      'plugins/mk_tsm',
-                      'plugins/resolve_hostname',
-                      'plugins/jar_signature',
-                      'plugins/plesk_domains',
-                      'plugins/mk_sap',
-                      'plugins/mk_oracle',
-                      'plugins/README',
-                      'plugins/dmraid',
-                      'plugins/j4p_performance',
-                      'plugins/plesk_backups',
-                      'plugins/sylo',
-                      'sap/sap.cfg',
-                      'sap/sapnwrfc-0.19.tar.gz',
-                      'solaris/mk_oracle',
-                      'special/agent_vsphere.pysphere',
-                      'special/agent_random',
-                      'special/agent_fritzbox',
-                      'special/agent_vsphere',
-                      'special/agent_activemq',
-                      'sqlplus.sh',
-                      'waitmax',
-                      'waitmax.c',
-                      'windows/check_mk_agent.cc',
-                      'windows/mrpe/check_crit.bat',
-                      'windows/crash.cc',
-                      'windows/crash.exe',
-                      'windows/install_agent.exe',
-                      'windows/check_mk.example.ini',
-                      'windows/nowin.exe',
-                      'windows/nowin.cc',
-                      'windows/check_mk_agent.exe',
-                      'windows/endless.bat',
-                      'windows/installer.ico',
-                      'windows/plugins/mk_oracle.bat',
-                      'windows/plugins/windows_broadcom_bonding.bat',
-                      'windows/plugins/megaraid.bat',
-                      'windows/plugins/tsm_checks.bat',
-                      'windows/plugins/windows_multipath.vbs',
-                      'windows/plugins/hyperv_vms.ps1',
-                      'windows/plugins/win_dhcp_pools.bat',
-                      'windows/plugins/dmi_sysinfo.bat',
-                      'windows/plugins/psperf.bat',
-                      'windows/plugins/windows_tasks.ps1',
-                      'windows/plugins/windows_updates.vbs',
-                      'windows/plugins/deprecated/windows_time.bat',
-                      'windows/plugins/deprecated/wmicchecks.bat',
-                      'windows/plugins/netstat_an.bat',
-                      'windows/plugins/veeam_backup_status.ps1_',
-                      'windows/plugins/win_printers.ps1',
-                      'windows/plugins/mssql.vbs',
-                      'windows/plugins/wmic_if.bat',
-                      'windows/plugins/windows_intel_bonding.bat',
-                      'windows/plugins/ad_replication.bat',
-                      'windows/plugins/veeam_backup_status.bat',
-                      'windows/installer-64.nsi',
-                      'windows/installer.nsi',
-                      'windows/Makefile',
-=======
                       'mk-job.solaris',
                       'plugins/mk_inventory.solaris',
                       'plugins/symantec_av',
@@ -192,7 +117,6 @@
                       'windows/plugins/windows_intel_bonding.bat',
                       'windows/plugins/ad_replication.bat',
                       'windows/plugins/veeam_backup_status.bat',
->>>>>>> upstream/1.2.6p4
                       'xinetd_caching.conf',
                       'xinetd.conf',
                       'z_os/waitmax'],
@@ -1611,15 +1535,8 @@
                    'check_mk.trans.200.gif',
                    'check_mk.trans.200.png',
                    'drafts/LIESMICH.checkgenerator',
-<<<<<<< HEAD
-                   'drafts/README.bulk_notifications',
-                   'drafts/README.rule_based_notifications',
-                   'drafts/LIESMICH.rule_based_notifications',
-                   'drafts/LIESMICH.hardwareinventur',
-=======
                    'drafts/README.cmk-register-host',
                    'drafts/LIESMICH.windows_persisted',
->>>>>>> upstream/1.2.6p4
                    'drafts/LIESMICH.globalsettings',
                    'drafts/LIESMICH.Check_MK_2.0',
                    'helpers/reindent.py',
@@ -1655,11 +1572,8 @@
                    'livestatus/LQL-examples/5.lql',
                    'manpage.template',
                    'mkeventd/query_events',
-<<<<<<< HEAD
-=======
                    'Notifications.png',
                    'Notifications.svg',
->>>>>>> upstream/1.2.6p4
                    'predictive/foo.agentplugin',
                    'predictive/foo.check',
                    'predictive/foo.wato',
@@ -1670,24 +1584,6 @@
                    'README.setup_in_omd',
                    'README.sounds',
                    'skeleton_check',
-<<<<<<< HEAD
-                   'treasures/wato_host_svc_groups.py',
-                   'treasures/check_mk.bash_completion',
-                   'treasures/cmk_delete_host.py',
-                   'treasures/agent_ipmi',
-                   'treasures/downtime',
-                   'treasures/find_piggy_orphans',
-                   'treasures/multisite_to_mrpe',
-                   'treasures/notify_mobilant.py',
-                   'treasures/notification_report.sh',
-                   'treasures/check_bi_local.py',
-                   'treasures/notify_trap',
-                   'treasures/check_imap_folder',
-                   'treasures/zombies.mk',
-                   'treasures/migrate_cpu_load.sh',
-                   'treasures/check_livestatus',
-                   'treasures/win_if_check.bat',
-=======
                    'treasures/workplace/screenrc',
                    'treasures/workplace/vimrc',
                    'treasures/mk_oracle.old',
@@ -1726,7 +1622,6 @@
                    'treasures/notifications/README',
                    'treasures/nagvis_icon/nagvis_icon.mk',
                    'treasures/nagvis_icon/nagvis_icon.py',
->>>>>>> upstream/1.2.6p4
                    'treasures/check_nagios_states',
                    'treasures/livedump/livedump',
                    'treasures/livedump/livedump-ssh-recv',
@@ -1740,14 +1635,6 @@
                    'treasures/modbus/modbus_value',
                    'treasures/modbus/agent_modbus',
                    'treasures/modbus/checks/agent_modbus',
-<<<<<<< HEAD
-                   'treasures/check_nagios_states.php',
-                   'treasures/get_rrd_cache_stats',
-                   'treasures/liveproxy/TODO',
-                   'treasures/liveproxy/liveproxyd',
-                   'treasures/active_checks/check_form_submit',
-                   'treasures/active_checks/check_sql',
-=======
                    'treasures/deprecated/agents/plugins/dmi_sysinfo',
                    'treasures/deprecated/agents/plugins/mrpe_include',
                    'treasures/deprecated/agents/plugins/j4p_performance',
@@ -1789,7 +1676,6 @@
                    'treasures/msexchange/winperf_msx_activesync',
                    'treasures/msexchange/winperf_msx_queued_mailbox',
                    'treasures/msexchange/README',
->>>>>>> upstream/1.2.6p4
                    'treasures/inventory_helper.sh',
                    'treasures/Event_Console/sl_notify_to_eventd.py',
                    'treasures/Event_Console/get_event_status',
@@ -1801,23 +1687,15 @@
                    'treasures/Event_Console/nsca2mkeventd/LIESMICH',
                    'treasures/Event_Console/Eventconsole-Performance.py',
                    'treasures/colorgrep',
-<<<<<<< HEAD
-=======
                    'treasures/webapps/cmk_nagios_webapps-1.1.mkp',
                    'treasures/webapps/README',
->>>>>>> upstream/1.2.6p4
                    'treasures/wiki_painter.py',
                    'treasures/check_curl',
                    'treasures/speedometer.xcf',
                    'treasures/ds_random_bi.mk',
                    'treasures/check_servicegroup',
-<<<<<<< HEAD
-                   'treasures/mknotifyd',
-                   'treasures/check_mail_loop',
-=======
                    'treasures/wato_geo_fields.py',
                    'treasures/mknotifyd',
->>>>>>> upstream/1.2.6p4
                    'treasures/fsc-celsius-m470-sel-1.2.tar.gz',
                    'treasures/opcmsg',
                    'treasures/unix_cache_plugins.sh',
@@ -1827,10 +1705,7 @@
                    'treasures/check_flapping/cmk_check',
                    'treasures/check_flapping/check_flapping',
                    'treasures/duallan_check',
-<<<<<<< HEAD
-=======
                    'treasures/cmk-delete-host',
->>>>>>> upstream/1.2.6p4
                    'treasures/config_snippets/exchange.rules.mk',
                    'windows/README.lodctr',
                    'windows/nslookup_local_check_example/nslookup_forward.bat',
@@ -2141,11 +2016,6 @@
                              'check_mk-winperf_phydisk.php',
                              'check_mk-winperf_processor.util.php',
                              'check_mk-wut_webtherm.php',
-<<<<<<< HEAD
-                             'check_mk-zfsget.php'],
-           'web': ['htdocs/main.py',
-                   'htdocs/userdb.py',
-=======
                              'check_mk-zfs_arc_cache.l2.php',
                              'check_mk-zfs_arc_cache.php',
                              'check_mk-zfsget.php',
@@ -2153,7 +2023,6 @@
            'web': ['htdocs/main.py',
                    'htdocs/userdb.py',
                    'htdocs/crashed_check.py',
->>>>>>> upstream/1.2.6p4
                    'htdocs/bi.py',
                    'htdocs/login.css',
                    'htdocs/weblib.py',
@@ -2175,10 +2044,7 @@
                    'htdocs/hooks.py',
                    'htdocs/mobile.py',
                    'htdocs/livestatus.py',
-<<<<<<< HEAD
-=======
                    'htdocs/inventory.py',
->>>>>>> upstream/1.2.6p4
                    'htdocs/pages.css',
                    'htdocs/wato.css',
                    'htdocs/htmllib.py',
@@ -2186,20 +2052,13 @@
                    'htdocs/bi.css',
                    'htdocs/md5crypt.py',
                    'htdocs/table.py',
-<<<<<<< HEAD
-=======
                    'htdocs/visuals.py',
->>>>>>> upstream/1.2.6p4
                    'htdocs/default_permissions.py',
                    'htdocs/logwatch.py',
                    'htdocs/login.py',
                    'htdocs/mobile.css',
                    'htdocs/actions.py',
                    'htdocs/ie.css',
-<<<<<<< HEAD
-                   'htdocs/pagefunctions.py',
-=======
->>>>>>> upstream/1.2.6p4
                    'htdocs/jquery/jquery.mobile-1.0.js',
                    'htdocs/jquery/jquery-1.6.4.min.js',
                    'htdocs/jquery/jquery.mobile-1.0.min.css',
@@ -2214,10 +2073,7 @@
                    'htdocs/jquery/jquery.mobile.structure-1.0.min.css',
                    'htdocs/jquery/jquery.mobile.structure-1.0.css',
                    'htdocs/sidebar.css',
-<<<<<<< HEAD
-=======
                    'htdocs/webapi.py',
->>>>>>> upstream/1.2.6p4
                    'htdocs/index.py',
                    'htdocs/help.py',
                    'htdocs/views.py',
@@ -2228,24 +2084,12 @@
                    'htdocs/dashboard.py',
                    'htdocs/html_mod_python.py',
                    'htdocs/images/dial_refresh_off.png',
-<<<<<<< HEAD
-=======
                    'htdocs/images/icon_notes.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/button_sitestatus_dead_hi.png',
                    'htdocs/images/button_insert_hi.png',
                    'htdocs/images/icon_availability.png',
                    'htdocs/images/button_url_lo.png',
                    'htdocs/images/button_rulesets_hi.png',
-<<<<<<< HEAD
-                   'htdocs/images/button_download_hi.png',
-                   'htdocs/images/button_sitestatus_disabled_hi.png',
-                   'htdocs/images/icon_siteuptodate.png',
-                   'htdocs/images/button_history_hi.png',
-                   'htdocs/images/favicon.ico',
-                   'htdocs/images/tree_40.png',
-                   'htdocs/images/mk_logo_small.gif',
-=======
                    'htdocs/images/button_ignore_lo.png',
                    'htdocs/images/button_download_hi.png',
                    'htdocs/images/button_sitestatus_disabled_hi.png',
@@ -2255,7 +2099,6 @@
                    'htdocs/images/dashboard_grid.png',
                    'htdocs/images/favicon.ico',
                    'htdocs/images/tree_40.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/icon_disabled.png',
                    'htdocs/images/button_reloadsnapin_lo_alt.png',
                    'htdocs/images/button_commands_down_lo.png',
@@ -2264,37 +2107,22 @@
                    'htdocs/images/icon_wato_changes.png',
                    'htdocs/images/button_checkbox_hi.png',
                    'htdocs/images/icon_download.png',
-<<<<<<< HEAD
-                   'htdocs/images/icon_nagios.gif',
-=======
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/icon_configuration.png',
                    'htdocs/images/button_snapin_switch_on_lo.png',
                    'htdocs/images/dial_num_columns.png',
                    'htdocs/images/button_random_lo.png',
-<<<<<<< HEAD
-                   'htdocs/images/button_sitestatus_unreach_lo.png',
-=======
                    'htdocs/images/icon_dashboard.png',
                    'htdocs/images/button_sitestatus_unreach_lo.png',
                    'htdocs/images/icon_notifications.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/trans.png',
                    'htdocs/images/icon_reloading_cmk.gif',
                    'htdocs/images/button_properties_lo.png',
                    'htdocs/images/button_sitestatus_down_hi.png',
-<<<<<<< HEAD
-                   'htdocs/images/icon_wato.gif',
-=======
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/icon_auditlog.png',
                    'htdocs/images/button_table_actions_off_hi.png',
                    'htdocs/images/icon_factoryreset.png',
                    'htdocs/images/columnswitcher.png',
-<<<<<<< HEAD
-=======
                    'htdocs/images/status_add_dashlet.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/contextlink_lo.png',
                    'htdocs/images/quicksearch_field_bg.png',
                    'htdocs/images/white_20percent.png',
@@ -2310,10 +2138,7 @@
                    'htdocs/images/alert_warn.png',
                    'htdocs/images/icon_folder.png',
                    'htdocs/images/icon_hostgroups.png',
-<<<<<<< HEAD
-=======
                    'htdocs/images/button_add_dashlet_hi.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/status_pageurl.png',
                    'htdocs/images/icon_repl_25.png',
                    'htdocs/images/button_reloadsnapin_hi.png',
@@ -2322,25 +2147,14 @@
                    'htdocs/images/tree_30.png',
                    'htdocs/images/button_snapin_switch_on_hi.png',
                    'htdocs/images/button_auditlog_hi.png',
-<<<<<<< HEAD
-                   'htdocs/images/rule_no.png',
-                   'htdocs/images/breadcrumb_c_hi.png',
-=======
                    'htdocs/images/icon_crash.png',
                    'htdocs/images/rule_no.png',
                    'htdocs/images/breadcrumb_c_hi.png',
                    'htdocs/images/dashlet_arrow_l_max.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/wato_mainmenu_button_hi.png',
                    'htdocs/images/button_timeperiods_hi.png',
                    'htdocs/images/button_users_hi.png',
                    'htdocs/images/link_processes.gif',
-<<<<<<< HEAD
-                   'htdocs/images/button_folderproperties_lo.png',
-                   'htdocs/images/breadcrumb_r_hi.png',
-                   'htdocs/images/button_snapin_greyswitch_off_lo.png',
-                   'htdocs/images/button_snapin_greyswitch_off_hi.png',
-=======
                    'htdocs/images/dashlet_nodata.png',
                    'htdocs/images/button_folderproperties_lo.png',
                    'htdocs/images/dashlet_anchor_hi.png',
@@ -2348,7 +2162,6 @@
                    'htdocs/images/button_snapin_greyswitch_off_lo.png',
                    'htdocs/images/button_snapin_greyswitch_off_hi.png',
                    'htdocs/images/rule_yes_off.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/nform_background.png',
                    'htdocs/images/icon_stale.png',
                    'htdocs/images/form_background.png',
@@ -2356,20 +2169,14 @@
                    'htdocs/images/alert_down.png',
                    'htdocs/images/button_minisnapin_hi.png',
                    'htdocs/images/button_availability_lo.png',
-<<<<<<< HEAD
-=======
                    'htdocs/images/button_svc_problems_lo.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/button_checkbox_down_lo.png',
                    'htdocs/images/button_painteroptions_off.png',
                    'htdocs/images/button_checkbox_lo.png',
                    'htdocs/images/button_timeline_hi.png',
                    'htdocs/images/button_filters_set_off.png',
-<<<<<<< HEAD
-=======
                    'htdocs/images/icon_bulk_import.png',
                    'htdocs/images/button_replay_hi.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/icon_showbi.png',
                    'htdocs/images/icon_services.png',
                    'htdocs/images/contentframe_background.jpg',
@@ -2381,19 +2188,13 @@
                    'htdocs/images/button_download_lo.png',
                    'htdocs/images/status_aggrcomp.png',
                    'htdocs/images/icon_repl_75.png',
-<<<<<<< HEAD
-=======
                    'htdocs/images/icon_notify_create.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/ios_logo.png',
                    'htdocs/images/link_downtime.gif',
                    'htdocs/images/link_notifications.gif',
                    'htdocs/images/sidebar_top.png',
                    'htdocs/images/icon_aggr.png',
-<<<<<<< HEAD
-=======
                    'htdocs/images/icon_alert.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/button_folder_lo.png',
                    'htdocs/images/icon_timeperiods.png',
                    'htdocs/images/button_sidebar_messages_hi.png',
@@ -2403,28 +2204,14 @@
                    'htdocs/images/button_aggr_hi.png',
                    'htdocs/images/button_showbi_lo.png',
                    'htdocs/images/contextlink_hot.png',
-<<<<<<< HEAD
-=======
                    'htdocs/images/dashlet_arrow_t_grow.png',
                    'htdocs/images/icon_failed.png',
                    'htdocs/images/icon_crash_glow.png',
                    'htdocs/images/dashlet_arrow_b_grow.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/button_movedown_lo.png',
                    'htdocs/images/button_forth_hi.png',
                    'htdocs/images/icon_back.png',
                    'htdocs/images/icon_custom_attr.png',
-<<<<<<< HEAD
-                   'htdocs/images/dashadow-s.png',
-                   'htdocs/images/contextlink_hi.png',
-                   'htdocs/images/white_30percent.png',
-                   'htdocs/images/tree_black_60.png',
-                   'htdocs/images/helpbutton_passive.png',
-                   'htdocs/images/contextlink.png',
-                   'htdocs/images/button_backup_lo.png',
-                   'htdocs/images/alert_crit.png',
-                   'htdocs/images/icon_users.png',
-=======
                    'htdocs/images/dashlet_arrow_r_grow.png',
                    'htdocs/images/contextlink_hi.png',
                    'htdocs/images/white_30percent.png',
@@ -2437,15 +2224,11 @@
                    'htdocs/images/alert_crit.png',
                    'htdocs/images/icon_users.png',
                    'htdocs/images/icon_forth_off.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/button_sitestatus_unreach_hi.png',
                    'htdocs/images/perfometer-bg.png',
                    'htdocs/images/speedometer.png',
                    'htdocs/images/breadcrumb_r_lo.png',
-<<<<<<< HEAD
-=======
                    'htdocs/images/button_static_checks_lo.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/button_sitestatus_unknown_hi.png',
                    'htdocs/images/button_minisnapin_lo.png',
                    'htdocs/images/white_50percent.png',
@@ -2459,10 +2242,7 @@
                    'htdocs/images/bg_flapping.png',
                    'htdocs/images/metanav_30_hi.png',
                    'htdocs/images/icon_logwatch.png',
-<<<<<<< HEAD
-=======
                    'htdocs/images/icon_ical.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/button_restore_hi.png',
                    'htdocs/images/icon_cluster.png',
                    'htdocs/images/button_inventory_failed_hi.png',
@@ -2470,17 +2250,11 @@
                    'htdocs/images/helpbutton_active_hi.png',
                    'htdocs/images/icon_repl_pending.png',
                    'htdocs/images/button_sidebar_addsnapin_lo.png',
-<<<<<<< HEAD
-                   'htdocs/images/button_sitestatus_online_hi.png',
-                   'htdocs/images/dashadow-sw.png',
-                   'htdocs/images/snapin_closed.png',
-=======
                    'htdocs/images/icon_email.png',
                    'htdocs/images/rule_no_off.png',
                    'htdocs/images/button_sitestatus_online_hi.png',
                    'htdocs/images/snapin_closed.png',
                    'htdocs/images/button_replay_lo.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/sidebar_background.jpg',
                    'htdocs/images/button_painteroptions_hi.png',
                    'htdocs/images/rule_yes.png',
@@ -2488,24 +2262,11 @@
                    'htdocs/images/white_60percent.png',
                    'htdocs/images/icon_new.png',
                    'htdocs/images/button_edit_lo.png',
-<<<<<<< HEAD
-=======
                    'htdocs/images/logo_mk_small.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/button_commands_lo.png',
                    'htdocs/images/icon_backup.png',
                    'htdocs/images/button_services_hi.png',
                    'htdocs/images/button_end_lo.png',
-<<<<<<< HEAD
-                   'htdocs/images/button_close_lo.png',
-                   'htdocs/images/button_sidebar_logout_lo.png',
-                   'htdocs/images/dashadow-e.png',
-                   'htdocs/images/button_up_hi.png',
-                   'htdocs/images/button_insertdate_lo.png',
-                   'htdocs/images/alert_unknown.png',
-                   'htdocs/images/helpbutton_active.png',
-                   'htdocs/images/icon_online.png',
-=======
                    'htdocs/images/button_sidebar_logout_lo.png',
                    'htdocs/images/button_up_hi.png',
                    'htdocs/images/button_insertdate_lo.png',
@@ -2514,45 +2275,28 @@
                    'htdocs/images/helpbutton_active.png',
                    'htdocs/images/icon_online.png',
                    'htdocs/images/button_diagnose_lo.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/status_ldap.png',
                    'htdocs/images/tree_black_30.png',
                    'htdocs/images/button_move_lo.png',
                    'htdocs/images/login_input_normal.png',
-<<<<<<< HEAD
-=======
                    'htdocs/images/dashlet_edit_hi.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/button_configuration_hi.png',
                    'htdocs/images/breadcrumb_l_hi.png',
                    'htdocs/images/button_wikisearch_lo.png',
                    'htdocs/images/button_snapin_switch_off_hi.png',
-<<<<<<< HEAD
-                   'htdocs/images/globe.png',
-                   'htdocs/images/button_sitestatus_unknown_lo.png',
-                   'htdocs/images/icon_ndisabled.gif',
-                   'htdocs/images/icon_outofnot.gif',
-=======
                    'htdocs/images/dashlet_del_lo.png',
                    'htdocs/images/dashlet_del_hi.png',
                    'htdocs/images/globe.png',
                    'htdocs/images/button_sitestatus_unknown_lo.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/button_sitestatus_disabled_lo.png',
                    'htdocs/images/sidebar_profile_lo.png',
                    'htdocs/images/button_hosttag_lo.png',
                    'htdocs/images/button_timewarp_lo.png',
-<<<<<<< HEAD
-                   'htdocs/images/sidebar_bottom.png',
-                   'htdocs/images/button_closesnapin_hi.png',
-                   'htdocs/images/icon_need_restart.png',
-=======
                    'htdocs/images/button_notifications_hi.png',
                    'htdocs/images/sidebar_bottom.png',
                    'htdocs/images/button_closesnapin_hi.png',
                    'htdocs/images/icon_need_restart.png',
                    'htdocs/images/icon_nagios.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/icon_rulematch.png',
                    'htdocs/images/logo_mk.png',
                    'htdocs/images/icon_ldap.png',
@@ -2565,24 +2309,12 @@
                    'htdocs/images/icon_need_replicate.png',
                    'htdocs/images/button_random_hi.png',
                    'htdocs/images/button_quicksearch_hi.png',
-<<<<<<< HEAD
-=======
                    'htdocs/images/dashlet_url.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/image_button_r.png',
                    'htdocs/images/link_configuration.gif',
                    'htdocs/images/breadcrumb_rm_lo.png',
                    'htdocs/images/icon_replicate.png',
                    'htdocs/images/icon_checkmkg.gif',
-<<<<<<< HEAD
-                   'htdocs/images/icon_enabled.gif',
-                   'htdocs/images/icon_diagnose.png',
-                   'htdocs/images/icon_autherr.png',
-                   'htdocs/images/wato_mainmenu_button_clicked.png',
-                   'htdocs/images/contextlink_short_hi.png',
-                   'htdocs/images/login_window.png',
-                   'htdocs/images/link_link.gif',
-=======
                    'htdocs/images/icon_diagnose.png',
                    'htdocs/images/dashboard_menuarrow.png',
                    'htdocs/images/icon_autherr.png',
@@ -2593,7 +2325,6 @@
                    'htdocs/images/login_window.png',
                    'htdocs/images/link_link.gif',
                    'htdocs/images/icon_notif_disabled.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/tree_00.png',
                    'htdocs/images/snapin_footer.png',
                    'htdocs/images/button_restore_lo.png',
@@ -2602,18 +2333,12 @@
                    'htdocs/images/button_auditlog_lo.png',
                    'htdocs/images/login_input_error.png',
                    'htdocs/images/columnswitcher_down.png',
-<<<<<<< HEAD
-                   'htdocs/images/status_persist.png',
-                   'htdocs/images/icon_retry_disabled.gif',
-                   'htdocs/images/button_history_lo.png',
-=======
                    'htdocs/images/icon_notify_cancel.png',
                    'htdocs/images/status_persist.png',
                    'htdocs/images/icon_retry_disabled.gif',
                    'htdocs/images/icon_flapping.png',
                    'htdocs/images/button_history_lo.png',
                    'htdocs/images/icon_inv.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/button_table_actions_on_hi.png',
                    'htdocs/images/button_sidebar_logout_hi.png',
                    'htdocs/images/button_hosttag_hi.png',
@@ -2623,41 +2348,26 @@
                    'htdocs/images/icon_matrix.png',
                    'htdocs/images/icon_rulepmatch.png',
                    'htdocs/images/button_insert_lo.png',
-<<<<<<< HEAD
-                   'htdocs/images/pluginurl.png',
-                   'htdocs/images/button_filters_lo.png',
-=======
                    'htdocs/images/icon_npassive.png',
                    'htdocs/images/pluginurl.png',
                    'htdocs/images/button_filters_lo.png',
                    'htdocs/images/icon_update.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/icon_passive.gif',
                    'htdocs/images/contextlink_down.png',
                    'htdocs/images/icon_inventory_failed.png',
                    'htdocs/images/button_hostgroups_hi.png',
                    'htdocs/images/button_contactgroups_hi.png',
                    'htdocs/images/icon_analyze.png',
-<<<<<<< HEAD
-                   'htdocs/images/icon_detail.gif',
-=======
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/tree_black_90.png',
                    'htdocs/images/new.png',
                    'htdocs/images/button_sitestatus_waiting_hi.png',
                    'htdocs/images/contextlink_short.png',
-<<<<<<< HEAD
-=======
                    'htdocs/images/icon_success.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/button_moveup_lo.png',
                    'htdocs/images/icon_host.png',
                    'htdocs/images/button_snapin_switch_off_lo.png',
                    'htdocs/images/button_start_hi.png',
-<<<<<<< HEAD
-=======
                    'htdocs/images/dashlet_arrow_r_max.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/button_quicksearch_lo.png',
                    'htdocs/images/button_bottom_hi.png',
                    'htdocs/images/link_queue.gif',
@@ -2670,13 +2380,8 @@
                    'htdocs/images/breadcrumb_lm_lo.png',
                    'htdocs/images/dial_num_columns_off.png',
                    'htdocs/images/button_commands_off.png',
-<<<<<<< HEAD
-                   'htdocs/images/login_spotlight.png',
-                   'htdocs/images/icon_aggr.gif',
-=======
                    'htdocs/images/icon_static_checks.png',
                    'htdocs/images/login_spotlight.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/tree_80.png',
                    'htdocs/images/button_move_hi.png',
                    'htdocs/images/link_reporting.gif',
@@ -2687,26 +2392,6 @@
                    'htdocs/images/button_back_hi.png',
                    'htdocs/images/button_closesnapin_lo.png',
                    'htdocs/images/link_home.gif',
-<<<<<<< HEAD
-                   'htdocs/images/white_80percent.png',
-                   'htdocs/images/check_mk.trans.120.png',
-                   'htdocs/images/icon_downtime.gif',
-                   'htdocs/images/button_sitestatus_online_lo.png',
-                   'htdocs/images/alert_command.png',
-                   'htdocs/images/icon_trans.png',
-                   'htdocs/images/button_sites_hi.png',
-                   'htdocs/images/link_notes.gif',
-                   'htdocs/images/button_close_hi.png',
-                   'htdocs/images/button_users_lo.png',
-                   'htdocs/images/folder_hi.png',
-                   'htdocs/images/tree_20.png',
-                   'htdocs/images/icon_timewarp.png',
-                   'htdocs/images/icon_reload_failed.gif',
-                   'htdocs/images/metanav_30.png',
-                   'htdocs/images/icon_sites.png',
-                   'htdocs/images/button_commands_down_hi.png',
-                   'htdocs/images/dashadow-w.png',
-=======
                    'htdocs/images/alert_ackstop.png',
                    'htdocs/images/white_80percent.png',
                    'htdocs/images/check_mk.trans.120.png',
@@ -2731,26 +2416,12 @@
                    'htdocs/images/button_commands_down_hi.png',
                    'htdocs/images/button_diagnose_hi.png',
                    'htdocs/images/icon_rename_host.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/button_home_hi.png',
                    'htdocs/images/icon_pnp.gif',
                    'htdocs/images/button_hostgroups_lo.png',
                    'htdocs/images/wikisearch_field_bg.png',
                    'htdocs/images/icon_offline.png',
                    'htdocs/images/snapinfooter_logout_down.png',
-<<<<<<< HEAD
-                   'htdocs/images/button_checkbox_off.png',
-                   'htdocs/images/alert_stop.png',
-                   'htdocs/images/icon_ignore.png',
-                   'htdocs/images/icon_hostdowntime.png',
-                   'htdocs/images/button_roles_hi.png',
-                   'htdocs/images/icon_flapping.gif',
-                   'htdocs/images/dial_refresh_hi.png',
-                   'htdocs/images/button_folder_hi.png',
-                   'htdocs/images/icon_success.gif',
-                   'htdocs/images/alert_downtime.png',
-                   'htdocs/images/button_login_hi.png',
-=======
                    'htdocs/images/button_ignore_hi.png',
                    'htdocs/images/button_checkbox_off.png',
                    'htdocs/images/alert_stop.png',
@@ -2766,7 +2437,6 @@
                    'htdocs/images/button_login_hi.png',
                    'htdocs/images/icon_detail.png',
                    'htdocs/images/button_svc_problems_hi.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/button_showbi_hi.png',
                    'htdocs/images/icon_filter.png',
                    'htdocs/images/button_filters_off.png',
@@ -2775,15 +2445,6 @@
                    'htdocs/images/alert_unreach.png',
                    'htdocs/images/contextlink_hot_hi.png',
                    'htdocs/images/icon_snapshot_pchecksum.png',
-<<<<<<< HEAD
-                   'htdocs/images/dashadow-se.png',
-                   'htdocs/images/icon_painteroptions.png',
-                   'htdocs/images/icon_repl_failed.png',
-                   'htdocs/images/dial_num_columns_hi.png',
-                   'htdocs/images/status_frameurl.png',
-                   'htdocs/images/icon_repl_locked.png',
-                   'htdocs/images/tree_black_10.png',
-=======
                    'htdocs/images/icon_painteroptions.png',
                    'htdocs/images/icon_repl_failed.png',
                    'htdocs/images/dial_num_columns_hi.png',
@@ -2792,7 +2453,6 @@
                    'htdocs/images/icon_repl_locked.png',
                    'htdocs/images/tree_black_10.png',
                    'htdocs/images/dashlet_arrow_l.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/icon_upload.png',
                    'htdocs/images/alert_notify.png',
                    'htdocs/images/button_analyze_lo.png',
@@ -2812,19 +2472,12 @@
                    'htdocs/images/button_edit_hi.png',
                    'htdocs/images/icon_notification.png',
                    'htdocs/images/button_contactgroups_lo.png',
-<<<<<<< HEAD
-=======
                    'htdocs/images/icon_notif_enabled.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/button_back_lo.png',
                    'htdocs/images/icon_nagvis.png',
                    'htdocs/images/button_analyze_hi.png',
                    'htdocs/images/icon_home.png',
-<<<<<<< HEAD
-                   'htdocs/images/icon_comment.gif',
-=======
                    'htdocs/images/button_add_dashlet_lo.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/button_roles_lo.png',
                    'htdocs/images/tree_60.png',
                    'htdocs/images/button_aggr_lo.png',
@@ -2832,32 +2485,13 @@
                    'htdocs/images/button_movedown_hi.png',
                    'htdocs/images/folder_closed.png',
                    'htdocs/images/button_top_hi.png',
-<<<<<<< HEAD
-                   'htdocs/images/icon_ack.gif',
-=======
                    'htdocs/images/icon_ack.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/tree_black_00.png',
                    'htdocs/images/assume_2.png',
                    'htdocs/images/icon_hosttag.png',
                    'htdocs/images/breadcrumb_c_lo.png',
                    'htdocs/images/snapinfooter_einstellungen_down.png',
                    'htdocs/images/assume_bg.png',
-<<<<<<< HEAD
-                   'htdocs/images/mk_logo_126x72.gif',
-                   'htdocs/images/icon_failed.gif',
-                   'htdocs/images/button_up_lo.png',
-                   'htdocs/images/tableshadow.png',
-                   'htdocs/images/button_sidebar_messages_lo.png',
-                   'htdocs/images/icon_roles.png',
-                   'htdocs/images/button_annotation_lo.png',
-                   'htdocs/images/alert_up.png',
-                   'htdocs/images/icon_disabled.gif',
-                   'htdocs/images/dashlet_linkarrow.png',
-                   'htdocs/images/button_start_lo.png',
-                   'htdocs/images/button_wikisearch_hi.png',
-                   'htdocs/images/alert_ok.png',
-=======
                    'htdocs/images/button_up_lo.png',
                    'htdocs/images/tableshadow.png',
                    'htdocs/images/button_sidebar_messages_lo.png',
@@ -2871,29 +2505,18 @@
                    'htdocs/images/icon_software.png',
                    'htdocs/images/alert_ok.png',
                    'htdocs/images/icon_back_off.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/link_folder.gif',
                    'htdocs/images/button_filters_set_hi.png',
                    'htdocs/images/icon_checkmk.gif',
                    'htdocs/images/button_painteroptions_lo.png',
                    'htdocs/images/link_info.gif',
-<<<<<<< HEAD
-                   'htdocs/images/dashadow-ne.png',
-=======
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/someproblem.png',
                    'htdocs/images/tree_10.png',
                    'htdocs/images/icon_inventory.png',
                    'htdocs/images/button_insertdate_hi.png',
-<<<<<<< HEAD
-                   'htdocs/images/assume_3.png',
-                   'htdocs/images/icon_timeline.png',
-                   'htdocs/images/icon_notes.gif',
-=======
                    'htdocs/images/button_check_parameters_hi.png',
                    'htdocs/images/assume_3.png',
                    'htdocs/images/icon_timeline.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/icon_new_cluster.png',
                    'htdocs/images/button_sitestatus_waiting_lo.png',
                    'htdocs/images/snapinfooter_addsnapin_down.png',
@@ -2909,10 +2532,7 @@
                    'htdocs/images/button_commands_hi.png',
                    'htdocs/images/button_end_hi.png',
                    'htdocs/images/image_button_l.png',
-<<<<<<< HEAD
-=======
                    'htdocs/images/dashlet_arrow_b_max.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/icon_localrule.png',
                    'htdocs/images/sidebar_logout_hi.png',
                    'htdocs/images/button_services_lo.png',
@@ -2922,10 +2542,7 @@
                    'htdocs/images/icon_repl_success.png',
                    'htdocs/images/button_filters_set_down_lo.png',
                    'htdocs/images/icon_empty.png',
-<<<<<<< HEAD
-=======
                    'htdocs/images/icon_svc_problems.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/link_performance.gif',
                    'htdocs/images/columnswitcher_hi.png',
                    'htdocs/images/tree_black_40.png',
@@ -2935,44 +2552,23 @@
                    'htdocs/images/button_table_actions_off_lo.png',
                    'htdocs/images/sidebar_button_hi.png',
                    'htdocs/images/icon_servicegroups.png',
-<<<<<<< HEAD
-=======
                    'htdocs/images/dashlet_view.png',
                    'htdocs/images/icon_hardware.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/button_clone_lo.png',
                    'htdocs/images/button_timewarp_hi.png',
                    'htdocs/images/icon_random.png',
                    'htdocs/images/icon_contactgroups.png',
                    'htdocs/images/icon_newfolder.png',
                    'htdocs/images/icon_comment.png',
-<<<<<<< HEAD
-                   'htdocs/images/button_snapin_greyswitch_on_lo.png',
-                   'htdocs/images/icon_pnp.png',
-                   'htdocs/images/icon_reload.gif',
-=======
                    'htdocs/images/button_check_parameters_lo.png',
                    'htdocs/images/button_snapin_greyswitch_on_lo.png',
                    'htdocs/images/icon_pnp.png',
                    'htdocs/images/icon_reload.gif',
                    'htdocs/images/icon_discard.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/icon_snapshot_checksum.png',
                    'htdocs/images/icon_snapshot.png',
                    'htdocs/images/metanav_40_hi.png',
                    'htdocs/images/sidebar_profile_hi.png',
-<<<<<<< HEAD
-                   'htdocs/images/button_filters_down_hi.png',
-                   'htdocs/images/dial_refresh.png',
-                   'htdocs/images/tree_black_70.png',
-                   'htdocs/images/dashadow-nw.png',
-                   'htdocs/images/tree_50.png',
-                   'htdocs/images/dashadow-n.png',
-                   'htdocs/images/icon_properties.png',
-                   'htdocs/images/tree_70.png',
-                   'htdocs/images/icon_npassive.gif',
-                   'htdocs/images/assume_0.png',
-=======
                    'htdocs/images/icon_outofnot.png',
                    'htdocs/images/button_filters_down_hi.png',
                    'htdocs/images/dial_refresh.png',
@@ -2983,7 +2579,6 @@
                    'htdocs/images/tree_70.png',
                    'htdocs/images/assume_0.png',
                    'htdocs/images/button_closetimewarp_lo.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/link_monitoring.gif',
                    'htdocs/images/white_40percent.png',
                    'htdocs/images/icon_annotation.png',
@@ -2991,15 +2586,9 @@
                    'htdocs/images/icon_usedrulesets.png',
                    'htdocs/images/button_moveup_hi.png',
                    'htdocs/images/button_url_hi.png',
-<<<<<<< HEAD
-                   'htdocs/images/tree_black_50.png',
-                   'htdocs/images/icon_edit.png',
-                   'htdocs/images/icon_action.gif',
-=======
                    'htdocs/images/icon_bulk.png',
                    'htdocs/images/tree_black_50.png',
                    'htdocs/images/icon_edit.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/icons/kfind.png',
                    'htdocs/images/icons/hwinfo.png',
                    'htdocs/images/icons/knode.png',
@@ -3216,10 +2805,6 @@
                    'htdocs/images/icons/mycomputer.png',
                    'htdocs/images/icons/dvd_unmount.png',
                    'htdocs/images/icons/stylesheet.png',
-<<<<<<< HEAD
-                   'htdocs/images/icons/klipper.png',
-=======
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/icons/kolf.png',
                    'htdocs/images/icons/kaudiocreator.png',
                    'htdocs/images/icons/digikam.png',
@@ -3317,11 +2902,6 @@
                    'htdocs/images/button_filters_down_lo.png',
                    'htdocs/images/link_search.gif',
                    'htdocs/images/icon_rulesets.png',
-<<<<<<< HEAD
-                   'htdocs/images/link_hosts.gif',
-                   'htdocs/images/breadcrumb_rm_hi.png',
-                   'htdocs/images/icon_validation_error.png',
-=======
                    'htdocs/images/icon_timewarp_off.png',
                    'htdocs/images/dashlet_edit_lo.png',
                    'htdocs/images/icon_check_parameters.png',
@@ -3330,15 +2910,11 @@
                    'htdocs/images/breadcrumb_rm_hi.png',
                    'htdocs/images/icon_validation_error.png',
                    'htdocs/images/button_static_checks_hi.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/metanav_button.png',
                    'htdocs/images/button_checkbox_down_hi.png',
                    'htdocs/images/button_availability_hi.png',
                    'htdocs/images/assume_1.png',
-<<<<<<< HEAD
-=======
                    'htdocs/images/icon_download_agents.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/alert_downtimestop.png',
                    'htdocs/images/repprogress.png',
                    'htdocs/images/button_rulesets_lo.png',
@@ -3346,10 +2922,7 @@
                    'htdocs/images/icon_delete.png',
                    'htdocs/images/sidebar_button_lo.png',
                    'htdocs/images/link_error.gif',
-<<<<<<< HEAD
-=======
                    'htdocs/images/button_notifications_lo.png',
->>>>>>> upstream/1.2.6p4
                    'htdocs/images/folder_open.png',
                    'htdocs/images/icon_filter_set.png',
                    'htdocs/images/alert_restart.png',
@@ -3363,10 +2936,7 @@
                    'htdocs/sounds/critical.wav',
                    'htdocs/multitar.py',
                    'htdocs/lib.py',
-<<<<<<< HEAD
-=======
                    'htdocs/cron.py',
->>>>>>> upstream/1.2.6p4
                    'htdocs/config.py',
                    'htdocs/forms.py',
                    'plugins/perfometer/check_mk.py',
@@ -3379,29 +2949,19 @@
                    'plugins/wato/bi.py',
                    'plugins/wato/check_mk_configuration.py',
                    'plugins/wato/active_checks.py',
-<<<<<<< HEAD
-                   'plugins/wato/globals_notification.py',
-                   'plugins/wato/user_attributes.py',
-=======
                    'plugins/wato/inventory.py',
                    'plugins/wato/globals_notification.py',
                    'plugins/wato/user_attributes.py',
                    'plugins/wato/agents.py',
->>>>>>> upstream/1.2.6p4
                    'plugins/wato/datasource_programs.py',
                    'plugins/wato/auth.py',
                    'plugins/wato/builtin_attributes.py',
                    'plugins/wato/backup_domains.py',
                    'plugins/wato/nagvis_auth.py',
-<<<<<<< HEAD
-                   'plugins/wato/check_parameters.py',
-                   'plugins/wato/mknotifyd.py',
-=======
                    'plugins/wato/notifications.py',
                    'plugins/wato/check_parameters.py',
                    'plugins/wato/mknotifyd.py',
                    'plugins/webapi/webapi.py',
->>>>>>> upstream/1.2.6p4
                    'plugins/sidebar/bi.py',
                    'plugins/sidebar/nagvis_maps.py',
                    'plugins/sidebar/shipped.py',
@@ -3412,10 +2972,7 @@
                    'plugins/views/painters.py',
                    'plugins/views/mobile.py',
                    'plugins/views/webservice.py',
-<<<<<<< HEAD
-=======
                    'plugins/views/inventory.py',
->>>>>>> upstream/1.2.6p4
                    'plugins/views/filters.py',
                    'plugins/views/perfometer.py',
                    'plugins/views/commands.py',
@@ -3425,43 +2982,28 @@
                    'plugins/views/sorters.py',
                    'plugins/views/dashboard.py',
                    'plugins/views/builtin.py',
-<<<<<<< HEAD
-=======
                    'plugins/dashboard/dashlets.py',
->>>>>>> upstream/1.2.6p4
                    'plugins/dashboard/builtin.py',
                    'plugins/pages/bi.py',
                    'plugins/pages/shipped.py',
                    'plugins/pages/mobile.py',
                    'plugins/pages/wato.py',
-<<<<<<< HEAD
-=======
                    'plugins/pages/cron.py',
->>>>>>> upstream/1.2.6p4
                    'plugins/userdb/ldap.py',
                    'plugins/userdb/hook_auth.py',
                    'plugins/userdb/user_attributes.py',
                    'plugins/userdb/htpasswd.py',
-<<<<<<< HEAD
-=======
                    'plugins/visuals/bi.py',
                    'plugins/visuals/inventory.py',
                    'plugins/visuals/filters.py',
                    'plugins/visuals/infos.py',
                    'plugins/visuals/wato.py',
                    'plugins/icons/inventory.py',
->>>>>>> upstream/1.2.6p4
                    'plugins/icons/wato.py',
                    'plugins/icons/builtin.py',
                    'htdocs/defaults.py']},
  'name': 'check_mk',
  'title': 'Files shipped with Check_MK',
-<<<<<<< HEAD
- 'version': '1.2.4p5',
- 'version.min_required': '1.2.4p5',
- 'version.packaged': '1.2.4p5'}
-=======
  'version': '1.2.6p4',
  'version.min_required': '1.2.6p4',
  'version.packaged': '1.2.6p4'}
->>>>>>> upstream/1.2.6p4
