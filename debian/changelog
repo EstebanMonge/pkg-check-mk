@@ -1,3 +1,12 @@
+check-mk (1.2.6p5-1) UNRELEASED; urgency=medium
+
+  * migrate multisite conffile, fix logic
+  * Imported Upstream version 1.2.6p5
+  * migrate multisite conffile, fix logic to better detect different
+    cases (Closes: #732357)
+
+ -- Matt Taggart <taggart@debian.org>  Wed, 24 Jun 2015 13:33:50 -0700
+
 check-mk (1.2.6p4-1) unstable; urgency=medium
 
   [ Thomas Bechtold ]
