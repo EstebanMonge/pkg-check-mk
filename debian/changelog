@@ -1,4 +1,4 @@
-check-mk (1.2.6p5-1) UNRELEASED; urgency=medium
+check-mk (1.2.6p5-1) unstable; urgency=medium
 
   [ Matt Taggart ]
   * Imported Upstream version 1.2.6p5
@@ -7,7 +7,7 @@ check-mk (1.2.6p5-1) UNRELEASED; urgency=medium
   * check-mk-server: clean up stuff in /var on purge (Closes: #788829).
   * stop packaging all upsteam provided binaries (Closes: #790308).
 
- -- Matt Taggart <taggart@debian.org>  Wed, 24 Jun 2015 13:33:50 -0700
+ -- Matt Taggart <taggart@debian.org>  Fri, 03 Jul 2015 15:15:53 -0700
 
 check-mk (1.2.6p4-1) unstable; urgency=medium
 
