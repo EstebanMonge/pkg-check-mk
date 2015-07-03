@@ -1,9 +1,11 @@
 check-mk (1.2.6p5-1) UNRELEASED; urgency=medium
 
-  * migrate multisite conffile, fix logic
+  [ Matt Taggart ]
   * Imported Upstream version 1.2.6p5
   * migrate multisite conffile, fix logic to better detect different
     cases (Closes: #732357)
+  * check-mk-server: clean up stuff in /var on purge (Closes: #788829).
+  * stop packaging all upsteam provided binaries (Closes: #790308).
 
  -- Matt Taggart <taggart@debian.org>  Wed, 24 Jun 2015 13:33:50 -0700
 
