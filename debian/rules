@@ -59,11 +59,27 @@ install: build
 	dh_installdebconf
 	mkdir -p debian/tmp
 	DESTDIR=debian/tmp ./setup.sh --yes
-	#don't use the statically linked binary.
+	## clean up binaries shipped by upstream
+	# upstream agent deb and rpm
+	rm -rf debian/tmp/usr/share/check_mk/agent/check-mk-agent*.deb
+	rm -rf debian/tmp/usr/share/check_mk/agent/check-mk-agent*.rpm
+	# java jar and classes (we don't rebuild these, help if you want them)
+	rm -rf debian/tmp/usr/share/doc/check_mk/jasperreports
+	# Windows binaries (we don't rebuild these, help if you want them)
+	rm -rf debian/tmp/usr/share/check_mk/agents/windows
+	rm -rf debian/tmp/usr/share/doc/check_mk/treasures/windows_msi
+	# fsc-celsius 'treasure' tarball that includes binaries
+	rm -rf debian/tmp/usr/share/doc/check_mk/treasures/fsc-celsius*
+	# agent_modbus
+	rm debian/tmp/usr/share/doc/check_mk/treasures/modbus/agent_modbus
+	# waitmax, build our own
 	rm debian/tmp/usr/share/check_mk/agents/waitmax
 	# upstream stopped including waitmax.c, so we carry it in debian/
 	gcc -s -o debian/tmp/usr/share/check_mk/agents/waitmax debian/waitmax.c
 	cp -a livestatus.src/debian/tmp/* debian/tmp/
+	# z_os waitmax
+	rm debian/tmp/usr/share/check_mk/agents/z_os/waitmax
+	## config files
 	# We need 2 different "defaults" files for Icinga and Nagios3
 	rm debian/tmp/usr/share/check_mk/modules/defaults
 	rm debian/tmp/usr/share/check_mk/web/htdocs/defaults.py
