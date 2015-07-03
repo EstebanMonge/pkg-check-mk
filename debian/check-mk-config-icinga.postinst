@@ -61,7 +61,7 @@ case "$1" in
                         if [ -d /etc/apache2/conf.d/ ]; then
                                 if [ -L /etc/apache2/conf.d/$CONF.conf ]; then
                                         # it's a symlink, all is well
-                                        /bin/true
+                                        true
                                 elif [ -e /etc/apache2/conf.d/$CONF.conf ]; then
                                         # it's not a symlink, but exists, error
                                         echo "ERROR: /etc/apache2/conf.d/$CONF.conf is not a symlink, please investigate" 1>&2
