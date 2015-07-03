@@ -105,6 +105,8 @@ install: build
 	mv debian/tmp/usr/share/doc/check_mk/checks debian/tmp/usr/share/check_mk/checks-man
 	# remove installed Changelog to avoid duplicate
 	rm debian/tmp/usr/share/doc/check_mk/Changelog
+	# remove installed COPYING, redundant
+	rm debian/tmp/usr/share/doc/check_mk/COPYING
 
 # Build architecture-independent files here.
 binary-indep: build install
