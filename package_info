@@ -8,8 +8,8 @@
                       'cfg_examples/nginx_status.cfg',
                       'cfg_examples/apache_status.cfg',
                       'cfg_examples/sqlplus.sh',
-                      'check-mk-agent_1.2.6p5-1_all.deb',
-                      'check-mk-agent-1.2.6p5-1.noarch.rpm',
+                      'check-mk-agent_1.2.6p7-1_all.deb',
+                      'check-mk-agent-1.2.6p7-1.noarch.rpm',
                       'check_mk_agent.aix',
                       'check_mk_agent.freebsd',
                       'check_mk_agent.hpux',
@@ -1949,6 +1949,7 @@
                              'check_mk-ntp.time.php',
                              'check_mk-nvidia.temp.php',
                              'check_mk-openvpn_clients.php',
+                             'check_mk-oracle_asm_diskgroup.php',
                              'check_mk-oracle_dataguard_stats.php',
                              'check_mk-oracle_instance.php',
                              'check_mk-oracle_logswitches.php',
@@ -3006,6 +3007,6 @@
                    'htdocs/defaults.py']},
  'name': 'check_mk',
  'title': 'Files shipped with Check_MK',
- 'version': '1.2.6p5',
- 'version.min_required': '1.2.6p5',
- 'version.packaged': '1.2.6p5'}
+ 'version': '1.2.6p7',
+ 'version.min_required': '1.2.6p7',
+ 'version.packaged': '1.2.6p7'}
