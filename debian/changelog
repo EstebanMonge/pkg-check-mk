@@ -1,6 +1,7 @@
-check-mk (1.2.6p5-2) UNRELEASED; urgency=low
+check-mk (1.2.6p7-1) UNRELEASED; urgency=low
 
   [ Matt Taggart ]
+  * Imported Upstream version 1.2.6p7
   * add myself to uploaders
   * fix some lintian errors
 
