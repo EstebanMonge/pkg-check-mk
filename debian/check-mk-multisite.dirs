@@ -1,3 +1,4 @@
 etc/check_mk
 var/lib/check_mk
 etc/check_mk/multisite.d
+usr/share/doc/check-mk-multisite/examples/
