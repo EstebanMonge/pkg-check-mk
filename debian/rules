@@ -98,6 +98,9 @@ install: build
 	# Prepare agent files
 	cp debian/tmp/usr/share/check_mk/agents/check_mk_agent.linux debian/check-mk-agent/usr/bin/check_mk_agent
 	chmod +x debian/check-mk-agent/usr/bin/check_mk_agent
+	# mkp wrapper script
+	cp debian/tmp/usr/bin/mkp debian/check-mk-server/usr/bin/mkp
+	chmod +x debian/check-mk-agent/usr/bin/check_mk_agent
 	cp debian/tmp/usr/share/check_mk/agents/xinetd.conf debian/check-mk-agent/etc/xinetd.d/check_mk
 	# xinetd: Disable service
 	sed -i 's#disable\s*=\s*no#disable        = yes#' debian/check-mk-agent/etc/xinetd.d/check_mk
