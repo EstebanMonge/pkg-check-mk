@@ -29,8 +29,7 @@ Description: general purpose nagios-plugin for retrieving data
 
 Package: check-mk-agent-logwatch
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, check-mk-agent
-Suggests: xinetd, python
+Depends: ${shlibs:Depends}, ${misc:Depends}, check-mk-agent, python
 Description: general purpose nagios-plugin for retrieving data
  Check_mk adopts a new a approach for collecting data from operating systems
  and network components. It obsoletes NRPE, check_by_ssh, NSClient and
