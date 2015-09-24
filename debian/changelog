@@ -2,6 +2,7 @@ check-mk (1.2.6p12-1) UNRELEASED; urgency=medium
 
   [ Matt Taggart ]
   * Imported Upstream version 1.2.6p12
+  * fix multisite.d dir in postinst (Closes: #798344).
 
  -- Matt Taggart <taggart@debian.org>  Thu, 24 Sep 2015 13:08:41 -0700
 
