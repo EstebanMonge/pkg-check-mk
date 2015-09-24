@@ -1,3 +1,10 @@
+check-mk (1.2.6p12-1) UNRELEASED; urgency=medium
+
+  [ Matt Taggart ]
+  * Imported Upstream version 1.2.6p12
+
+ -- Matt Taggart <taggart@debian.org>  Thu, 24 Sep 2015 13:08:41 -0700
+
 check-mk (1.2.6p7-1) unstable; urgency=low
 
   [ Matt Taggart ]
