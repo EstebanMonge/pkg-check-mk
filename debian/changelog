@@ -1,7 +1,6 @@
 check-mk (1.2.6p12-2) UNRELEASED; urgency=medium
 
   * Team upload.
-  * Drop binary package for nagios3 which is no longer in Debian.
   * Update Vcs-* URLs to use HTTPS.
 
  -- Bas Couwenberg <sebastic@debian.org>  Sat, 03 Dec 2016 18:11:37 +0100

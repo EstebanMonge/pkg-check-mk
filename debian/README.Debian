@@ -1,8 +1,11 @@
 check-mk-livestatus
 ===================
 
-To load the event broker add the following lines to your Icinga
+To load the event broker add the following lines to your Nagios/Icinga
 configuration:
+
+Nagios3:
+broker_module=/usr/lib/check_mk/livestatus.o /var/lib/nagios3/rw/live
 
 Icinga:
 broker_module=/usr/lib/check_mk/livestatus.o /var/lib/icinga/rw/live
@@ -22,10 +25,10 @@ On the server side you need multisite enabled to see the logs. If you also want
 to acknowledge the alarms (recommended) put www-data into the nagios group
 
 
-check-mk-config-icinga
-======================
+check-mk-config-nagios3 and check-mk-config-icinga
+==================================================
 
 Check-MK's web frontend "Multisite" (package "check-mk-multisite") and the
-server part of Check-MK ("check-mk-server") can only be used with Icinga.
-Please install the "check-mk-config-icinga" package.
+server part of Check-MK ("check-mk-server") can only be used with either
+Nagios3 or Icinga. Please install the adequate "check-mk-config-*" package.
 
