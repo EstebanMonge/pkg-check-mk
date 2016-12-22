@@ -72,13 +72,10 @@ install: build
 	rm -rf debian/tmp/usr/share/doc/check_mk/treasures/fsc-celsius*
 	# agent_modbus
 	rm debian/tmp/usr/share/doc/check_mk/treasures/modbus/agent_modbus
-	# waitmax, build our own
+	# remove waitmax binary, check_mk will use timeout if available
 	rm debian/tmp/usr/share/check_mk/agents/waitmax
-	# upstream stopped including waitmax.c, so we carry it in debian/
-	gcc -s -o debian/tmp/usr/share/check_mk/agents/waitmax debian/waitmax.c
-	cp -a livestatus.src/debian/tmp/* debian/tmp/
-	# z_os waitmax
 	rm debian/tmp/usr/share/check_mk/agents/z_os/waitmax
+	cp -a livestatus.src/debian/tmp/* debian/tmp/
 	## config files
 	# We need 2 different "defaults" files for Icinga and Nagios3
 	rm debian/tmp/usr/share/check_mk/modules/defaults
