@@ -7,6 +7,7 @@ check-mk (1.2.8p14-1) UNRELEASED; urgency=medium
   [ Matt Taggart ]
   * Imported Upstream version 1.2.8p14
   * upstream will now use coreutils timeout if available rather than waitmax
+  * xinetd.conf example moved, new xinetd_caching.conf
 
  -- Matt Taggart <taggart@debian.org>  Sat, 03 Dec 2016 18:11:37 +0100
 
