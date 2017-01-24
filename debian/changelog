@@ -1,3 +1,9 @@
+check-mk (1.2.8p14-2) UNRELEASED; urgency=medium
+
+  * fix some lintian errors
+
+ -- Matt Taggart <taggart@debian.org>  Tue, 24 Jan 2017 14:58:14 -0800
+
 check-mk (1.2.8p14-1) unstable; urgency=low
 
   [ Bas Couwenberg ]
@@ -9,7 +15,7 @@ check-mk (1.2.8p14-1) unstable; urgency=low
   * upstream will now use coreutils timeout if available rather than waitmax
   * xinetd.conf example moved, new xinetd_caching.conf
 
- -- Matt Taggart <taggart@brak>  Tue, 24 Jan 2017 12:20:53 -0800
+ -- Matt Taggart <taggart@debian.org>  Tue, 24 Jan 2017 12:20:53 -0800
 
 check-mk (1.2.6p12-1) unstable; urgency=medium
 
@@ -38,7 +44,7 @@ check-mk (1.2.6p7-1) unstable; urgency=low
   * fix -agent-logwatch depends
   * -agent-logwatch is arch all
 
- -- Matt Taggart <taggart@brak>  Fri, 21 Aug 2015 16:44:17 -0700
+ -- Matt Taggart <taggart@debian.org>  Fri, 21 Aug 2015 16:44:17 -0700
 
 check-mk (1.2.6p5-1) unstable; urgency=medium
 
