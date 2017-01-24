@@ -11,8 +11,8 @@
                       'cfg_examples/sqlplus.sh',
                       'cfg_examples/systemd/check_mk.socket',
                       'cfg_examples/systemd/check_mk@.service',
-                      'check-mk-agent_1.2.8p14-1_all.deb',
-                      'check-mk-agent-1.2.8p14-1.noarch.rpm',
+                      'check-mk-agent_1.2.8p16-1_all.deb',
+                      'check-mk-agent-1.2.8p16-1.noarch.rpm',
                       'check_mk_agent.aix',
                       'check_mk_agent.freebsd',
                       'check_mk_agent.hpux',
@@ -3765,6 +3765,6 @@
                    'htdocs/defaults.py']},
  'name': 'check_mk',
  'title': 'Files shipped with Check_MK',
- 'version': '1.2.8p14',
- 'version.min_required': '1.2.8p14',
- 'version.packaged': '1.2.8p14'}
+ 'version': '1.2.8p16',
+ 'version.min_required': '1.2.8p16',
+ 'version.packaged': '1.2.8p16'}

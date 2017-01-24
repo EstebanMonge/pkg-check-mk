@@ -1,3 +1,103 @@
+1.2.8p16:
+    Core & Setup:
+    * 4281 FIX: Fixed piggyback hosts with spaces in names leading to crashes...
+
+    Checks & Agents:
+    * 3896 FIX: Agent RPMs: Fixing dependency issue with old check_mk-agent-oracle-*.rpm and check_mk-agent-logwatch-*.rpm
+    * 4172 FIX: smart.temp: fixed discovery and check function...
+    * 4173 FIX: if.include: ignore some more keys in 'Network interfaces and switch ports' rule which are only used for interface grouping
+    * 4207 FIX: mk_jolokia: Use configured port as default instance name...
+            NOTE: Please refer to the migration notes!
+    * 4174 FIX: added missing perfometer for interface services
+    * 4119 FIX: check_mk_agent.solaris: fixed run_cached function...
+    * 4209 FIX: mk_jolokia: Setting a default product now works...
+    * 4120 FIX: fixed checks mysql and mysql.sessions for multiple MySQL instances...
+    * 4121 FIX: mk_mysql: fixed handling of multiple instances
+    * 4122 FIX: ibm_svc_enclosure: added support for firmware >= 7.8...
+    * 4182 FIX: mysql_slave: fixed crash if agent output is empty...
+    * 4183 FIX: ibm_imm_fan: Fixed crash if fan speed is "unavailable"...
+    * 4184 FIX: hivemanager_devices: Fixed bug if device is up for more than 1 year...
+    * 4259 FIX: aix_sap_processlist: fixed ValueError; if process has stopped and does not report any start time
+    * 4260 FIX: db2_logsizes: removed pprint statement
+    * 4261 FIX: db2_logsizes: fixed wrong discovery condition
+    * 4262 FIX: wmi_cpuload: fixed missing section handling...
+    * 4263 FIX: oracle_crs_res: fixed UnboundLocalError; 'crs_nodename' referenced before assignment...
+    * 4264 FIX: wmic_process: fixed invalid info handling
+    * 4211 FIX: esx_vsphere_counters: No longer crash when counters are available for instances without a read value
+    * 4265 FIX: netapp_api_cpu: fixed missing number of cpus
+    * 4266 FIX: quantum_libsmall_status: fixed scan function
+    * 4287 FIX: job: fixed incomplete data handling...
+    * 4268 FIX: cisco_vpn_tunnel: Reporting zero traffic in case the tunnel is down...
+    * 4288 FIX: sentry_pdu: fixed data handling if power value is missing
+    * 4289 FIX: mysql.innodb_io: fixed incomplete data handling...
+    * 4212 FIX: jolokia_info: Fix crash for certain product versions.
+    * 4290 FIX: cisco_fru_power: fixed invalid admin state handling
+    * 4278 FIX: check_mail_loop: Added missing Date header to sent mails
+    * 4292 FIX: oracle_asm_diskgroup: fixed handling if disk status is DISMOUNTED
+
+    Multisite:
+    * 4145 FIX: Fixed exception when setting output_format in wrong case
+    * 4226 FIX: Custom inventory painters are now correctly loaded when declared with inventory_displayhints
+
+    Reporting & Availability:
+    * 4267 FIX: PDF export of filtered alert statistics view was always empty
+
+
+1.2.8p15:
+    Core & Setup:
+    * 4078 FIX: Fixed handling of hosts with non resolvable IP addresses during runtime...
+
+    Checks & Agents:
+    * 4159 smart: added compatibility for Intel SSDs...
+    * 4069 FIX: cmciii.phase: Fixed broken check with some devices...
+    * 4092 FIX: if.include: fixed wrong calculated number of interfaces which are up in case of interface groups
+    * 4093 FIX: oracle_tablespaces: Werk 3907 broke the space calculation...
+    * 4074 FIX: check_ftp: Fixed possible wrong service description caused by unintended use of global variable
+    * 3943 FIX: ntp.time: fixed parameters in discovered checks...
+    * 4081 FIX: dell_powerconnect_cpu: Fixed broken metrics
+    * 4126 FIX: apache_status: Handle https requests lo localhost in case of certificate mismatch...
+    * 3953 FIX: diskstat: extended fix for multipath devices with or without alias...
+    * 4111 FIX: hp_proliant: fixed empty data handling
+    * 4099 FIX: msexch_rpcclientaccess: Previously nonfunctional WATO rule and default parameters now work...
+            NOTE: Please refer to the migration notes!
+    * 4112 FIX: db2_logsizes: fixed invalid data handling
+    * 4100 FIX: mk_mysql: Only perform queries if mysqladmin ping is successful#...
+    * 4113 FIX: postgres_locks: fixed missing include file
+    * 4114 FIX: innovaphone_licenses: fixed wrong percentage calculation
+    * 4115 FIX: mem.linux: fixed missing stack bug in PNP template
+    * 4157 FIX: netapp_api_cluster: fixed None item
+    * 4138 FIX: statgrab: Fixed issue in FreeBSD agent when statgrab is not installed
+    * 4158 FIX: fileinfo: fixed file handling containing spaces
+    * 4101 FIX: citrix_sessions: Output error message in case of missing session information....
+    * 4102 FIX: logwatch: Fixed crash due to non-existant logfile...
+    * 4160 FIX: emcvnx_info: fixed data handling, now detects errors
+    * 4161 FIX: emcvnx_sp_util: fixed empty data handling
+    * 4162 FIX: esx_vsphere_vm.heartbeat: fixed KeyError
+    * 4163 FIX: kernel: fixed empty data handling
+    * 4164 FIX: livestatus_status: fixed ValueError for values in scientific notation
+    * 4103 FIX: kaspersky_av_client: No longer crash when date of last full scan is unknown...
+    * 4117 FIX: HPUX agent: fixed determination of cpu/core information...
+
+    Multisite:
+    * 4072 FIX: Fixed multiple issues in BI availability when groups or names contain umlauts
+    * 4080 FIX: Fixed possible exception "unsupported operand type" in matrix views
+    * 4085 FIX: Fixed bug when rendering table views that have joined columns
+    * 4127 FIX: Fixed possible "maximum recursion depth exceeded" error when sorting tables with a lot of text in cells
+    * 4128 FIX: Fixed exception in "Virtual host tree" snapin in case a user tries to access a not existing tree
+    * 4139 FIX: Fixed exception on service detail page in case of invalid man pages
+    * 4140 FIX: Views: Download agent output action was not displayed correctly on SNMP+Agent hosts
+
+    WATO:
+    * 4077 FIX: Fixed "Request URI too long" when cloning role after editing another one
+    * 4079 FIX: Improved error handling in case a WATO folder can not be written
+    * 4082 FIX: Icon selector: Fixed exception in case non images are saved in icon folder
+    * 4130 FIX: Improved error handling when trying to edit not existant rules
+    * 4131 FIX: Fixed broken WATO site login when using password containing special characters...
+
+    Event Console:
+    * 4097 FIX: Event console: Make writing of status file more robust...
+
+
 1.2.8p14:
     Checks & Agents:
     * 3961 FIX: fixed error sections handling if parse function is available
@@ -31,6 +131,9 @@
 
     BI:
     * 3991 FIX: BI Aggregations: no longer show duplicate aggregations when an aggregation has mulitple groups
+
+    Event Console:
+    * 4147 FIX: Always show rule analyser result on Generate, not only after previous Try out...
 
 
 1.2.8p13:
