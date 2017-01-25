@@ -138,6 +138,7 @@ binary-arch: build install
 	dh_installdocs -a debian/README.Debian
 	dh_installexamples -a
 	dh_install -a
+	chmod +x debian/check-mk-server/usr/share/check_mk/checks/*
 	sed -i -e 's/nagiosadmin/icingaadmin/g' debian/check-mk-config-icinga/etc/check_mk/multisite.mk
 #	dh_installmenu
 #	dh_installdebconf
