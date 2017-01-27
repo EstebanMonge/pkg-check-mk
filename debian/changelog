@@ -4,6 +4,7 @@ check-mk (1.2.8p16-1) UNRELEASED; urgency=medium
   * update policy
   * fix debian/watch
   * update debhelper
+  * clean up nagios support/references, thanks Bas Couwenberg! (Closes: #846848)
 
  -- Matt Taggart <taggart@debian.org>  Tue, 24 Jan 2017 14:58:14 -0800
 
