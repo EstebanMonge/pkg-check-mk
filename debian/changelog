@@ -1,12 +1,13 @@
-check-mk (1.2.8p16-1) UNRELEASED; urgency=medium
+check-mk (1.2.8p16-1) unstable; urgency=medium
 
+  * new upstream release
   * fix some lintian errors
-  * update policy
+  * update policy version
   * fix debian/watch
-  * update debhelper
+  * update debhelper version
   * clean up nagios support/references, thanks Bas Couwenberg! (Closes: #846848)
 
- -- Matt Taggart <taggart@debian.org>  Tue, 24 Jan 2017 14:58:14 -0800
+ -- Matt Taggart <taggart@debian.org>  Thu, 26 Jan 2017 23:20:02 -0800
 
 check-mk (1.2.8p14-1) unstable; urgency=low
 
