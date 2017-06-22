@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- encoding: utf-8; py-indent-offset: 4 -*-
 # +------------------------------------------------------------------+
 # |             ____ _               _        __  __ _  __           |
@@ -65,8 +65,9 @@ target_values = {
 # /usr/sbin/nagios3 -d /etc/nagios3/nagios.cfg
 
 class Sorry(Exception):
-    def __init__(self, text):
-        self.reason = text
+    def __init__(self, reason):
+        self.reason = reason
+        super(Sorry, self).__init__(reason)
 
 def find_pid_and_configfile():
     procs = os.popen("ps ax -o pid,ppid,user,command").readlines()
