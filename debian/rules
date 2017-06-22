@@ -21,8 +21,6 @@ configure-stamp:
 	tar -xzf agents.tar.gz -C agents
 	mkdir docs
 	tar -xzf doc.tar.gz -C docs
-	mkdir config
-	tar -xzf conf.tar.gz -C config
 
 	touch configure-stamp
 
