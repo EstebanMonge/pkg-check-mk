@@ -69,6 +69,12 @@ install: build
 	rm -rf debian/tmp/usr/share/doc/check_mk/checks/windows_*
 	rm -rf debian/tmp/usr/share/check_mk/checks/windows_*
 	rm -rf debian/tmp/usr/share/doc/check_mk/treasures/windows_msi
+	# remove deprecated stuff
+	rm -rf debian/tmp/usr/share/doc/check_mk/treasures/deprecated
+	# remove binary selinux policy file
+	rm -rf debian/tmp/usr/share/doc/check_mk/treasures/selinux/omd.pp
+	# remove webapps mkp package file and dir
+	rm -rf debian/tmp/usr/share/doc/check_mk/treasures/webapp
 	# remove sap agent with source tarball
 	rm -rf debian/tmp/usr/share/check_mk/agents/sap
 	# remove binary agent_modbus
