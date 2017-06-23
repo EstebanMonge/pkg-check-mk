@@ -1,4 +1,4 @@
-# Created by setup of check_mk version 1.2.6p12
+# Created by setup of check_mk version 1.4.0p6
 # This file will *not* be overwritten at the next setup
 # of check_mk. You may edit it as needed. In order to get
 # a new version, please delete it and re-run setup.sh.
@@ -57,6 +57,15 @@
   ## also disabled by default on Debian.
   ## Trigger cron jobs. This is done without authentication
   #<Location "/check_mk/run_cron.py">
+  #    Order deny,allow
+  #    Deny from all
+  #    Allow from 127.0.0.1
+  #    Satisfy any
+  #</Location>
+
+  ## WARNING: disabled like the others above
+  ## Webservice for dynamic creation of PNP templates
+  #<Location "/check_mk/pnp_template.py">
   #    Order deny,allow
   #    Deny from all
   #    Allow from 127.0.0.1
