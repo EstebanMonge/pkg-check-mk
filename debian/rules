@@ -62,17 +62,21 @@ install: build
 	rm -rf debian/tmp/usr/share/check_mk/agent/check-mk-agent*.deb
 	rm -rf debian/tmp/usr/share/check_mk/agent/check-mk-agent*.rpm
 	# java jar and classes (we don't rebuild these, help if you want them)
-	rm -rf debian/tmp/usr/share/doc/check_mk/jasperreports
-	# Windows binaries (we don't rebuild these, help if you want them)
+	rm -rf debian/tmp/usr/share/doc/check_mk/treasures/jasperreports
+	# Windows binaries related (we don't rebuild these, help if you want them)
 	rm -rf debian/tmp/usr/share/check_mk/agents/windows
+	rm -rf debian/tmp/usr/share/doc/check_mk/windows
+	rm -rf debian/tmp/usr/share/doc/check_mk/checks/windows_*
+	rm -rf debian/tmp/usr/share/check_mk/checks/windows_*
 	rm -rf debian/tmp/usr/share/doc/check_mk/treasures/windows_msi
-	# fsc-celsius 'treasure' tarball that includes binaries
-	rm -rf debian/tmp/usr/share/doc/check_mk/treasures/fsc-celsius*
-	# agent_modbus
+	# remove sap agent with source tarball
+	rm -rf debian/tmp/usr/share/check_mk/agents/sap
+	# remove binary agent_modbus
 	rm debian/tmp/usr/share/doc/check_mk/treasures/modbus/agent_modbus
 	# remove waitmax binary, check_mk will use timeout if available
 	rm debian/tmp/usr/share/check_mk/agents/waitmax
 	rm debian/tmp/usr/share/check_mk/agents/z_os/waitmax
+	# copy the livestatus stuff that setup.sh generated in it's own dir
 	cp -a livestatus.src/debian/tmp/* debian/tmp/
 	## config files
 	# We need 2 different "defaults" files for Icinga and Nagios3
@@ -80,7 +84,7 @@ install: build
 	rm debian/tmp/usr/share/check_mk/web/htdocs/defaults.py
 	mkdir -p debian/check-mk-config-icinga/usr/share/check_mk/modules/
 	cp debian/defaults.icinga debian/check-mk-config-icinga/usr/share/check_mk/modules/defaults
-	# We need 2 different Apache configs
+	# Switch the apache config to reference icinga
 	mkdir -p debian/check-mk-config-icinga/etc/apache2/conf-available/
 	cp debian/apache.icinga debian/check-mk-config-icinga/etc/apache2/conf-available/check-mk-multisite.conf
 	# Adjust path names
