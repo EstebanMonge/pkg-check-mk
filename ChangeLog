@@ -1,3 +1,129 @@
+1.4.0p9:
+    WATO:
+    * 4954 FIX: Host/Folder properties: fixed displaying of inherited checkbox tag group values
+    * 4953 FIX: Fixed possible exception during activation when files are modified while activating
+    * 4995 FIX: Fixed broken link from contact group list page to rulesets
+    * 4996 FIX: Backup targets: Fixed possible MemoryError exception when editing a target
+    * 4994 FIX: Analyze host rulesets: Fixed rendering of some values (e.g. Count, size and age of files)
+
+    User interface:
+    * 4950 FIX: Virtual host tree: Fixed navigating back to root of tree
+    * 4969 FIX: Service discovery view: Fixed sorting service descriptions
+    * 4988 FIX: LDAP: Improve error handling in case of authentication failures
+    * 4992 FIX: Fixed sending fake DOWN states for hosts when using Nagios core
+    * 5002 FIX: Fixed possible exception related to multisite_user_connectors on login failures
+    * 4949 FIX: Fixed grouping by host-/servicegroup in availability views
+    * 4952 FIX: Fixed broken alert statistics view (regression since 1.4.0p8)
+
+    Livestatus:
+    * 4852 FIX: Livestatus connections: fixed bug where data from previous connection got reused
+
+    Event console:
+    * 4993 FIX: Fixed visibility of events for users with limited access to events
+    * 5003 FIX: Fixed missing filtering by effective contact groups of events
+    * 4951 FIX: Added missing host custom variables to notifications created by the EC
+
+    Checks & agents:
+    * 4973 FIX: zpool: Fixed missing include statement which causes undefined 'df_inventory' error if using Nagios core
+    * 4976 FIX: wmi_cpuload: Fixed UNKNOWN service state due to werk #4742
+    * 4914 FIX: statgrab_mem: Plugin is now prioritized over solaris_mem if both is available
+    * 4915 FIX: solaris_mem: Unified graphs and Per-O-Meter with common memory checks
+    * 4884 FIX: oracle_logswitches: Fixed missing oracle.include
+    * 4980 FIX: mssql_counters.file_sizes: Added readable titles of related metrics
+    * 4972 FIX: mk_inventory.aix: Use MK_VARDIR instead of MK_CONFDIR for the state file
+    * 4978 FIX: ipmi: Ignore sensors with state 'na'
+    * 4968 FIX: f5_bigip_cluster_status_v11_2: Now has its own check plugin file; This updates werk #4819
+            NOTE: Please refer to the migration notes!
+    * 4801 FIX: emc_datadomain_fs: Fix broken filesystem graph
+    * 4849 FIX: Windows mrpe scripts: strip leading whitespaces in mrpe command
+    * 4848 FIX: Windows Agent / fileinfo: fixed another issue, where meta information (size,age) was not accessible
+    * 4844 FIX: Windows Agent / Fileinfo: now able to read files meta information (size, age) even when file is locked
+    * 5021 FIX: Make sure that the output of the event console active check is valid
+    * 4850 FIX: Improved WATO service discovery performance
+    * 4846 FIX: ESX monitoring: fixed incomplete data, when the xml response from the esx server includes newlines
+
+
+1.4.0p8:
+    WATO:
+    * 4931 FIX: Trusted certificate authorities: Silently ignore dangling symlink errors
+    * 4932 FIX: Timeperiod iCalendar import: Fixed broken import of full day entries
+    * 4919 FIX: Service discovery: Fixed disabling services with backslashes in description
+    * 4927 FIX: LDAP: Use port 636 instead of 389 by default when enabling SSL
+    * 4926 FIX: LDAP: Use Check_MK trusted certificate authorities for validating certificates
+    * 4923 FIX: Host diagnostic: Fixed error when saving host with DNS name as IPv4 address
+    * 4935 FIX: Foldertree snapin: Fixed broken layout when using localized GUI
+    * 4930 FIX: Fix activation page not reloading after activation in some cases
+    * 4899 FIX: Don't fail WATO snapshot creation because of modified temporary files
+    * 4900 FIX: Activate changes: Improved error reporting during activate changes
+
+    User interface:
+    * 4902 SEC: Monitoring history views: Fixed possible XSS when displaying "plugin output"
+    * 4928 FIX: Views: Toggle all checkboxes in row select was missing last row in grouped views
+    * 4934 FIX: Views: Fixed possible broken table background when using "table" layout with zoomed pages
+    * 4922 FIX: Logwatch: Show only hosts with problematic log files in "Problematic log file" list
+    * 4918 FIX: EC views: Hiding wrong icons for events that are not related to a host
+
+    Notifications:
+    * 4938 FIX: Make sure that a notification has the plugin output available
+
+    HW/SW inventory:
+    * 4878 FIX: lnx_distro: Fixed wrong detected distribution name, vendor and version
+
+    Event console:
+    * 4940 FIX: Handle non-ASCII characters in event console messages submitted via Livestatus
+    * 4933 FIX: Fixed possible KeyError event_host in EC views since 1.4.0p6
+
+    Checks & agents:
+    * 4872 FIX: zfs_arc_cache: Fixed conversions of size, arc meta used, arc meta limit and arc meta max
+    * 4880 FIX: wut_webtherm, wut_webtherm.humidity: Fixed missing device type and enabled performance data for humidity
+    * 4839 FIX: windows agents: fixed invalid hieroglyphs in agent output, when plugin output includes FF FE byte order mark
+    * 4948 FIX: ups_modulys_battery.temp: Fixed possible "check_temperature" not found exception
+    * 4912 FIX: rds_licenses: Fixed exception if agent bakery is used to deploy this plugin
+    * 4873 FIX: printer_supply: Fixed IndexError in case of missing colour information
+    * 4838 FIX: netapp_api_volumes: No longer shows service descriptions with UUIDs
+            NOTE: Please refer to the migration notes!
+    * 4823 FIX: netapp_api_cpu: Fixed crash if data for node is missing
+    * 4881 FIX: multipath: Fixed service details: Number of paths were interpreted as expected paths
+    * 4876 FIX: mounts: Fixed wrong handling of NFS mounts on Linux which are detected as stale
+    * 4825 FIX: mkbackup: Fixed crash if size of backup is not reported because of a failure
+    * 4883 FIX: juniper_trpz_aps_sessions: Fixed performance data handling if running on cluster
+    * 4826 FIX: juniper_cpu_util: No crash anymore if information is not provided
+    * 4824 FIX: f5bigip_conns: Fixed crash if Parameters are at 'No Levels'
+    * 4841 FIX: esx_vsphere_hostsystem.cpu_usage: fixed missing cpu checks when querying vcenter with windows agent
+    * 4908 FIX: enterasys_powersupply: Fixed crash if empty output
+    * 4827 FIX: domino_info: Fixed crash if some information is missing
+    * 4874 FIX: cisco_power: Improved discovery of power supplies
+            NOTE: Please refer to the migration notes!
+    * 4909 FIX: arris_cmts_cpu: Fixed crash if thresholds are set
+    * 4879 FIX: akcp_sensor_humidity, akcp_exp_humidity: Fixed wrong order of level evaluation
+    * 4843 FIX: Windows Agent / logfile monitoring: fixed agent crash when * was used as file wildcard
+    * 4842 FIX: Windows Agent / Exchange Monitoring: fixed broken MSExchange checks
+
+
+1.4.0p7:
+    WATO:
+    * 4782 Prevent deletion of parent host
+    * 4891 FIX: Trusted CA certificate file is now updated during all WATO activations
+    * 4894 FIX: Fixed still visible sites on "activate changes" page after deletion
+    * 4893 FIX: Fixed creation of default "local" site
+    * 4892 FIX: Cleanup site changes of deleted sites correctly
+
+    User interface:
+    * 4896 FIX: Views: Services are now sorted correctly again
+
+    Notifications:
+    * 4836 FIX: Notifications rules: Modifying a rule always set the option "allow users to deactivate this notification"
+
+    Livestatus:
+    * 4694 FIX: Reloading the Nagios core works again
+    * 4695 FIX: Make communication with event console more robust
+
+    Checks & agents:
+    * 4837 netapp_api_if: a grouped interface now reports a WARNING when one of its member interfaces is down
+    * 4871 FIX: if.include: Added missing interface types
+    * 4897 FIX: check_bi_aggr: Fixed URL in error messages in case of exceptions during checking
+
+
 1.4.0p6:
     WATO:
     * 4835 windows_updates.vbs: this plugin automatically configured to asynchron execution and 4 hours cached
@@ -771,7 +897,8 @@
     * 4040 FIX: Fix error in view about "No WATO folder ..." in case of host imported via cmcdump
 
     Notifications:
-    * 4042 FIX: Fix missing From address in synchronous SMTP notifications
+    * 4042 FIX: Use well define From address in email notifications if none is configured
+            NOTE: Please refer to the migration notes!
 
     Livestatus:
     * 3651 FIX: Fixed potential segfault with Nagios core when accessing log/commands table via Livestatus.
