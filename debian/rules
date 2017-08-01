@@ -56,7 +56,7 @@ install: build
 	dh_installdirs
 	dh_installdebconf
 	mkdir -p debian/tmp
-	DESTDIR=debian/tmp python_lib_dir=/usr/lib/python2.7/dist-packages ./setup.sh --yes
+	DESTDIR=debian/tmp python_lib_dir=/usr/lib/python3/dist-packages ./setup.sh --yes
 	## clean up binaries shipped by upstream
 	# upstream agent deb and rpm
 	rm -rf debian/tmp/usr/share/check_mk/agent/check-mk-agent*.deb
@@ -84,6 +84,11 @@ install: build
 	rm debian/tmp/usr/share/check_mk/agents/z_os/waitmax
 	# copy the livestatus stuff that setup.sh generated in it's own dir
 	cp -a livestatus.src/debian/tmp/* debian/tmp/
+	## cleanup shipped byte-compiled python and regenerate it
+	#rm -rf debian/tmp/usr/lib/python2.7/dist-packages/cmk_base/*.pyc
+	#rm -rf debian/tmp/usr/lib/python2.7/dist-packages/cmk/*.pyc
+	#FIXME: pycompile debian/tmp/usr/lib/python2.7/dist-packages/
+	#dh_python3
 	## config files
 	# We need 2 different "defaults" files for Icinga and Nagios3
 	rm debian/tmp/usr/share/check_mk/modules/defaults
