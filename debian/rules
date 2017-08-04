@@ -98,7 +98,7 @@ install: build
 	mkdir -p debian/check-mk-config-icinga/etc/apache2/conf-available/
 	cp debian/apache.icinga debian/check-mk-config-icinga/etc/apache2/conf-available/check-mk-multisite.conf
 	# create a directory for the common package
-	mkdir -p debian/check-mk-common/usr/share/check-mk/python/
+	mkdir -p debian/check-mk-common/usr/share/check_mk/python/
 	# move the python stuff to it
 	mv debian/tmp/python/* debian/check-mk-common/usr/share/check_mk/python/
 	# Adjust path names
