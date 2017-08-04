@@ -88,12 +88,13 @@ install: build
 	#rm -rf debian/tmp/usr/lib/python2.7/dist-packages/cmk_base/*.pyc
 	#rm -rf debian/tmp/usr/lib/python2.7/dist-packages/cmk/*.pyc
 	## config files
-	# We need 2 different "defaults" files for Icinga and Nagios3
-	rm debian/tmp/usr/share/check_mk/modules/defaults
-	rm debian/tmp/usr/share/check_mk/web/htdocs/defaults.py
-	mkdir -p debian/check-mk-config-icinga/usr/share/check_mk/modules/
-	cp debian/defaults.icinga debian/check-mk-config-icinga/usr/share/check_mk/modules/defaults
-	# Switch the apache config to reference icinga
+	# We need a "paths.py" file with edited paths for FHS and monitoring
+	#  system changes
+	# remove the provided one
+	rm debian/check-mk-common/usr/share/check_mk/cmk/paths.py
+	# copy an icinga specific one into the icinga config package
+	cp debian/paths.py.icinga debian/check-mk-config-icinga/usr/share/check_mk/cmk/paths.py
+	# provide a safe apache config that references icinga
 	mkdir -p debian/check-mk-config-icinga/etc/apache2/conf-available/
 	cp debian/apache.icinga debian/check-mk-config-icinga/etc/apache2/conf-available/check-mk-multisite.conf
 	# Adjust path names
