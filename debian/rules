@@ -87,6 +87,10 @@ install: build
 	## cleanup shipped byte-compiled python and regenerate it
 	#rm -rf debian/tmp/usr/lib/python2.7/dist-packages/cmk_base/*.pyc
 	#rm -rf debian/tmp/usr/lib/python2.7/dist-packages/cmk/*.pyc
+	# create a directory for the common package
+	mkdir -p debian/check-mk-common/usr/share/check-mk/
+	mv debian/tmp/usr/share/check_mk/cmk debian/check-mk-common/usr/share/check_mk/
+	mv debian/tmp/usr/share/check_mk/cmk_base debian/check-mk-common/usr/share/check_mk/
 	## config files
 	# We need a "paths.py" file with edited paths for FHS and monitoring
 	#  system changes
