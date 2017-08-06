@@ -93,6 +93,7 @@ install: build
 	# remove the provided one
 	rm debian/tmp/python/cmk/paths.py
 	# copy an icinga specific one into the icinga config package
+	mkdir -p debian/check-mk-config-icinga/usr/share/check_mk/cmk/
 	cp debian/paths.py.icinga debian/check-mk-config-icinga/usr/share/check_mk/cmk/paths.py
 	# provide a safe apache config that references icinga
 	mkdir -p debian/check-mk-config-icinga/etc/apache2/conf-available/
