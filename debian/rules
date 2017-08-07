@@ -158,7 +158,8 @@ binary-arch: build install
 #	dh_installemacsen
 #	dh_installpam
 #	dh_installmime
-	dh_python3
+        #py3clean debian/check-mk-common/usr/share/check_mk/
+	dh_python3 debian/check-mk-common/usr/share/check_mk/
 #	dh_installinit
 #	dh_installcron
 #	dh_installinfo
