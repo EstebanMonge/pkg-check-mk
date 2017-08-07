@@ -130,3 +130,17 @@ Description: general purpose monitoring plugin for retrieving data (common libra
   * Automatic inventory of items to be checked on hosts.
  .
  This package contains the check_mk python libraries.
+
+Package: check-mk-monitoring-plugins
+Architecture: all
+Section: net
+Depends: ${misc:Depends}
+Description: general purpose monitoring plugin for retrieving data (monitoring plugins)
+ Check_mk adopts a new a approach for collecting data from operating systems
+ and network components. It obsoletes NRPE, check_by_ssh, NSClient and
+ check_snmp. It has many benefits, the most important of which are:
+ .
+  * Significant reduction of CPU usage on the Nagios host.
+  * Automatic inventory of items to be checked on hosts.
+ .
+ This package contains the check_mk provided monitoring plugins.
