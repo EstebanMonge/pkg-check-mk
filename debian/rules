@@ -84,9 +84,6 @@ install: build
 	rm debian/tmp/usr/share/check_mk/agents/z_os/waitmax
 	# copy the livestatus stuff that setup.sh generated in it's own dir
 	cp -a livestatus.src/debian/tmp/* debian/tmp/
-	## cleanup shipped byte-compiled python and regenerate it
-	#rm -rf debian/tmp/usr/lib/python2.7/dist-packages/cmk_base/*.pyc
-	#rm -rf debian/tmp/usr/lib/python2.7/dist-packages/cmk/*.pyc
 	## config files
 	# We need a "paths.py" file with edited paths for FHS and monitoring
 	#  system changes
@@ -158,8 +155,7 @@ binary-arch: build install
 #	dh_installemacsen
 #	dh_installpam
 #	dh_installmime
-        #py3clean debian/check-mk-common/usr/share/check_mk/
-	dh_python3 -v /usr/share/check_mk/
+	dh_python3 -v -p check-mk-common /usr/share/check_mk/
 #	dh_installinit
 #	dh_installcron
 #	dh_installinfo
