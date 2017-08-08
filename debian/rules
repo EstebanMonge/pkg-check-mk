@@ -56,7 +56,7 @@ install: build
 	dh_installdirs
 	dh_installdebconf
 	mkdir -p debian/tmp
-	DESTDIR=debian/tmp python_lib_dir=/python ./setup.sh --yes
+	DESTDIR=debian/tmp python_lib_dir=/usr/share/check_mk/ ./setup.sh --yes
 	## clean up binaries shipped by upstream
 	# upstream agent deb and rpm
 	rm -rf debian/tmp/usr/share/check_mk/agent/check-mk-agent*.deb
@@ -88,7 +88,7 @@ install: build
 	# We need a "paths.py" file with edited paths for FHS and monitoring
 	#  system changes
 	# remove the provided one
-	rm debian/tmp/python/cmk/paths.py
+	rm debian/tmp/usr/share/check_mk/cmk/paths.py
 	# copy an icinga specific one into the icinga config package
 	mkdir -p debian/check-mk-config-icinga/usr/share/check_mk/cmk/
 	cp debian/paths.py.icinga debian/check-mk-config-icinga/usr/share/check_mk/cmk/paths.py
@@ -155,7 +155,7 @@ binary-arch: build install
 #	dh_installemacsen
 #	dh_installpam
 #	dh_installmime
-	dh_python3 -v -p check-mk-common /usr/share/check_mk/
+	dh_python3 /usr/share/check_mk/
 #	dh_installinit
 #	dh_installcron
 #	dh_installinfo
