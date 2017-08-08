@@ -9,7 +9,10 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-
+python_share_dir = /usr/share/check_mk
+export PYBUILD_INSTALL_ARGS ?= \
+        --install-lib=${package_share_dir}/ \
+        --install-scripts=${package_share_dir}/
 
 
 
@@ -151,7 +154,7 @@ binary-arch: build install
 #	dh_installemacsen
 #	dh_installpam
 #	dh_installmime
-	dh_python3 -p check-mk-common /usr/share/check_mk/
+	dh_python3
 #	dh_installinit
 #	dh_installcron
 #	dh_installinfo
