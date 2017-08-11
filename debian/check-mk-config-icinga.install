@@ -1,3 +1,3 @@
 usr/share/check_mk/check_mk_templates.cfg etc/icinga/objects/check_mk
-usr/share/check_mk/paths.py
+usr/share/check_mk/cmk/paths.py
 etc/check_mk/multisite.mk
