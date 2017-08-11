@@ -29,7 +29,7 @@ Description: general purpose monitoring plugin for retrieving data
 
 Package: check-mk-agent-logwatch
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, check-mk-agent, python
+Depends: ${shlibs:Depends}, ${misc:Depends}, check-mk-agent, python, check-mk-common
 Description: general purpose monitoring plugin for retrieving data
  Check_mk adopts a new a approach for collecting data from operating systems
  and network components. It obsoletes NRPE, check_by_ssh, NSClient and
@@ -58,7 +58,7 @@ Description: general purpose monitoring plugin for retrieving data
 Package: check-mk-config-icinga
 Conflicts: check-mk-config-nagios3
 Architecture: any
-Pre-Depends: dpkg (>= 1.15.7.2~)
+Pre-Depends: dpkg (>= 1.15.7.2~), check-mk-common
 Depends: ${shlibs:Depends}, ${misc:Depends}, adduser
 Description: general purpose monitoring plugin for retrieving data
  Check_mk adopts a new a approach for collecting data from operating systems
@@ -134,7 +134,7 @@ Description: general purpose monitoring plugin for retrieving data (common libra
 Package: check-mk-monitoring-plugins
 Architecture: all
 Section: net
-Depends: ${misc:Depends}
+Depends: ${misc:Depends}, check-mk-common
 Description: general purpose monitoring plugin for retrieving data (monitoring plugins)
  Check_mk adopts a new a approach for collecting data from operating systems
  and network components. It obsoletes NRPE, check_by_ssh, NSClient and
