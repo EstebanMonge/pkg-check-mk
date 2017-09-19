@@ -2,7 +2,9 @@ check-mk (1.4.0p9-1) experimental; urgency=high
 
   * new upstream release
   * fixes CVE-2017-9781 (Closes: #865497)
-  * add new librrd-dev, libboost-dev, libboost-system-dev build-deps
+  * move to the way upstream now does defaults
+  * add new librrd-dev, libboost-dev, libboost-system-dev, g++-6 build-deps
+  * new -common package for private python libs
 
  -- Matt Taggart <taggart@debian.org>  Thu, 22 Jun 2017 15:44:37 -0700
 
