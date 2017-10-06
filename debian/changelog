@@ -1,3 +1,10 @@
+check-mk (1.2.8p26-1) unstable; urgency=medium
+
+  * new upstream release
+  * fixes CVE-2017-9781 (Closes: #865497)
+
+ -- Matt Taggart <taggart@debian.org>  Fri, 06 Oct 2017 09:59:26 -0700
+
 check-mk (1.2.8p16-1) unstable; urgency=medium
 
   * new upstream release
