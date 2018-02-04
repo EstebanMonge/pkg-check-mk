@@ -1,0 +1,77 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 05_fix_megaraid_bbu_check.dpatch by  <kargig@noc.grnet.gr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Fix megaraid_bbu check
+## DP: * Mute CRITICAL/WARNING when we're 1-2 days around the "Auto
+## DP:   Learn" state. It is normal after "Auto Learn" has initiated to
+## DP:   go into Discarging and Charging battery states.
+## DP: * When "Auto Learn" has started and the battery is close to 0%
+## DP:   charge, then 'Battery State' is not 'Optimal' any more but has
+## DP:   gone into 'Degraded(Charging)'.
+## DP: * Catch a case where 'Charging Status' == 'Charging' and the
+## DP:   'Battery State' is 'Optimal' but we're not close to auto-learn
+## DP:   yet.
+
+@DPATCH@
+--- a/agents/check_mk_agent.linux	2017-09-25 10:39:44.000000000 +0300
++++ b/agents/check_mk_agent.linux	2018-02-04 23:57:50.676082376 +0200
+@@ -471,7 +471,7 @@
+     echo '<<<megaraid_ldisks>>>'
+     $MegaCli_bin -LDInfo -Lall -aALL -NoLog < /dev/null | egrep 'Size|State|Number|Adapter|Virtual'
+     echo '<<<megaraid_bbu>>>'
+-    $MegaCli_bin -AdpBbuCmd -GetBbuStatus -aALL -NoLog < /dev/null | grep -v Exit
++    $MegaCli_bin -AdpBbuCmd -aALL -NoLog < /dev/null | grep -v Exit
+ fi
+ 
+ # RAID status of 3WARE disk controller (by Radoslaw Bak)
+--- a/checks/megaraid_bbu	2017-04-28 16:53:35.000000000 +0300
++++ b/checks/megaraid_bbu	2018-02-04 23:49:56.745073874 +0200
+@@ -47,6 +47,7 @@
+     'isSOHGood'                                 : ('Yes', 2),
+ }
+ 
++import datetime
+ 
+ def megaraid_bbu_parse(info):
+     controllers = {}
+@@ -55,7 +56,7 @@
+         joined = " ".join(line)
+         if ":" not in joined:
+             continue # skip garbage lines
+-        name, data = joined.split(":")
++        name, data = joined.split(":",1)
+         name = name.strip()
+         data = data.strip()
+ 
+@@ -90,6 +91,14 @@
+         if 'Full Charge Capacity' in controller:
+             charge += ", Capacity is %s" % controller['Full Charge Capacity']
+ 
++    days_till_learn=10
++    if 'Next Learn time' in controller:
++        now = datetime.datetime.now()
++        ts = now.strftime("%s")
++        #Wed Nov 2 12:04:48 2016
++        struct_time = datetime.datetime.strptime(controller['Next Learn time'], "%a %b %d %H:%M:%S %Y")
++        date_diff=int(struct_time.strftime("%s"))-int(ts)
++        days_till_learn=int(date_diff/86400)
+     # verify defined important parameters to current level
+     for varname, (refvalue, refstate) in megaraid_bbu_refvalues.items():
+         # the try/except should handle controller types that don't have certain values
+@@ -115,6 +124,15 @@
+ 
+     if controller.get("Learn Cycle Active") == "Yes":
+         return (0, "no states to check (controller is in learn cycle)" + charge)
++    elif controller['Charging Status'] != 'None' and (controller['Battery State'] == 'Optimal' or
++        controller['Battery State'] == 'Degraded(Charging)'):
++        calc_days = days_till_learn - int(controller['Auto Learn Period'].split()[0])
++        if calc_days <= 0 and calc_days > -3:
++           return (0, "no states to check (BBU is around learning day)" + charge) 
++        elif controller['Charging Status'] == 'Charging' and controller['Battery State'] == 'Optimal':
++           return (0, "no states to check (BBU is charging)" + charge) 
++        else
++           return (1, "something is wrong, please check BBU status" + charge)
+     # return assembled info
+     elif broken:
+ 	return (state, ", ".join(broken) + charge)

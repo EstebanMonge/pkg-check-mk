@@ -1,2 +1,5 @@
 01_fix_livestatus
 02_wato-sudoers
+03_fix_deprecated_check_interval.dpatch
+04_enhance_linux_bonding_check.dpatch
+05_fix_megaraid_bbu_check.dpatch
