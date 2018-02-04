@@ -1,0 +1,20 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 02_fix_deprecated_check_interval.dpatch by  <kargig@noc.grnet.gr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Fix deprecation warnings for check_interval/retry_interval
+
+@DPATCH@
+--- a/modules/nagios.py	2018-02-04 23:27:05.394471044 +0200
++++ b/modules/nagios.py	2018-02-04 22:24:17.740295988 +0200
+@@ -617,8 +617,8 @@
+ define service {
+   use\t\t\t\t%s
+   host_name\t\t\t%s
+-  normal_check_interval\t\t%d
+-  retry_check_interval\t\t%d
++  check_interval\t\t%d
++  retry_interval\t\t%d
+ %s  service_description\t\t%s
+ }
+ """ % (inventory_check_template, hostname, params["check_interval"],

@@ -1,0 +1,89 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 04_enhance_linux_bonding_check.dpatch by  <kargig@noc.grnet.gr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Enhance Linux bonding check
+## DP: * Show interface speed
+## DP: * WARN when interface speeds in the same bond don't match
+## DP: * Check for "Aggregator ID" mismatch
+
+@DPATCH@
+--- a/checks/bonding.include	2017-04-28 16:53:34.000000000 +0300
++++ b/checks/bonding.include	2018-02-04 23:35:37.246912175 +0200
+@@ -44,20 +44,45 @@
+     status = parsed[item]
+     if status["status"] not in ("up", "degraded"):
+         return 2, "interface is " + status["status"]
++
+     infos = [ "mode: " + status["mode"] ]
+     state = 0
+-    speed = status.get('speed')
+-    if speed:
+-        infos.append("Speed:" + speed)
++    speeds = []
++    aggregators = []
++    aggrid_mismatch = 0
+     for eth, slave in status["interfaces"].items():
+-        if "hwaddr" in slave:
+-            infos.append("%s/%s %s" % (eth, slave["hwaddr"], slave["status"]))
++        if set(["hwaddr","speed","aggrid"]).issubset(slave) and slave["aggrid"] is not '':
++            infos.append("%s/%s/%s/%s A:%s" % (eth, slave["hwaddr"], slave["speed"], slave["status"], slave["aggrid"]))
++            speeds.append(slave["speed"])
++            if slave["status"] == 'up':
++                aggregators.append(slave["aggrid"])
++        elif set(["hwaddr","speed"]).issubset(slave):
++            infos.append("%s/%s/%s/%s" % (eth, slave["hwaddr"], slave["speed"], slave["status"]))
++            speeds.append(slave["speed"])
++        elif "hwaddr" in slave:
++            infos.append("%s/%s/%s" % (eth, slave["hwaddr"], slave["status"]))
+         else:
+-            infos.append("%s %s" % (eth, slave["status"]))
++            infos.append("%s/%s" % (eth, slave["status"]))
+         if slave["status"] != 'up':
+             state = 1
+             infos[-1] += "(!)"
+ 
++    if speeds:
++        for i in range(len(speeds)):
++            for j in range(i + 1, len(speeds)):
++                if speeds[i] != speeds[j]:
++                    state = 1 
++                    infos.append("Interface speed mismatch (!)")
++
++    if aggregators:
++        for i in range(len(aggregators)):
++            for j in range(i + 1, len(aggregators)):
++                if aggregators[i] != aggregators[j]:
++                    state = 1 
++                    if aggrid_mismatch == 0:
++                        infos.append("Aggregator ID mismatch (!)")
++                        aggrid_mismatch = 1
++
+     primary = status.get("primary", params.get("primary"))
+     if primary:
+         infos.append("primary: " + primary)
+--- a/checks/lnx_bonding	2017-04-28 16:53:35.000000000 +0300
++++ b/checks/lnx_bonding	2018-02-04 23:35:50.334091859 +0200
+@@ -56,12 +56,7 @@
+ # Permanent HW addr: 00:26:b9:7d:89:2e
+ 
+ def parse_lnx_bonding(info):
+-    def strip_popd_garbage(info):
+-        for line in info:
+-            if len(line) != 1 or not line[0].startswith("/"):
+-                yield line
+-
+-    lines = strip_popd_garbage(info)
++    lines = iter(info)
+     bonds = {}
+ 
+     # Skip header with bonding version
+@@ -113,6 +108,8 @@
+                 "status"   : ethstatus["MII Status"],
+                 "hwaddr"   : ethstatus.get("Permanent HW addr", ""),
+                 "failures" : int(ethstatus["Link Failure Count"]),
++                "speed"    : ethstatus.get("Speed", ""),
++                "aggrid"   : ethstatus.get("Aggregator ID",""),
+             }
+         converted[bond] = {
+             "status"      : status["main"]["MII Status"],
