@@ -23,6 +23,26 @@ configure-stamp:
 	tar -xzf doc.tar.gz -C docs
 	mkdir config
 	tar -xzf conf.tar.gz -C config
+	mkdir modules
+	tar -xzf modules.tar.gz -C modules
+	mkdir checks
+	tar -xzf checks.tar.gz -C checks
+
+	touch configure-stamp
+
+configure-stamp-repack:
+	dh_testdir
+	# Add here commands to configure the package.
+	test -d agents && \
+	tar -czf agents.tar.gz -C agents .
+	test -d docs && \
+	tar -czf doc.tar.gz -C docs .
+	test -d config && \
+	tar -czf conf.tar.gz -C config .
+	test -d modules && \
+	tar -czf modules.tar.gz -C modules .
+	test -d checks && \
+	tar -czf checks.tar.gz -C checks .
 
 	touch configure-stamp
 
@@ -31,7 +51,7 @@ build: build-arch build-indep
 build-arch: build-stamp
 build-indep: build-stamp
 
-build-stamp: patch-stamp configure-stamp
+build-stamp: configure-stamp patch-stamp configure-stamp-repack
 	dh_testdir
 
 	# Add here commands to compile the package.
@@ -47,7 +67,7 @@ clean-patched:
 	rm -f build-stamp configure-stamp
 
 	# Add here commands to clean up after the build process.
-	rm -rf agents docs config livestatus.src livestatus.log
+	rm -rf agents docs config modules checks livestatus.src livestatus.log
 
 	dh_clean
 
