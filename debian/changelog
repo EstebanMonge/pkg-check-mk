@@ -1,3 +1,13 @@
+check-mk (1.4.0p9-1+grnet1) experimental; urgency=high
+
+  * Transparently unpack, patch and repack upstream tarballs
+  * Add GRNET patches
+    * 03_fix_deprecated_check_interval.dpatch
+    * 04_enhance_linux_bonding_check.dpatch
+    * 05_fix_megaraid_bbu_check.dpatch
+
+ -- Zenon Mousmoulas <zmousm@noc.grnet.gr>  Tue, 06 Feb 2018 00:12:19 +0200
+
 check-mk (1.4.0p9-1) experimental; urgency=high
 
   * new upstream release
