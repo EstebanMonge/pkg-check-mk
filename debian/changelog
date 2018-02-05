@@ -1,3 +1,10 @@
+check-mk (1.4.0p9-1~bpo8+grnet1) jessie-backports; urgency=medium
+
+  * Replace g++-6 build-dep with clang-3.8
+  * Rebuild for jessie-backports.
+
+ -- Zenon Mousmoulas <zmousm@noc.grnet.gr>  Tue, 06 Feb 2018 00:34:36 +0200
+
 check-mk (1.4.0p9-1+grnet1) experimental; urgency=high
 
   * Transparently unpack, patch and repack upstream tarballs
