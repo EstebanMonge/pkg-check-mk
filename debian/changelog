@@ -1,3 +1,9 @@
+check-mk (1.4.0p9-1~bpo9+grnet1) stretch-backports; urgency=medium
+
+  * Rebuild for stretch-backports.
+
+ -- Zenon Mousmoulas <zmousm@noc.grnet.gr>  Tue, 06 Feb 2018 00:16:24 +0200
+
 check-mk (1.4.0p9-1+grnet1) experimental; urgency=high
 
   * Transparently unpack, patch and repack upstream tarballs
