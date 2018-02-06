@@ -1,3 +1,315 @@
+1.4.0p23:
+    User interface:
+    * 5586 FIX: Raw edition: Fixed adding graphs to dashboards
+    * 5585 FIX: Added missing icon "host is currently not being checked" to host views
+
+    HW/SW inventory:
+    * 5584 FIX: Fixed exception when "Export List of Software packages as CSV file" is enabled
+
+    Checks & agents:
+    * 5608 FIX: temperature.include: Fixed device levels handling
+    * 5598 FIX: postfix_mailq_status: Fix Linux agent to handle newer SuSE systems
+    * 5550 FIX: mk_oracle.ps1: Fixed exceptions because of useless backslashes
+    * 5484 FIX: logwatch.ec: Fix exception when reclassify patterns are specified
+    * 5582 FIX: hr_cpu: Fixed displaying of "per core CPU utilization" in raw edition graphs
+    * 5551 FIX: check_mk_agent.aix: Fixed crash in uptime if the output is day instead of days
+    * 5599 FIX: check_dns: Return to the behaviour prior to Werk #5526
+    * 5485 FIX: alcatel_power: improved detection of power supplies on newer devices
+
+
+1.4.0p22:
+    User interface:
+    * 5452 FIX: Highly improved performance of rendering large tables of HW/SW inventory trees
+
+    Checks & agents:
+    * 5527 FIX: ucd_mem, hr_mem: Prefer ucd_mem check for certain Cisco IronPort models
+            NOTE: Please refer to the migration notes!
+    * 5456 FIX: mk_oracle, mk_oracle.aix: Fixed excluding all sections for any SID which contains invalid characters in the related variable name
+    * 5416 FIX: Prevent MS Exchange checks from crashing upon WMI timeout
+    * 5415 FIX: Make Windows section openhardwaremonitor backwards compatible
+
+
+1.4.0p21:
+    WATO:
+    * 5558 FIX: Rule list: Fixed visibility of rules in child folders for transitive folders
+    * 5250 FIX: Fixed tmpfs full issue: Activate Changes did not cleanup all temporary files
+    * 5547 FIX: Errors in pre-activate-changes hooks prevent configuration activation now (regression since 1.2.8)
+    * 5545 FIX: Editing rules: Fixed adding date+user to rule comments
+
+    User interface:
+    * 5541 FIX: IE 11+: Fixed styling of select fields
+    * 5570 FIX: Fixed disabling of availability row limit
+    * 5529 FIX: Fixed accidentially cloning own visuals instead of builtin visuals
+    * 5530 FIX: Clicking on "Edit dashboard" accidentially copied dashboards with "publish to others"
+
+    Livestatus:
+    * 5463 FIX: Report invalid table names via response header.
+    * 5464 FIX: Report invalid GET headers even when they appear before ResponseHeader.
+    * 5468 FIX: Fixed indexing with disjunctions.
+    * 5466 FIX: Fixed filtering of services table for host name
+
+    HW/SW inventory:
+    * 5453 FIX: HW/SW inventory: Changed output format of raw inventory tree
+
+    Checks & agents:
+    * 5246 cmk --list-hosts now supports the additional options --all-sites, --include-offline
+    * 5548 FIX: zpool_status: Fixed crash if pool has been deleted or vanished
+    * 5518 FIX: win.mem: Fix incorrect representation of absolute memory levels in graphs
+    * 5520 FIX: rstcli, rstcli.pdisks: Fix broken parse function
+    * 5245 FIX: netapp_api_status: Now also considers the status "ok_with_suppressed" as OK
+    * 5549 FIX: mk_oracle.ps1: Fixed scattered information for configuration
+    * 5451 FIX: logwatch: Fixed reclassifying mechanism: Patterns did not apply correctly if they have changed
+    * 5521 FIX: logwatch: Fix exception in WATO's check parameter display
+    * 5479 FIX: fileinfo: handle globbing pattern expansion and whitespace in fileinfo.cfg
+    * 5413 FIX: Windows agent: nocontext tag did not work for multibyte encoded logfiles
+    * 5411 FIX: Windows agent: handle WMI timeouts
+    * 5412 FIX: Windows agent: fix logfile glob patterns without '*' at the end
+            NOTE: Please refer to the migration notes!
+    * 5414 FIX: Windows agent: Exchange Availability Service was broken
+    * 5251 FIX: Windows Agent: Improved handling of cmk-update-agent.exe plugin
+
+
+1.4.0p19:
+    WATO:
+    * 5244 FIX: Activate Changes: Fixed "Has never been activated" status message
+
+    Core & setup:
+    * 5444 FIX: SNMP commands: Prevent zombie processes in case of timeouts
+
+    Checks & agents:
+    * 5478 FIX: fileinfo: fix globbing pattern expansion
+    * 5443 FIX: cisco_redundancy: Discover 'Redundancy Framework Status' service if device supports that.
+    * 5445 FIX: apc_symmetra_output: Fixed exception 'could not convert string to float' during discovery
+    * 5410 FIX: Windows agent: handle section Skype correctly
+    * 5227 FIX: Checkgroup humidity: Fix swapped lower levels and definition of only one kind of levels
+
+
+1.4.0p17:
+    WATO:
+    * 5423 FIX: Fixed exception on "Catalog of check plugins page"
+
+    User interface:
+    * 5431 SEC: Fixed possible reflected XSS using custom bookmarks
+    * 5426 FIX: df perfometer: Fixed exception when maximum value is not available
+    * 5434 FIX: Views: Fixed exception when trying to display downtime IDs in views
+    * 5424 FIX: Fixed possible exception during logout when having cookies with invalid format for other sites
+    * 5425 FIX: Fixed broken bookmark list management for users with non ascii characters in User IDs
+
+    Livestatus:
+    * 5197 FIX: Improved Event Console history performance
+    * 5196 FIX: Bumped Livestatus stack size to give regex matching more breathing room.
+
+    Event console:
+    * 5429 FIX: Fixed broken event history expiration (when using default settings)
+
+    Checks & agents:
+    * 5241 FIX: netapp_api_connection: removed some invalid warning messages, which appear on virtual netapp systems
+    * 5441 FIX: mk_oracle: Werk 5321 introduced usage of nawk for SunOS but was implemented incorrectly for Linux
+    * 5354 FIX: cmctc_lcp: Fixes an error leading to wrong inventory and check output
+            NOTE: Please refer to the migration notes!
+    * 5353 FIX: citrix_sessions: fixes a case where no session number was returned
+    * 5240 FIX: agent_netapp, environmental sensors monitoring. No longer fails if a node has no configured shelfes
+    * 5409 FIX: Windows eventlog: wrong last state saved
+
+    BI:
+    * 5427 SEC: Fixed different XSS issues triggerd from BI aggregation/rule titles/descriptions
+
+
+1.4.0p16:
+    WATO:
+    * 5399 SEC: Fixed multiple stored XSS injections in GUI dialogs
+    * 5421 FIX: LDAP: Fixed broken sync of group memberships for users with capital umlauts in names
+    * 5401 FIX: Fixed password auto completion prevention for current Chrome versions
+    * 5392 FIX: Fixed host monitored from all sites after editing custom host attributes
+    * 5235 FIX: Distributed monitoring: Fixed race condition when unpacking snapshots
+
+    Checks & agents:
+    * 5347 agent_ucs_bladecenter: add option to disable certificate validation
+    * 5307 FIX: windows_updates: Added information about default cache age and asynchronious execution
+    * 5348 FIX: veritas_vcs: add timeout in the Check_MK agent
+    * 5439 FIX: storcli_vdrives: Configured check state of related device state was not set properly in some cases. Made that more robust.
+    * 5349 FIX: ovs_bonding: display bonding correctly for newer ovs-appctl versions
+    * 5321 FIX: mk_oracle: Fixed usage of awk command in case of SunOS which causes 'record ... too long' error
+    * 5303 FIX: local: Fixed missing warn/crit in graphs if upper and lower thresholds are in perfdata
+    * 5301 FIX: infoblox_dhcp_stats: Fixed crash of graphs
+    * 5344 FIX: fileinfo: correct handling of file names with spaces in fileinfo.cfg
+    * 5324 FIX: check_tcp: Made response time metric readable
+    * 5394 FIX: agent_ucs_bladecenter: Fixed broken agent since 1.4.0p14 (#5233)
+    * 5408 FIX: Windows perf counter base number formatting was broken
+
+    BI:
+    * 5318 FIX: BI aggregations can be configured to be in multiple groups
+
+
+1.4.0p15:
+    WATO:
+    * 5391 FIX: Removed CEE specific broken link from host edit page (CRE)
+    * 5362 FIX: Fixed possible exception on global settings page related to "diskspace cleanup"
+    * 5389 FIX: Fixed disabling services via discovery page when a host rule exists in wrong folder
+
+    Checks & agents:
+    * 5234 FIX: Fixed recently introduced issue with non working WATO rules
+    * 5379 FIX: Allow Windows logfiles to be monitored without monitoring also eventlog
+
+
+1.4.0p14:
+    WATO:
+    * 5231 Distributed WATO: Improved site snapshot generation speed, reduces "Activate changes" duration
+    * 5313 FIX: Service discovery: Fixed 'Fix all missing/vanished' action: Disabled services were listed below 'Monitored services' after that button click.
+    * 5217 FIX: BI: Improved error handling in case of not existing but referenced rule
+
+    User interface:
+    * 5210 FIX: LDAP: Fixed equal default value for custom variable sync plugins
+    * 5215 FIX: Fixed broken nested contact group synchronization (regression in 1.4.0p10)
+    * 5216 FIX: Failed notification checking is now limited to 7 days
+    * 5214 FIX: Events in tactical overview can now be disabled
+
+    Event console:
+    * 5212 FIX: check_mkevents: Improved performance
+    * 5361 FIX: Fixed cancelling events by "text" (regression #5057, since 1.4.0p11)
+
+    Checks & agents:
+    * 5233 agent_ucs_bladecenter: Now uses python requests to fetch the data
+    * 5339 FIX: postfix_mailq_status: Now reports if PID file is not readable
+    * 5316 FIX: cmciii.access: Fixed error state handling
+    * 5312 FIX: citrix_sessions: Fixed crash if not all session values 'total', 'active' or 'inactive' are available
+    * 5232 FIX: Agent version check: fixed exception when an offcial release is expected and the agents version is a daily build
+
+
+1.4.0p13:
+    WATO:
+    * 5295 FIX: Service discovery: Fixed permission handling regarding foreign changes if user just performs a service discovery
+    * 5229 FIX: Rename host: fixed exception when having more than 1024 users configured
+
+    Reporting & availability:
+    * 3919 FIX: PDF: Improved handling of long words in text wrapping
+
+    Checks & agents:
+    * 5280 FIX: rds_licenses: Fixed missing includes
+    * 5279 FIX: qnap_disks: Just discover slots that are not empty
+    * 5287 FIX: postfix_mailq: Fixed parameter handling
+    * 5311 FIX: oracle_performance: Making sure that we use float instead of integer for correct calculations
+    * 5283 FIX: megaraid_ldisks: Fixed error during discovery: UnboundLocalError: local variable 'item' referenced before assignment
+    * 5230 FIX: logwatch/logwatch.ec: fixed "no forwarding" option in rule "Logwatch Event Console Forwarding"
+    * 5282 FIX: hpux_tunables: Fixed discovering kernel tunables on HPUX 11.23
+    * 5016 FIX: hp_proliant_temp: Fixed crash if thresholds are set manually
+    * 5221 FIX: esx_vsphere_hostsystem.cpu_usage, esx_vsphere_hostsystem.cpu_util_cluster: Fix min/max values in perfdata
+    * 5278 FIX: check_mk_agent.linux: Fixed wrong detected sensors in state "State disasserted"
+    * 5281 FIX: apache_status: Fixed ignoring invalid lines
+    * 5284 FIX: akcp_exp_humidity, akcp_sensor_humidity, allnet_ip_sensoric, apc_humidity, etherbox, humidity.include, knuerr_rms_humidity, stulz_humidity, tinkerforge: Fixed wrong parameters
+    * 5034 FIX: Do not skip first entry in Windows eventlog
+
+
+1.4.0p12:
+    WATO:
+    * 5228 FIX: WATO Web-API: now able to edit users which were created through the GUI
+    * 5124 FIX: Service discovery: Fixed permission if user is not allowed to manage services
+    * 5123 FIX: Service discovery: Fix moving services from 'Disabled services' to 'Vanished services' or 'Undecided services'
+    * 5122 FIX: Service discovery: Find SNMP checks of not yet monitored type when using cached data
+    * 5126 FIX: Service discovery dialog: Fixed moving services to "Disabled services" for remote sites
+    * 5206 FIX: Ruleset quick search now excludes deprecated rulesets
+    * 5207 FIX: Bulk discovery: Fixed "Maximum number of retries reached" error during bulk discovery
+
+    User interface:
+    * 5203 FIX: Removed sorting of perfometers
+
+    Core & setup:
+    * 5205 FIX: Host rename: Fixed broken renaming when new name uses dots
+    * 5204 FIX: Host rename: Fixed broken rename of hosts in rrdcached journal
+
+    Checks & agents:
+    * 5120 FIX: ps, ps.perf: Fixed regex range introduced with werk 5114 which allows "/" in process name in manual checks
+    * 5218 FIX: jolokia_metrics: Fix failing parse function for MBeans containing ":"
+    * 5014 FIX: df: Fixed error if dynamic levels should be set
+    * 5121 FIX: check_sql: Added error message if cx_Oracle module is not installed
+    * 5125 FIX: brocade_mlx_power: Fixed wrong index usage which led to undetected power supplies
+
+
+1.4.0p11:
+    WATO:
+    * 5141 WATO Web API: Introducing parameter <tt>request_format</tt>
+    * 5140 FIX: WATO Web API: add_users/edit_users: now able to set password attribute
+    * 5168 FIX: Fixed highlighting of rules when searching for ineffective rules
+
+    User interface:
+    * 5056 FIX: WATO: Wrong list of groups shown on user edit page when syncing groups via LDAP
+    * 5200 FIX: Removed CEE specific link to Reports from Bookmark list pages
+    * 5169 FIX: LDAP: Fixed syncing contact groups / roles of users with special characters in their name
+    * 5182 FIX: Fixed error "program_version" in master control snapin when disabling a site
+    * 5198 FIX: Delete contact groups: Fixed error message when users have no alias
+
+    HW/SW inventory:
+    * 5185 FIX: Check_MK HW/SW Inventory: The service was executed too often by default
+            NOTE: Please refer to the migration notes!
+
+    Event console:
+    * 5057 FIX: Fixed cancelling events by "syslog application" when using similar rules
+
+    Core & setup:
+    * 5054 FIX: SNMPv3 contextes were not always used during discovery
+
+    Checks & agents:
+    * 5199 FIX: winperf_if: DHCP was always shown as enabled
+    * 5055 FIX: quantum_libsmall_door: Fixed exception in scan function when .1.3.6.1.2.1.1.6.0 is not available
+    * 4860 FIX: mailman_lists: fixed path of python modules for some operating systems
+    * 5201 FIX: check_mkevents: Removed deprecated "less verbose output" option
+
+    BI:
+    * 5142 BI aggregation: Increased compilation performance for large aggregations
+
+
+1.4.0p10:
+    WATO:
+    * 5048 FIX: Service discovery: Fixed handling of "full scan" of new SNMP hosts
+    * 5092 FIX: Service discovery performance: Do full scan once only right after clicking full scan
+    * 5050 FIX: Fixed error "You need to specify a backup job." when restoring a backup
+    * 5051 FIX: Fixed backup/restore of encrypted backups
+    * 5098 FIX: Fix sporadic exception during activation
+    * 5099 FIX: Fix custom user attributes un user form
+
+    User interface:
+    * 5045 FIX: Custom icons and actions: Add macros for getting URL encoded values
+
+    Notifications:
+    * 4812 FIX: Add missing Acknowledge author to host notifications
+
+    Livestatus:
+    * 5022 FIX: Fixed timperiod history calculation
+    * 5024 FIX: Fixed parsing of some host-related monitoring history entries.
+    * 5023 FIX: Fixed parsing of monitoring history.
+
+    HW/SW inventory:
+    * 4987 FIX: oracle_instance: Removed uptime from inventory plugin in sense of werk #4485
+
+    Event console:
+    * 5047 FIX: EC views: Fixed "Events of host X" views of unrelated events
+
+    Checks & agents:
+    * 4982 FIX: zypper: Made check more robust against different SLES 12 service packs
+    * 5115 FIX: zfs_arc_cache: Fixed wrong detected lines from agent output if they contain no counters, eg. 'class = misc'
+    * 5079 FIX: windows_tasks: Adapted man page; Some OK states were missing
+    * 5114 FIX: ps, ps.perf: Allow "/" in process name in manual checks
+    * 5083 FIX: oracle_locks: Do not discover if data is incomplete
+    * 5096 FIX: mk_oracle_crs: crs_stat command is deprecated since Oracle 11gR2; Now the plugin handles that correctly
+    * 5078 FIX: lnx_distro: Detects version and name of Check_MK Appliance correctly
+    * 5116 FIX: if.include: Fixed wrong handling of duplicate interfaces if "use alias" or "use desccription" is configured
+    * 5082 FIX: gude_powerbanks: Adapted discovery of powerbanks
+    * 4857 FIX: esx_vsphere_vm.datastores: this check always reported only one datastore information
+    * 5093 FIX: dell_poweredge_temp: Fixed device levels handling if they are empty
+    * 5089 FIX: citrix_xenapp.ps1: Refactored; now uses powershell commands for Citrix environment instead of WMI objects which caused runtime errors
+    * 5113 FIX: cifsmounts: Fixed wrong reported error message if user has not right permissions on mount point
+    * 4983 FIX: brocade_fcport: Fixed wrong speed information
+    * 5087 FIX: brocade_fcport: Fixed conversion of BB credits
+    * 4804 FIX: brocade_fcport: Fix limiting discovered ports by operational and physical status
+    * 5110 FIX: appdynamics_memory: Fixed crashing if max. available for heap or non-heap memory is zero
+    * 4984 FIX: aix_service_packs: Cleaned up mixture of the latest and all past service packs
+    * 4853 FIX: agent_netapp: Re-enabled some deprecated SSL Ciphers which were used in old 7mode filers
+    * 5091 FIX: Perfometer: Allow zero as maximal value; Fixed unsupported operand type for /: 'float' and 'NoneType'
+    * 4859 FIX: MSSQL: plugin detects 32bit and 64bit instances now
+    * 4856 FIX: Check_MK was unable to handle cached tcp data greater than 10MB
+    * 5095 FIX: "Round trip average" graph: Added warn and crit lines
+
+
 1.4.0p9:
     WATO:
     * 4954 FIX: Host/Folder properties: fixed displaying of inherited checkbox tag group values
@@ -22,6 +334,9 @@
     * 4993 FIX: Fixed visibility of events for users with limited access to events
     * 5003 FIX: Fixed missing filtering by effective contact groups of events
     * 4951 FIX: Added missing host custom variables to notifications created by the EC
+
+    Core & setup:
+    * 5038 FIX: Datasource programs: Prevent zombie processes in case of timeouts
 
     Checks & agents:
     * 4973 FIX: zpool: Fixed missing include statement which causes undefined 'df_inventory' error if using Nagios core
@@ -237,7 +552,7 @@
     * 4788 FIX: openhardwaremonitor: New support of current hardware
     * 4707 FIX: netapp_api_vf_stats: improved computation of CPU utilization, now showing number of processors
     * 4770 FIX: ipmi_sensors: Added performance data for all temperature sensors
-    * 4708 FIX: Windows Agent/Agent Updater: Fixed raise condition which removed the windows service
+    * 4708 FIX: Windows Agent/Agent Updater: Fixed race condition which removed the windows service
     * 4797 FIX: Removed deprecated global service discovery setting and added new standard rule
 
 
