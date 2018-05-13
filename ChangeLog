@@ -1,3 +1,175 @@
+1.4.0p31:
+    WATO:
+    * 5913 FIX: webapi: Fixed handling of the option mode in service discovery
+
+    User interface:
+    * 6027 FIX: Fixed availability CSV export when summary is disabled
+
+    Event console:
+    * 5835 FIX: Improve performance of various event console queries.
+
+    Checks & agents:
+    * 5989 FIX: fireeye_content: Fixed exception, in case content update has never been performed
+    * 6028 FIX: chrony: Fixed incompatibility with RedHat 7.5
+    * 5756 FIX: check_mk_agent.linux, check_mk_agent.openwrt: specify message digest for encrypted agent output explicitly
+
+
+1.4.0p30:
+    Event console:
+    * 5834 FIX: Fixed SNMPv3 credential handling in the event console.
+
+    Core & setup:
+    * 5798 FIX: Fixed Check_MK Check Helper file locking errors
+
+    Checks & agents:
+    * 5964 FIX: sym_brightmail_queues: Fixed ValueError if some queues do not provide all necessary data
+    * 5754 FIX: netapp_api_vf_stats: now uses the correct number of CPUs
+    * 5713 FIX: mk_logwatch: Fix message rewriting and continuation patterns
+
+
+1.4.0p29:
+    User interface:
+    * 5957 FIX: LDAP: Locking of users using "Authentication Expiration" plugin was not unlocking users
+
+    Checks & agents:
+    * 5961 FIX: nfsmounts, cifsmounts: Fixed the blemish "Invalid parameter" displayed in service discovery dialog
+    * 5921 FIX: mk_logwatch frozen binary for Windows was broken
+
+
+1.4.0p28:
+    WATO:
+    * 5797 FIX: netapp_api_luns: fixed interchanged free/used names in WATO configuration rule
+            NOTE: Please refer to the migration notes!
+    * 5931 FIX: Fixed "skipping unimplemented check" warning message of active checks
+
+    User interface:
+    * 5942 FIX: Fixed broken BI availability with limit set to 0 (regression in 1.4.0p26)
+
+    Checks & agents:
+    * 5912 FIX: mk_jolokia: Fixed exception in Bakery rule if an instance is set
+    * 5795 FIX: Realtime Checks: fixed race condition which caused loss of counter data
+
+
+1.4.0p27:
+    WATO:
+    * 5719 FIX: The Start URL is now configured optionally for new users
+    * 5881 FIX: Tag condition editor could show wrong tag selection after submission
+    * 5886 FIX: Improved performane of "ineffective ruleset" searching
+    * 5874 FIX: Improved diagnose logging for WATO integrated Git
+    * 5875 FIX: Git: Fixed error "git add --all ... is outside repository" with older git versions
+    * 5889 FIX: Fixed visible HTML tag in WATO folder permission error message
+    * 5905 FIX: Configured "Receive fallback notifications" attribute of users was not displayed correctly
+
+    User interface:
+    * 5879 FIX: Dashboard: View dashlets were not applying row limits
+    * 5904 FIX: Add view name to view permission help text and mobile prefix for mobile views
+
+    HW/SW inventory:
+    * 5776 FIX: win_reg_uninstall: Fixed transposed month and day fields of dates which caused 'Inventory failed: unconverted data remains'
+
+    Event console:
+    * 5751 FIX: Add contact group contacts of EC rule if host is not a core host
+
+    Checks & agents:
+    * 5910 FIX: ups_cps_outphase: Fixed decimal place in current outphase
+    * 5749 FIX: tcp_conn_stats: use ss by default if present otherwise fall back to cat /proc/net/tcp
+    * 5911 FIX: mem.linux: Fixed Perf-O-Meter displaying wrong usage if swap is used
+    * 5710 FIX: jolokia_generic.string: Fix broken parameter handling
+    * 5909 FIX: fortigate_sessions, fortigate_cpu: Fixed duplicated discovery if needed information is at two places
+    * 5876 FIX: fileinfo_groups: Increased size of input fields
+    * 5711 FIX: cisco_mem_asa64: Fix incorrect labelling of graph
+    * 5712 FIX: cisco_mem, cisco_mem_asa, cisco_mem_asa64: No longer crash when total memory is reported as 0.
+    * 5748 FIX: cisco_cpu, cisco_nexus_cpu: improve snmp_scan_functions
+            NOTE: Please refer to the migration notes!
+    * 5788 FIX: check_bi_aggr: no longer reports "SubjectAltNameWarning" when initiating connection
+    * 5919 FIX: Windows agent crashed with a lot of transport protocols available
+    * 5792 FIX: Agent Encryption: No longer trying to decrypt all incoming tcp data when a "Encryption" rule with an arbitrary value was set
+
+
+1.4.0p26:
+    WATO:
+    * 5866 FIX: Fixed performance issue on ruleset search and discovery page with a large number of rules
+
+    User interface:
+    * 5871 FIX: Improved service view rendering performance when showing perfometers
+    * 5864 FIX: Host- and service state filters were not set when adding a filtered view to a dashboard
+    * 5856 FIX: Fixed host auxiliary tag filter with service views
+    * 5861 FIX: Availability: Fixed missing warning about reached logrow limit for BI aggregations
+
+    Checks & agents:
+    * 5869 FIX: mem.win: Fixed displaying of percentage thresholds in graphs (Regression in 1.4.0p21)
+    * 5741 FIX: isc_dhcpd: allow dynamic-bootp entries
+    * 5704 FIX: Windows agent: prevent crash without IPv6 support
+
+
+1.4.0p25:
+    WATO:
+    * 5780 FIX: fileinfo.groups: Fixed check parameters display bug in service discovery page
+    * 5721 FIX: Saving backup jobs: Fixed AttributeError() occuring while handling an exception
+    * 5733 FIX: Fixed bulk deletion of users with special characters in their ID
+
+    User interface:
+    * 5665 FIX: Improved timeout error handling when trying to download agent output of a host
+    * 5729 FIX: Fixed loosing configured icons when editing bookmark lists
+    * 5725 FIX: Fixed changing view filter default values not being effective right after editing
+    * 5723 FIX: Fixed broken sorting of services
+    * 5667 FIX: Fixed broken newline rendring in sidebar user messages
+
+    Livestatus:
+    * 5460 FIX: Waiting without a wait condition immediately returns now
+            NOTE: Please refer to the migration notes!
+    * 5668 FIX: Fixed potential segfault when talking to the event console
+    * 5461 FIX: Fixed WaitTimeout handling
+
+    Event console:
+    * 5740 FIX: mkeventd: reload configuration on SIGHUP used e.g. by omd reload
+    * 5670 FIX: Handle history files from older EC versions, which have fewer columns.
+    * 5735 FIX: Fixed PDF export of "Event Detail" page
+
+    Checks & agents:
+    * 5701 Windows agent: renew logging
+    * 5778 FIX: mk_logwatch.exe: fixed broken python frozen binary
+    * 5760 FIX: infoblox_node_services: Unknown service IDs led to a check crash
+    * 5764 FIX: df.include: Fixed dynamic levels in ruleset 'Filesystem (used space and growth)'
+    * 5557 FIX: check_mk_agent.aix: Fixed bug in uptime because AIX is not able to interpret ? and + in regexes
+    * 5709 FIX: apc_netbotz_sensors, apc_netbotz_other_sensors: Fix discovery for newer models
+    * 5703 FIX: Windows agent: section logwatch output was cut abruptly with 'vista_api=yes'
+    * 5738 FIX: Make custom attributes of a host available for the core
+
+
+1.4.0p24:
+    WATO:
+    * 5652 FIX: Fixed escaped underline HTML tag in help texts
+    * 5657 FIX: Custom user attributes that are not editable by the user can now edited by the admin
+
+    User interface:
+    * 5632 SEC: Fixed XSS when rendering values of dropdown choices
+    * 5654 SEC: Fixed XSS on the site management page
+    * 5659 FIX: Master control snapin: Improved handling of half configured sites
+
+    Notifications:
+    * 5491 FIX: Show failed host notifications in tactival overview
+
+    HW/SW inventory:
+    * 5623 FIX: lnx_if: Do not ignore interface any more if no speed information is available
+
+    Event console:
+    * 5595 FIX: Fixed "Events of monitored host" view showing events not related to the wanted host
+
+    Checks & agents:
+    * 5488 FIX: veeam_jobs: Add support for new veeam API
+    * 5602 FIX: ups_modulys_alarms: Make check handle devices outputting NULL instead of integer type flags on some values
+    * 5614 FIX: raritan_pdu_ocprot: Fixed wrong scaling of current value
+    * 5489 FIX: pvecm_status: Fix parsing of agent output that could lead to a crash
+    * 5554 FIX: ps: Fixed missing Total RAM if AIX is the source and percentual thresholds are configured
+    * 5494 FIX: nfsmounts, cifsmounts: increase timeout of nfsmounts and deliver correct status details
+    * 5619 FIX: memory.include: Ignoring levels led to a crash because the handling of the paramters was not correct
+    * 5487 FIX: isc_dhcpd: Resolve performance issues
+    * 5660 FIX: Windows agent: Removed unused nowin.exe
+    * 5699 FIX: Windows agent crashed at non-existent Skype perf counter
+    * 5689 FIX: Newline in mrpe include file crashed Windows agent
+
+
 1.4.0p23:
     User interface:
     * 5586 FIX: Raw edition: Fixed adding graphs to dashboards
@@ -150,6 +322,9 @@
     Checks & agents:
     * 5234 FIX: Fixed recently introduced issue with non working WATO rules
     * 5379 FIX: Allow Windows logfiles to be monitored without monitoring also eventlog
+
+    BI:
+    * 5317 FIX: BI rules: Fixed renaming rule
 
 
 1.4.0p14:
