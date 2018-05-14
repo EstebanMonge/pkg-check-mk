@@ -1,3 +1,11 @@
+check-mk (1.2.8p26-1~bpo6+grnet2) squeeze-backports; urgency=medium
+
+  * Fix typo in debian/patches/05_fix_megaraid_bbu_check.dpatch
+  * Update version (in overridden defaults) for 1.2.8p26
+  * Add GRNET patch 06_df_exclude_glob.dpatch
+
+ -- Zenon Mousmoulas <zmousm@noc.grnet.gr>  Mon, 14 May 2018 19:35:30 +0300
+
 check-mk (1.2.8p26-1~bpo6+grnet1) squeeze-backports; urgency=medium
 
   * Rebuild for squeeze-backports.
