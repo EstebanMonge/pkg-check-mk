@@ -1,0 +1,43 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 06_df_exclude_glob.dpatch by  <zmousm@noc.grnet.gr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Let df check use inventory_df_exclude_mountpoints also as (a list
+## DP: of) patterns
+
+@DPATCH@
+--- a/checks/df	2017-09-25 10:39:44.000000000 +0300
++++ b/checks/df	2018-05-14 15:00:34.040196925 +0300
+@@ -142,8 +142,19 @@
+ 
+ 
+ def inventory_df(info):
++    import re, fnmatch
+     df_blocks, df_inodes = df_parse_info(info)
+     mplist = []
++    def check_mountpoint_pattern(mp):
++        try:
++            re.compile(fnmatch.translate(mp))
++            return True
++        except re.error:
++            return False
++    inventory_df_exclude_mountpoint_patterns = filter(
++        check_mountpoint_pattern,
++        inventory_df_exclude_mountpoints
++        )
+     for line in df_blocks:
+         if line[1] in inventory_df_exclude_fs:
+             continue # ignore this filesystem type
+@@ -154,6 +165,12 @@
+         mountpoint = " ".join(line[6:]).replace('\\', '/') # Windows \ is replaced with /
+         if mountpoint in inventory_df_exclude_mountpoints:
+             continue # exclude this mount point (/tmp, /proc, whatever user wants)
++        if reduce(
++            lambda acc, pattern: acc or fnmatch.fnmatchcase(mountpoint, pattern),
++            inventory_df_exclude_mountpoint_patterns,
++            False
++            ):
++            continue # exclude this mount point if it matches a pattern
+ 
+         mplist.append(mountpoint)
+ 
