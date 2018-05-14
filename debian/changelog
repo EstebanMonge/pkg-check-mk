@@ -1,3 +1,9 @@
+check-mk (1.2.8p27-1~bpo9+grnet2) stretch-backports; urgency=medium
+
+  * Fix GRNET patch 06_df_exclude_glob.dpatch
+
+ -- Zenon Mousmoulas <zmousm@noc.grnet.gr>  Mon, 14 May 2018 18:56:14 +0300
+
 check-mk (1.2.8p27-1~bpo9+grnet1) stretch-backports; urgency=medium
 
   * Rebuild for stretch-backports.
