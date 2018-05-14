@@ -70,7 +70,7 @@
 +           return (0, "no states to check (BBU is around learning day)" + charge) 
 +        elif controller['Charging Status'] == 'Charging' and controller['Battery State'] == 'Optimal':
 +           return (0, "no states to check (BBU is charging)" + charge) 
-+        else
++        else:
 +           return (1, "something is wrong, please check BBU status" + charge)
      # return assembled info
      elif broken:
