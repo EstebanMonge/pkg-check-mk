@@ -1,3 +1,9 @@
+check-mk (1.4.0p31-1~bpo9+grnet1) stretch-backports; urgency=medium
+
+  * Rebuild for stretch-backports.
+
+ -- Zenon Mousmoulas <zmousm@noc.grnet.gr>  Tue, 15 May 2018 01:12:43 +0300
+
 check-mk (1.4.0p31-1+grnet1) experimental; urgency=medium
 
   * new upstream release
