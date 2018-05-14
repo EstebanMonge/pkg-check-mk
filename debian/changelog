@@ -1,3 +1,11 @@
+check-mk (1.2.8p26-1~bpo8+grnet2) jessie-backports; urgency=medium
+
+  * Fix typo in debian/patches/05_fix_megaraid_bbu_check.dpatch
+  * Update version (in overridden defaults) for 1.2.8p26
+  * Add GRNET patch 06_df_exclude_glob.dpatch
+
+ -- Zenon Mousmoulas <zmousm@noc.grnet.gr>  Mon, 14 May 2018 17:19:48 +0300
+
 check-mk (1.2.8p26-1~bpo8+grnet1) jessie-backports; urgency=medium
 
   * Rebuild for jessie-backports.
