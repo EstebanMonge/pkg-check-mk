@@ -1,3 +1,10 @@
+check-mk (1.2.8p27-1+grnet1) unstable; urgency=medium
+
+  * new upstream release
+  * Update version (in overridden defaults) for 1.2.8p27
+
+ -- Zenon Mousmoulas <zmousm@noc.grnet.gr>  Mon, 14 May 2018 18:14:37 +0300
+
 check-mk (1.2.8p26-1+grnet2) unstable; urgency=medium
 
   * Fix typo in debian/patches/05_fix_megaraid_bbu_check.dpatch
