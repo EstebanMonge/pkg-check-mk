@@ -1,3 +1,10 @@
+check-mk (1.4.0p9-1~bpo8+grnet2) jessie-backports; urgency=medium
+
+  * Fix typo in debian/patches/05_fix_megaraid_bbu_check.dpatch
+  * Add GRNET patch 06_df_exclude_glob.dpatch
+
+ -- Zenon Mousmoulas <zmousm@noc.grnet.gr>  Tue, 15 May 2018 09:29:27 +0300
+
 check-mk (1.4.0p9-1~bpo8+grnet1) jessie-backports; urgency=medium
 
   * Replace g++-6 build-dep with clang-3.8
