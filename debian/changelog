@@ -1,3 +1,9 @@
+check-mk (1.4.0p31-1~bpo8+grnet1) jessie-backports; urgency=medium
+
+  * Rebuild for jessie-backports.
+
+ -- Zenon Mousmoulas <zmousm@noc.grnet.gr>  Tue, 15 May 2018 09:33:32 +0300
+
 check-mk (1.4.0p31-1+grnet1) experimental; urgency=medium
 
   * new upstream release
