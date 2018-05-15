@@ -1,3 +1,9 @@
+check-mk (1.4.0p31-1+grnet1) experimental; urgency=medium
+
+  * new upstream release
+
+ -- Zenon Mousmoulas <zmousm@noc.grnet.gr>  Tue, 15 May 2018 00:37:34 +0300
+
 check-mk (1.4.0p9-1~bpo7+grnet2) wheezy-backports; urgency=medium
 
   * Fix typo in debian/patches/05_fix_megaraid_bbu_check.dpatch
