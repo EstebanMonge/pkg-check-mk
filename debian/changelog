@@ -1,3 +1,10 @@
+check-mk (1.4.0p9-1~bpo7+grnet1) wheezy-backports; urgency=medium
+
+  * Revert "add explicit build-dep on g+-6 because upstream configure doesn't know about g++-7 yet"
+  * Rebuild for wheezy-backports.
+
+ -- Zenon Mousmoulas <zmousm@noc.grnet.gr>  Tue, 15 May 2018 17:40:27 +0300
+
 check-mk (1.4.0p9-1+grnet1) experimental; urgency=high
 
   * Transparently unpack, patch and repack upstream tarballs
