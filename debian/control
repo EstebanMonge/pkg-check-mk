@@ -71,6 +71,7 @@ Description: general purpose monitoring plugin for retrieving data
  This package contains the icinga specific part of check_mk
 
 Package: check-mk-livestatus
+Build-Profiles: <!nomoderncpp>
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Suggests: xinetd
