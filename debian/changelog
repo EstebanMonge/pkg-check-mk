@@ -1,3 +1,10 @@
+check-mk (1.4.0p9-1~bpo7+grnet2) wheezy-backports; urgency=medium
+
+  * Fix typo in debian/patches/05_fix_megaraid_bbu_check.dpatch
+  * Add GRNET patch 06_df_exclude_glob.dpatch
+
+ -- Zenon Mousmoulas <zmousm@noc.grnet.gr>  Tue, 15 May 2018 18:10:47 +0300
+
 check-mk (1.4.0p9-1~bpo7+grnet1) wheezy-backports; urgency=medium
 
   * Revert "add explicit build-dep on g+-6 because upstream configure doesn't know about g++-7 yet"
