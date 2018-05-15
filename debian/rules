@@ -14,6 +14,7 @@
 #        --install-lib=${package_share_dir}/ \
 #        --install-scripts=${package_share_dir}/
 
+BUILD_LIVESTATUS=$(if $(filter nomoderncpp,${DEB_BUILD_PROFILES}),no,yes)
 
 
 configure: configure-stamp
@@ -77,6 +78,7 @@ install: build
 	dh_installdirs
 	dh_installdebconf
 	mkdir -p debian/tmp
+	enable_livestatus=$(BUILD_LIVESTATUS) \
 	DESTDIR=debian/tmp python_lib_dir=/usr/share/check_mk/ ./setup.sh --yes
 	## clean up binaries shipped by upstream
 	# upstream agent deb and rpm
@@ -103,8 +105,10 @@ install: build
 	# remove waitmax binary, check_mk will use timeout if available
 	rm debian/tmp/usr/share/check_mk/agents/waitmax
 	rm debian/tmp/usr/share/check_mk/agents/z_os/waitmax
+ifeq ($(BUILD_LIVESTATUS),yes)
 	# copy the livestatus stuff that setup.sh generated in it's own dir
 	cp -a livestatus.src/debian/tmp/* debian/tmp/
+endif
 	## config files
 	# We need a "paths.py" file with edited paths for FHS and monitoring
 	#  system changes
