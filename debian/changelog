@@ -1,3 +1,10 @@
+check-mk (1.4.0p31-1~bpo7+grnet2) wheezy-backports; urgency=medium
+
+  * Tweak rules so that livestatus is not built when DEB_BUILD_PROFILES=nomoderncpp specified;
+    and completely remove this package since build profiles are not supported in wheezy
+
+ -- Zenon Mousmoulas <zmousm@noc.grnet.gr>  Thu, 17 May 2018 08:48:38 +0300
+
 check-mk (1.4.0p31-1~bpo7+grnet1) wheezy-backports; urgency=medium
 
   * Rebuild for wheezy-backports.
