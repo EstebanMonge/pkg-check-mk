@@ -1,3 +1,10 @@
+check-mk (1.4.0p31-1~bpo8+grnet2) jessie-backports; urgency=medium
+
+  * Add a build profile and tweaks so that livestatus is not built nor
+    packaged when DEB_BUILD_PROFILES=nomoderncpp is specified
+
+ -- Zenon Mousmoulas <zmousm@noc.grnet.gr>  Thu, 17 May 2018 08:37:25 +0300
+
 check-mk (1.4.0p31-1~bpo8+grnet1) jessie-backports; urgency=medium
 
   * Rebuild for jessie-backports.
