@@ -7,7 +7,7 @@ Uploaders: Alexander Wirt <formorer@debian.org>,
            Thomas Bechtold <toabctl@debian.org>,
            Ilya Rassadin <elcamlost@gmail.com>,
            Matt Taggart <taggart@debian.org>
-Build-Depends: debhelper (>= 7), python, dpatch, librrd-dev, libboost-dev, libboost-system-dev, g++6
+Build-Depends: debhelper (>= 7), python, dpatch, librrd-dev, libboost-dev, libboost-system-dev
 Standards-Version: 3.8.3
 Vcs-Git: https://anonscm.debian.org/git/pkg-nagios/pkg-check-mk.git
 Vcs-Browser: https://anonscm.debian.org/cgit/pkg-nagios/pkg-check-mk.git
@@ -70,27 +70,10 @@ Description: general purpose monitoring plugin for retrieving data
  .
  This package contains the icinga specific part of check_mk
 
-Package: check-mk-livestatus
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Suggests: xinetd
-Conflicts: ucspi-unix
-Recommends: check-mk-doc
-Description: general purpose monitoring plugin for retrieving data
- Check_mk adopts a new a approach for collecting data from operating systems
- and network components. It obsoletes NRPE, check_by_ssh, NSClient and
- check_snmp. It has many benefits, the most important of which are:
- .
-  * Significant reduction of CPU usage on the Nagios host.
-  * Automatic inventory of items to be checked on hosts.
- .
- This package contains livestatus
-
 Package: check-mk-multisite
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, libapache2-mod-python, check-mk-config-icinga
 Recommends: sudo, check-mk-doc
-Suggests: check-mk-livestatus
 Description: general purpose monitoring plugin for retrieving data
  Check_mk adopts a new a approach for collecting data from operating systems
  and network components. It obsoletes NRPE, check_by_ssh, NSClient and
@@ -106,7 +89,7 @@ Package: check-mk-doc
 Architecture: all
 Section: doc
 Depends: ${misc:Depends}
-Suggests: check-mk-livestatus, check-mk-server, check-mk-multisite
+Suggests: check-mk-server, check-mk-multisite
 Description: general purpose monitoring plugin for retrieving data (documentation)
  Check_mk adopts a new a approach for collecting data from operating systems
  and network components. It obsoletes NRPE, check_by_ssh, NSClient and
