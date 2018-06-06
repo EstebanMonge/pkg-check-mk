@@ -1,3 +1,11 @@
+check-mk (1.4.0p31-1~bpo6+grnet2) squeeze-backports; urgency=medium
+
+  * Tweak rules so that livestatus is not built when DEB_BUILD_PROFILES=nomoderncpp specified
+    * completely remove this package since build profiles are not supported in wheezy or older
+    * drop g++6 build-dep
+
+ -- Zenon Mousmoulas <zmousm@noc.grnet.gr>  Wed, 06 Jun 2018 15:02:58 +0300
+
 check-mk (1.4.0p31-1~bpo6+grnet1) squeeze-backports; urgency=medium
 
   * squeeze compat
