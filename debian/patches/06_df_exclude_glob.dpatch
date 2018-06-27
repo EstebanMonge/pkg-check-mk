@@ -1,5 +1,5 @@
 #! /bin/sh /usr/share/dpatch/dpatch-run
-## 06_df_exclude_glob.dpatch by  <zmousm@noc.grnet.gr>
+## 06_df_exclude_glob.dpatch by Zenon Mousmoulas <zmousm@noc.grnet.gr>
 ##
 ## All lines beginning with `## DP:' are a description of the patch.
 ## DP: Let df check use inventory_df_exclude_mountpoints also as (a list
