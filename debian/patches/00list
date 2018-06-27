@@ -4,3 +4,4 @@
 04_enhance_linux_bonding_check.dpatch
 05_fix_megaraid_bbu_check.dpatch
 06_df_exclude_glob.dpatch
+07_fix_host_check_command_default_ping_args.dpatch
