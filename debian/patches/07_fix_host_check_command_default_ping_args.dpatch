@@ -1,5 +1,5 @@
 #! /bin/sh /usr/share/dpatch/dpatch-run
-## 07_fix_host_check_command_default_ping_args.dpatch by  <helm@noc.grnet.gr>
+## 07_fix_host_check_command_default_ping_args.dpatch by Eleni Michalaki <helm@noc.grnet.gr>
 ##
 ## All lines beginning with `## DP:' are a description of the patch.
 ## DP: Fix host_check_command(): Calling check_icmp_arguments_of()
