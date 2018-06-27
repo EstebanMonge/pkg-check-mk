@@ -1,5 +1,5 @@
 #! /bin/sh /usr/share/dpatch/dpatch-run
-## 02_fix_deprecated_check_interval.dpatch by  <kargig@noc.grnet.gr>
+## 02_fix_deprecated_check_interval.dpatch by George Kargiotakis <kargig@noc.grnet.gr>
 ##
 ## All lines beginning with `## DP:' are a description of the patch.
 ## DP: Fix deprecation warnings for check_interval/retry_interval

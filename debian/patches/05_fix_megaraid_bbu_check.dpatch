@@ -1,5 +1,5 @@
 #! /bin/sh /usr/share/dpatch/dpatch-run
-## 05_fix_megaraid_bbu_check.dpatch by  <kargig@noc.grnet.gr>
+## 05_fix_megaraid_bbu_check.dpatch by George Kargiotakis <kargig@noc.grnet.gr>
 ##
 ## All lines beginning with `## DP:' are a description of the patch.
 ## DP: Fix megaraid_bbu check
