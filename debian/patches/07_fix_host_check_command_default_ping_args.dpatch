@@ -1,0 +1,21 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 07_fix_host_check_command_default_ping_args.dpatch by  <helm@noc.grnet.gr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Fix host_check_command(): Calling check_icmp_arguments_of()
+## DP: with implicit add_defaults=True means it will always return a
+## DP: check_command, blindly overriding any template-derived
+## DP: directive.
+
+@DPATCH@
+--- a/modules/check_mk.py	2018-06-27 19:05:51.087246915 +0300
++++ b/modules/check_mk.py	2018-06-27 19:05:17.367086916 +0300
+@@ -1194,7 +1194,7 @@
+         return "check-mk-host-smart"
+ 
+     elif value in [ "ping", "smart" ]: # Cluster host
+-        ping_args = check_icmp_arguments_of(hostname)
++        ping_args = check_icmp_arguments_of(hostname, add_defaults=False)
+         if is_clust and ip: # Do check cluster IP address if one is there
+             return "check-mk-host-ping!%s" % ping_args
+         elif ping_args and is_clust: # use check_icmp in cluster mode
