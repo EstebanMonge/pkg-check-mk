@@ -1,3 +1,10 @@
+check-mk (1.2.8p27-1+grnet3) unstable; urgency=medium
+
+  * Add patch 07_fix_host_check_command_default_ping_args.dpatch
+  * Fix patch author names
+
+ -- Zenon Mousmoulas <zmousm@noc.grnet.gr>  Wed, 27 Jun 2018 19:25:20 +0300
+
 check-mk (1.2.8p27-1+grnet2) unstable; urgency=medium
 
   * Fix GRNET patch 06_df_exclude_glob.dpatch
